@@ -28,9 +28,17 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * Counter1 uses two functions in order to use counter1 you'd use counterMaker(parameter) to use counter2 you
+ * could simply call counter2() but count needs to be set beforehand.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ * Counter1 uses a closure it uses a parent element to set the variable, and child function to increment it.
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
+ * counter2 will be better if you need to manipulate the count variable. Counter1 is better if you need to set
+ * multiple scores at once.
  *
 */
 
