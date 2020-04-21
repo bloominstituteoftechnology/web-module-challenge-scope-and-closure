@@ -28,9 +28,15 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * Counter2 has the variable outside of the function making it accessable to anything, and Counter1 has the variable in side og the function making it a private variable.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ * Counter1 uses the the closure. I can tell becaue Counter1 has everything nested in one  function.
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
+ * Counter1 would be used if you have to write a long function full of big information that goes together and counter2 would be best to use if you have small pieces of code to write.
  *
 */
 
