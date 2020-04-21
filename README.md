@@ -37,7 +37,7 @@ There are layers upon layers of nested functions within the game of baseball. Yo
 
 ### Task 2a - MVP code
 
-Find the file `index.js` and complete the tasks until your tests are passing.
+Find the file `index.js` and complete the tasks.
 
 ### Task 2b - Written questions
 
