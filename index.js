@@ -85,7 +85,7 @@ function inning(){
 }
 
 
-console.log(inning());
+// console.log(inning());
 
 
 /* Task 3: finalScore()
@@ -115,7 +115,7 @@ let finalScore = {};
     return finalScore;
   }
 
-console.log(finalScore(inning, 9));
+// console.log(finalScore(inning, 9));
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
@@ -138,8 +138,26 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inning, number) {
+  
+  for(let i = 1; i <= number; i++){
+    let homeTeam= 0;
+    let awayTeam= 0;
+    if(i ==  1){
+    console.log(`${i}st inning: ${awayTeam} - ${homeTeam}`);
+    }
+    else if(i ==  2){
+      console.log(`${i}nd inning: ${awayTeam} - ${homeTeam}`);
+      }
+      else if(i ==  3){
+        console.log(`${i}rd inning: ${awayTeam} - ${homeTeam}`);
+        }
+        else{
+          console.log(`${i}th inning: ${awayTeam} - ${homeTeam}`);
+          }
+
+  }
+
 }
 
-
+scoreboard(0, inning, 9);
