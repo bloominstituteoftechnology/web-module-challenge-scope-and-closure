@@ -27,18 +27,20 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ * counter1 has count declared on the inside scope while counter2 
+ * has it declared on the outside of the scope 
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ * counter1 uses a closure because the count is inside the curley brackets
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ *when you want to have a seprate count declared for any other function youd use counter one
+ so it can be decarled somewhere else
 */
 
 // counter1 code
 function counterMaker() {
   let count = 0;
   return function counter() {
-    count++;
+    return count++;
   }
 }
 
@@ -56,18 +58,24 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(min, max ){
+  return Math.floor(
+    Math.random() * (max - min) + min
+  )
 
+  
+    
     /*Code Here*/
-
+    
 }
+console.log(inning(0,3))
 
 /* Task 3: finalScore()
 
 Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
 
 For example, 
-
+999
 finalScore(inning, 9) might return: 
 {
   "Home": 11,
@@ -76,11 +84,18 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
+function finalScore(inning, numOfInnings ){
+   let homeTeam = 0
+   let awayTeam = 0;
+   for( let i = 0; i < numOfInnings; i++) {
+     homeTeam = numOfInnings + inning;
+     awayTeam = numOfInnings + inning;
+   }
+   console.log(`home: ${homeTeam} away: ${awayTeam}`)
   /*Code Here*/
 
 }
+console.log(finalScore(inning(0,3), 9))
 
 /* Task 4: 
 
@@ -104,8 +119,34 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
+
+
+
+
+
+function scoreboard(cbInning, inningNum) {
+  let score = [];
+  let homeTeam = 0;
+  let awayTeam = 0;
+  for(let i = 0; i < inningNum ; i++){
+
+    let home = inningNum+cbInning;
+    let away = inningNum +cbInning;
+    
+    homeTeam += home;
+    awayTeam += away;
+
+    score.push('Inning'+  i  + ':' + away + '-' + home)
+
+  }
+
+  score.push('Total Score :'+ `${homeTeam}` + '-' + `${awayTeam}`)
+
+  return score;
+
   /* CODE HERE */
 }
+
+console.log(scoreboard(inning(0,2), 9));
 
 
