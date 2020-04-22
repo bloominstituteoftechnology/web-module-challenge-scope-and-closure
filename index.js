@@ -28,10 +28,19 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * counter1 invokes counterMaker()/ we assigned counterMaker() to the const counter1;
+ * counter2 wont work with the counterMaker() function. only grabs and manipulates the let count=0;
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ * counter1 uses closure, because it goes back to counterMaker() which has another    function inside of it that is used by counter1
+ * 
+ * 
+ * 
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ * example: counter1=counterMaker() and then we want to use it again for something else so we create counter1a=counterMaker();
 */
 
 // counter1 code
@@ -56,11 +65,11 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+  return Math.floor(Math.random() * 3);
 }
+
+
 
 /* Task 3: finalScore()
 
@@ -76,9 +85,10 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
+function finalScore(inning, quantity){
+  const score = {
+    "Home": 1,
+    "Away": 2
 
 }
 
@@ -104,8 +114,27 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScoreCb, inningCb, quantity) {
+  const score = {
+    "Home": 0,
+    "Away": 0
 }
 
+function getInningScore(inningCb) {
+  return inningCb();
+}
 
+for (let i = 0; i < quantity; i++) {
+  let inningScoreHome = getInningScoreCb(inningCb);
+  let inningScoreAway = getInningScoreCb(inningCb);
+
+  score.Home += inningScoreHome;
+  score.Away += inningScoreAway;
+  
+  console.log(`Inning #${i + 1}: ${inningScoreAway} - ${inningScoreHome}`);
+}
+
+console.log(`Final Score: ${score.Away} - ${score.Home}`);
+}
+
+scoreboard(getInningScore, inning, 9);
