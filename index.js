@@ -28,9 +28,17 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ *  counter1 doesn't implement scope, instead it has the initial value assigned within the function, and that initial value will never change.
+ *  
+ *  counter2 implements scope, so the 'count' value will always be the updated number, not 0 like counter1.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
- * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ *  Counter1, since all needed code sits inside the function.
+ * 
+ * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?
+ * 
+ *  
  *
 */
 
