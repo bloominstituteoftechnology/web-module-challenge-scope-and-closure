@@ -1,4 +1,4 @@
-// ⭐️ Example Challenge START ⭐️
+// ⭐️ Example Challenge START ⭐️ .
 
 /**
  * ### Challenge `processFirstItem`
