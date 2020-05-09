@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+  A closure is a feature in JavaScript where an inner function has access to the outer (enclosing) function's variables — a scope chain.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +66,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+  Closures were used for the personalDice function and the return function within the personalDice function, since closures are used whenever plain curly braces are used.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+
+  The name stays the same, the return statement stays the same, but the result of what was rolled (the number) changes.
+
+c. What is the lexical scope of `newRoll`?
+
+  Any defined variable outside of the return function.
 
 ### Task 3 - Stretch Goals
 
