@@ -38,7 +38,9 @@ function processFirstItem(stringList, callback) {
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?
  * 
- *  
+ *  Counter1 would be useful if the initial value for 'count' always needs to be '0' at the start.
+ * 
+ *  Counter2 would be useful if the value for 'count' would be constantly updated.
  *
 */
 
@@ -64,11 +66,14 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(min, max){
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
 }
+
+// let output = inning(0, 2);
+// console.log(output);
 
 /* Task 3: finalScore()
 
@@ -84,11 +89,25 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(numOfPoints, numOfInnings){
+  let homeSum = 0;
+  let awaySum = 0;
 
-  /*Code Here*/
+  for (var i = 0; i <= numOfInnings; i++) {
+    homeSum += Math.round(Math.random(numOfPoints));
+    awaySum += Math.round(Math.random(numOfPoints));
+  }
 
+  let matchStats = {
+    'Home': homeSum,
+    'Away': awaySum,
+  };
+
+  return matchStats;
 }
+
+// let output2 = finalScore(inning(0, 2), 9);
+// console.log(output2);
 
 /* Task 4: 
 
@@ -111,8 +130,36 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(numOfPoints, numOfInnings) {
+  let homeScore = 0;
+  let awayScore = 0;
+
+  for (var i = 1; i <= numOfInnings; i++) {
+    let inning = i;
+    if (inning === 1) {
+      homeScore += Math.round(Math.random(numOfPoints));
+      awayScore += Math.round(Math.random(numOfPoints));
+      console.log(`${inning}st inning: ${homeScore} - ${awayScore}`);
+    } else if (inning === 2) {
+      homeScore += Math.round(Math.random(numOfPoints));
+      awayScore += Math.round(Math.random(numOfPoints));
+      console.log(`${inning}nd inning: ${homeScore} - ${awayScore}`);
+    } else if (inning === 3) {
+      homeScore += Math.round(Math.random(numOfPoints));
+      awayScore += Math.round(Math.random(numOfPoints));
+      console.log(`${inning}rd inning: ${homeScore} - ${awayScore}`);
+    } else if (inning > 3 && inning !== numOfInnings) {
+      homeScore += Math.round(Math.random(numOfPoints));
+      awayScore += Math.round(Math.random(numOfPoints));
+      console.log(`${inning}th inning: ${homeScore} - ${awayScore}`);
+    } else if (inning === numOfInnings) {
+      homeScore += Math.round(Math.random(numOfPoints));
+      awayScore += Math.round(Math.random(numOfPoints));
+      console.log(`${inning}th inning: ${homeScore} - ${awayScore}`);
+      console.log(`Final Score: ${homeScore} - ${awayScore}`);
+    }
+  }
 }
 
-
+// let output3 = scoreboard(inning(0, 2), 9);
+// output3;
