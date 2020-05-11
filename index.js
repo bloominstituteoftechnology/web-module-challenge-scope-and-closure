@@ -27,8 +27,11 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ *    Counter1 is saving the information as well as adding 1 so when you console.log it, it will show the old and new number
+ *    whereas, counter2 will only give you 1 because it has no memory of the imcremental operator.
+ *  
  * 2. Which of the two uses a closure? How can you tell?
+ *     Counter2 is using a closure because its accessing a variable that is outside its function scope.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
