@@ -34,7 +34,8 @@ function processFirstItem(stringList, callback) {
  *     Counter2 is using a closure because its accessing a variable that is outside its function scope.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *      
+ *      Counter1 would work better if you didn't need to access information from this function a lot. Also would work well when making smaller files.
+ *      Counter2 would better be used in a more larger file where you might need to access information from this function multiple times through out your code.
 */
 
 // counter1 code
@@ -116,8 +117,29 @@ and returns the score at each pont in the game, like so:
 Final Score: 6 - 10 */
 
 function scoreboard(inning,numOfInn) {
-
-
+  let score = {
+    'Home': 0,
+    'Away': 0
+  }
+  let arrScore = [];
+  for(let i = 1, i <= numOfInn; i++){
+    score['Home'] += inning();
+    score['Away'] += inning();
+    if(i==1){
+      arrScore.push(`1st inning: ${score['Home']} - ${score['Away']}`);
+    }
+    else if(i==2){
+      arrScore.push(`2nd inning: ${score['Home']} - ${score['Away']}`);
+    }
+    else if(i==3){
+      arrScore.push(`3rd inning; ${score['Home']} - ${score['Away']}`);
+    }
+    else{
+      arrScore.push(`${i}th inning: ${score['Home']} - ${score['Away']}`);
+    }
+  }
+  console.log(arrScore)
 }
+scoreboard(inning,9);
 
 
