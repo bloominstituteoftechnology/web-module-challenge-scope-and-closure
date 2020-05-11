@@ -34,7 +34,7 @@ function processFirstItem(stringList, callback) {
  *     Counter2 is using a closure because its accessing a variable that is outside its function scope.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ *      
 */
 
 // counter1 code
@@ -57,31 +57,42 @@ function counter2() {
 
 /* Task 2: inning() 
 
-Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
+Write a function called `inning` that generates a random number of points that a team scored in an inning. 
+This should be a whole number between 0 and 2. */
 
 function inning(randomScore){
-  for 
+  var scoreGenerator = 0;
+  for ( let i = 0; i < randomScore; i++){
+   var pointsPerInning = Math.round(Math.random(0,1,2));
+  }
+  return(scoreGenerator/randomScore);
 }
 
 /* Task 3: finalScore()
 
-Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
-
+Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) 
+and a number of innings and and returns the final score of the game in the form of an object.
 For example, 
-
 finalScore(inning, 9) might return: 
 {
   "Home": 11,
   "Away": 5,
 }
-
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(inning, numOfInn ){
+  let Home = 0;
+  let Away = 0;
+  for(let i =0; i <= numOfInn; i++){
+    H =+ inning;
+    A += inning;
+  }
+  return{
+    'Home' : H;
+    'Away' : A;
+  };
 }
+console.log(finalScore(inning,9));
 
 /* Task 4: 
 
@@ -104,8 +115,9 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(inning,numOfInn) {
+
+
 }
 
 
