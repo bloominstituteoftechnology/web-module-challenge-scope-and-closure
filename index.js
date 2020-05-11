@@ -28,10 +28,18 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ *Counter 2 the scope is global scope of the function. So you can call counter2 function it goes back throiugh to reach the outer scope to reference the variable count.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ * counter 2 since it's referencing outside context.
+ * 
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ * 
+ * Counter one would be preferable when you need to recall memory of the last instance the function was called.
+ * 
 */
 
 // counter1 code
@@ -56,11 +64,11 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning() {
+  const randomNumberOfPoints = Math.floor(Math.random() * 3);
+  return randomNumberOfPoints
 }
+//! console.log(inning(3))
 
 /* Task 3: finalScore()
 
@@ -76,15 +84,29 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(score, inning){
+ 
+  let hTS = 0;
+  let aTS = 0;
 
-  /*Code Here*/
+  for (let i = 0; i <= inning; i++){
+    hTS += score();
+    aTS += score();
+  }
 
+  return {"Home": hts, "Away": aTS}
+  
 }
 
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
+
+function scoreboard(){
+
+  
+
+}
 
 (1) Callback function `inning` that you wrote above
 (2) A number of innings
