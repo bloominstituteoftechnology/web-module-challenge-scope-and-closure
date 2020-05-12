@@ -136,25 +136,17 @@ function scoreboard(numOfPoints, numOfInnings) {
 
   for (var i = 1; i <= numOfInnings; i++) {
     let inning = i;
+    homeScore += Math.round(Math.random(numOfPoints));
+    awayScore += Math.round(Math.random(numOfPoints));
     if (inning === 1) {
-      homeScore += Math.round(Math.random(numOfPoints));
-      awayScore += Math.round(Math.random(numOfPoints));
       console.log(`${inning}st inning: ${homeScore} - ${awayScore}`);
     } else if (inning === 2) {
-      homeScore += Math.round(Math.random(numOfPoints));
-      awayScore += Math.round(Math.random(numOfPoints));
       console.log(`${inning}nd inning: ${homeScore} - ${awayScore}`);
     } else if (inning === 3) {
-      homeScore += Math.round(Math.random(numOfPoints));
-      awayScore += Math.round(Math.random(numOfPoints));
       console.log(`${inning}rd inning: ${homeScore} - ${awayScore}`);
     } else if (inning > 3 && inning !== numOfInnings) {
-      homeScore += Math.round(Math.random(numOfPoints));
-      awayScore += Math.round(Math.random(numOfPoints));
       console.log(`${inning}th inning: ${homeScore} - ${awayScore}`);
     } else if (inning === numOfInnings) {
-      homeScore += Math.round(Math.random(numOfPoints));
-      awayScore += Math.round(Math.random(numOfPoints));
       console.log(`${inning}th inning: ${homeScore} - ${awayScore}`);
       console.log(`Final Score: ${homeScore} - ${awayScore}`);
     }
