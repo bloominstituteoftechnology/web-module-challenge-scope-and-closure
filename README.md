@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+closure is something that gets referenced from outside the function.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +66,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+I think the closure would be the dansRoll and zoesRoll because these 2 variables will be called back into the function when it console logs the name. 
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+The function will be using "Dan" from const dansRoll. It'll always be the same name being used in this case but the number roll from math random would be different.
+
 c. What is the lexical scope of `newRoll`? 
+
+I think the lexical scope of newRoll would be the random dice roll using math random and rounding by math floor ? 
 
 ### Task 3 - Stretch Goals
 

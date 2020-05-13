@@ -28,12 +28,18 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
- * counter 1 you're making a calling a variable with let as count with the value of 0 inside the function while counter 2 has it outside of the function counter 2.
+ * counter 1 count variable is set inside the function while counter 2 is outside the function.
+ * 
  * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ * counter 2 uses a closure because the count variable is outside the function and a closure is when something is being referenced outside the function scope. 
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ * Maybe counter 1 would be preferable if you want to increment or decrement the value within the function. Counter 2 might be preferable when you want to 
+ * reference the count in other functions.
+ * 
 */
 
 // counter1 code
@@ -58,12 +64,10 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-Math.random()
-    /*Code Here*/
-
+function innings(){
+  return Math.floor(Math.random()* 3)
 }
-
+innings();
 /* Task 3: finalScore()
 
 Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
@@ -78,12 +82,20 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
+function finalScore(data, ings){
+  let home = 0;
+  let away = 0;
+for(let i = 0; i < ings - 1; ++i){
+  home += data();
+  away += data();
+}
+return {
+  Home: home,
+  Away: away
+  }
 
 }
-
+console.log(finalScore(innings, 9));
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
@@ -105,8 +117,19 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+let inningresult = ["1st Inning:", "2nd Inning:", "3rd Inning:", "4th Inning:","5th Inning:", "6th Inning:", "7th Inning:", "8th Inning:", "9th Inning:"]
+function scoreBoard(cb,ings){
+let homeScore = 0;
+let awayScore = 0; 
+let count = 0;
+let board = [];
+for(let i = 0; i <= ings-1; i++){
+  homeScore += cb(); 
+  awayScore += cb();
+  board.push(`${inningresult[count]} Home:${homeScore}, Away: ${awayScore} `);
+  count++;
 }
-
-
+console.log (board);
+console.log(`Final Score: Home Score: ${homeScore}, Away Score: ${awayScore}`);
+}
+scoreBoard(innings,9);
