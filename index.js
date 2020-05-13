@@ -52,15 +52,16 @@ function counter2() {
 }
 
 
-/* Task 2: inning() 
+
+
+/* Task 2: inning( ) 
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
-}
+function inning(){
+    return Math.floor(Math.random()* 3)
+  }
+  console.log(inning());
 
 /* Task 3: finalScore()
 
@@ -76,11 +77,25 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
 
-  /*Code Here*/
+function finalScore(cb, inning){
+let homeScore = 0
+let awayScore = 0
+
+for (let i = 0; i < inning; i++){
+  homeScore += cb()
+  awayScore += cb()
+} 
+return {
+  Home: homeScore,
+
+  Away: awayScore,
+   }
 
 }
+
+console.log(finalScore(inning, 9));
+
 
 /* Task 4: 
 
@@ -103,8 +118,23 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(callback, innings) {
+  let inningtext = ['1st Inning:', '2nd Inning:', '3rd Inning:', '4th Inning:', '5th Inning:', '6th Inning:', '7th Inning:', '8th Inning:', '9th Inning:', 'Extra Innings:']
+  let homeacc = 0;
+  let awayacc = 0;
+  let finalscore = [];
+  for(let i=0; i<innings;i++){
+    let newCount=()=>{
+      return function(){
+        homeacc = homeacc+(callback(0,2))
+        awayacc = awayacc+(callback(0,2))
+        return [homeacc, awayacc];
+      }}
+    const newCount1 = newCount();
+    newCount1();
+    finalscore.push(`${inningtext[i]} ${homeacc} - ${awayacc}`);
+  }
+  finalscore.push (`Final Score: ${homeacc} - ${awayacc}`)
+  return finalscore;
 }
-
-
+console.log(scoreboard(inning, 9))
