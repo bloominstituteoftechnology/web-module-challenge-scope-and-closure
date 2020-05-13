@@ -66,13 +66,11 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(min, max){
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
+function inning() {
+  return Math.floor(Math.random() * (2 - 0)) + 2;
 }
 
-// let output = inning(0, 2);
+// let output = inning();
 // console.log(output);
 
 /* Task 3: finalScore()
@@ -89,13 +87,13 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(numOfPoints, numOfInnings){
+function finalScore(numOfInnings) {
   let homeSum = 0;
   let awaySum = 0;
 
   for (var i = 0; i <= numOfInnings; i++) {
-    homeSum += Math.round(Math.random(numOfPoints));
-    awaySum += Math.round(Math.random(numOfPoints));
+    homeSum += inning();
+    awaySum += inning();
   }
 
   let matchStats = {
@@ -106,7 +104,7 @@ function finalScore(numOfPoints, numOfInnings){
   return matchStats;
 }
 
-// let output2 = finalScore(inning(0, 2), 9);
+// let output2 = finalScore(9);
 // console.log(output2);
 
 /* Task 4: 
@@ -130,28 +128,28 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(numOfPoints, numOfInnings) {
+function scoreboard(numOfInnings) {
   let homeScore = 0;
   let awayScore = 0;
 
   for (var i = 1; i <= numOfInnings; i++) {
-    let inning = i;
-    homeScore += Math.round(Math.random(numOfPoints));
-    awayScore += Math.round(Math.random(numOfPoints));
-    if (inning === 1) {
-      console.log(`${inning}st inning: ${homeScore} - ${awayScore}`);
-    } else if (inning === 2) {
-      console.log(`${inning}nd inning: ${homeScore} - ${awayScore}`);
-    } else if (inning === 3) {
-      console.log(`${inning}rd inning: ${homeScore} - ${awayScore}`);
-    } else if (inning > 3 && inning !== numOfInnings) {
-      console.log(`${inning}th inning: ${homeScore} - ${awayScore}`);
-    } else if (inning === numOfInnings) {
-      console.log(`${inning}th inning: ${homeScore} - ${awayScore}`);
+    let currentInning = i;
+    homeScore += inning();
+    awayScore += inning();
+    if (currentInning === 1) {
+      console.log(`${currentInning}st inning: ${homeScore} - ${awayScore}`);
+    } else if (currentInning === 2) {
+      console.log(`${currentInning}nd inning: ${homeScore} - ${awayScore}`);
+    } else if (currentInning === 3) {
+      console.log(`${currentInning}rd inning: ${homeScore} - ${awayScore}`);
+    } else if (currentInning > 3 && inning !== numOfInnings) {
+      console.log(`${currentInning}th inning: ${homeScore} - ${awayScore}`);
+    } else if (currentInning === numOfInnings) {
+      console.log(`${currentInning}th inning: ${homeScore} - ${awayScore}`);
       console.log(`Final Score: ${homeScore} - ${awayScore}`);
     }
   }
 }
 
-// let output3 = scoreboard(inning(0, 2), 9);
+// let output3 = scoreboard(20);
 // output3;
