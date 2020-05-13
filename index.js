@@ -142,7 +142,7 @@ function scoreboard(numOfInnings) {
       console.log(`${currentInning}nd inning: ${homeScore} - ${awayScore}`);
     } else if (currentInning === 3) {
       console.log(`${currentInning}rd inning: ${homeScore} - ${awayScore}`);
-    } else if (currentInning > 3 && inning !== numOfInnings) {
+    } else if (currentInning > 3 && currentInning !== numOfInnings) {
       console.log(`${currentInning}th inning: ${homeScore} - ${awayScore}`);
     } else if (currentInning === numOfInnings) {
       console.log(`${currentInning}th inning: ${homeScore} - ${awayScore}`);
@@ -151,5 +151,5 @@ function scoreboard(numOfInnings) {
   }
 }
 
-// let output3 = scoreboard(20);
+// let output3 = scoreboard(9);
 // output3;
