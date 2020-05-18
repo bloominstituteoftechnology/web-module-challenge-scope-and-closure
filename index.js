@@ -46,7 +46,7 @@ function counterMaker() {
   return function counter() {
     count++;
   }
-}
+}b
 
 const counter1 = counterMaker();
 
