@@ -28,7 +28,7 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
- * Counter2 has the variable outside of the function making it accessable to anything, and Counter1 has the variable in side og the function making it a private variable.
+ * Counter2 has the variable outside of the function making it accessable to anything, and Counter1 has the variable in side of the function making it a private variable.
  * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
@@ -62,11 +62,15 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
+const point= 0;
 function inning(point){
 
-    /*Code Here*/
+    return Math.floor(Math.random(point)*3)
 
 }
+// console.log(inning())
+// console.log(inning())
+// console.log(inning())
 
 /* Task 3: finalScore()
 
