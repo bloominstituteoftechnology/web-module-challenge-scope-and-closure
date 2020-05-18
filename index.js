@@ -27,11 +27,11 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ * Counter 1 has a closure
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ * counter 1
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ * code 1 could use counter1() to invoke the function to test it. Counter 2 could use a score varible, for loop, or object to keep track of score.
 */
 
 // counter1 code
@@ -56,11 +56,11 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
-}
+function inning(){
+  let score = 0;
+  return score = Math.round(Math.random()+1);
+ }
+ console.log(inning());
 
 /* Task 3: finalScore()
 
@@ -76,11 +76,25 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(inning, score){
+ 
+ const game = {
 
-  /*Code Here*/
+  "Home":`${inning()+score}`,
+  "Away": `${inning()+score}`,
+ }
 
+  
+
+
+
+return finalScore =  game; 
+
+ 
+  
 }
+
+console.log(finalScore(inning, 5))
 
 /* Task 4: 
 
@@ -103,8 +117,14 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard() {
+  
+  for(let i= 1; i < 9; i ++){
+   
+   `${i} inning: ${inning(i)} - ${inning(i)}`;
+
+  }
+ 
 }
 
-
+console.log(scoreboard());

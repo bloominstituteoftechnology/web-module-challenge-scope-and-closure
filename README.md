@@ -42,6 +42,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+It allows a child function to access the parent functions varibles even if they are called or terminated
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +64,14 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+The return function is the closure because it is nested inside the personalDice function.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+The string and the function name stay the same. The phisical name can change if you change the argument name as well as the number which is random.
+
 c. What is the lexical scope of `newRoll`? 
+
+newRoll lexical scope is being the child element of the fuction personalDice which allows it to take the varibles and arguments from its parent.
 
 ### Task 3 - Stretch Goals
 
@@ -82,9 +89,11 @@ console.log("a defined? " + (typeof a !== 'undefined'));
 console.log("b defined? " + (typeof b !== 'undefined'));
 ```
 
+
 2. Write a function that would allow you to do this using a closure. (This is another interview question we've seen before - when you're ready for answers, view an explanation [here](https://www.coderbyte.com/algorithm/3-common-javascript-closure-questions)).
 
 ```js
+
 var addSix = createBase(6);
 addSix(10); // returns 16
 addSix(21); // returns 27
