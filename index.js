@@ -88,7 +88,7 @@ finalScore(inning, 9) might return:
 
 function finalScore(inning){
   
-  return `Home: ${inning()} Away: ${inning()}`
+  return `Home: ${inning()} Away: ${inning()}  Final score:${inning() + inning()}`
 
 }
 console.log(finalScore(inning))
