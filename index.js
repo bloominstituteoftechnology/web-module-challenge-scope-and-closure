@@ -87,12 +87,12 @@ finalScore(inning, 9) might return:
 */ 
 
 function finalScore(inning){
-  
-  return `Home: ${inning()} Away: ${inning()}  Final score:${inning() + inning()}`
+  let final= inning()+inning();
+  return `Home: ${inning()} Away: ${inning()}  Final score:${final}`
 
 }
-console.log(finalScore(inning))
-
+//console.log(finalScore(inning))
+//find a way for the final score to match the total of both scores
 
 /* Task 4: 
 
@@ -116,7 +116,7 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(getInningScore,inning,innings) {
   /* CODE HERE */
 }
 

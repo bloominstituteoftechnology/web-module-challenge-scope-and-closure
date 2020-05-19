@@ -44,6 +44,9 @@ Find the file `index.js` and complete the tasks until your tests are passing.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+Closers gives you the ability to access other variables or functions that comes before the function that you are creating.It also gives you the ability to access functions after they have been closed.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -65,8 +68,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+the closure would be on lines 61 and 63. Because zoesRoll and dansRoll are defined outside of the function, but iisused inside of the function.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+the name 'dan' would stay the same but the newroll number would be different since a random number math operator wasused in the function.
+
 c. What is the lexical scope of `newRoll`? 
+
+The Random number
 
 ### Task 3 - Stretch Goals
 
