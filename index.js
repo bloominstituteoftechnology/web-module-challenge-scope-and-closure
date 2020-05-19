@@ -174,6 +174,9 @@ function scoreboard(innings) {
   for(i = 0; i <= innings; i++) {
     if(i === 1) {
       firstHome = home + (Math.round(Math.random() * (2 - 0) + 0));
+      // If you do this:
+      // firstHome = home + inning(); inning() will have the same value for each initiation of the for loop.
+      // Doing it this way WILL have a value of 0,9, or 18 as total score. Home and Away will always be tied.
       firstAway = away + (Math.round(Math.random() * (2 - 0) + 0));
       firstInning = firstHome + ' - ' + firstAway + ' ';
     } else if(i === 2) {
