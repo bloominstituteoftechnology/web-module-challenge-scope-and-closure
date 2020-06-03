@@ -15,7 +15,7 @@
  * should return 'foofoo'.
 */
 function processFirstItem(stringList, callback) {
-  return callback(stringList[0])
+  return callback(stringList[0]);
 }
 
 // ⭐️ Example Challenge END ⭐️
@@ -38,8 +38,8 @@ function processFirstItem(stringList, callback) {
 function counterMaker() {
   let count = 0;
   return function counter() {
-   return count++;
-  }
+  return count++;
+  };
 }
 
 const counter1 = counterMaker();
@@ -58,8 +58,11 @@ Write a function called `inning` that generates a random number of points that a
 
 function inning(/*Code Here*/){
 
+  let min = 0;
+  let max = 3;
+  num = Math.floor(Math.random() * (max - min));
     /*Code Here*/
-
+  return num;
 }
 
 /* Task 3: finalScore()
@@ -76,11 +79,16 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(callback, innings){
+  let home = 0;
+  let away = 0;
+  for (let i =0; i <= innings; i++){
+    home = callback() + home;
+    away = callback() + away;
+  }
+  return 'Home : ${home} Away : ${away}'
 }
+finalScore(inning,9);
 
 /* Task 4: 
 

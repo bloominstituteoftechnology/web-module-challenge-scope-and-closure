@@ -42,6 +42,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+a childres acces in which the parent function can be idenfied.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +64,19 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+const dansRoll = personalDice("Dan");
+
+const zoesRoll = personalDice("Zoe");
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+the numbers will change
+
 c. What is the lexical scope of `newRoll`? 
+
+Math.floor(Math.random() * 6);
+
 
 ### Task 3 - Stretch Goals
 
