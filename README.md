@@ -42,8 +42,8 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+	The sort of accessibility of variables and data , based on its specific scope.
 2. Study the following code, then answer the questions below.
-
 ```js
 function personalDice(name){
   return function(){
@@ -62,9 +62,10 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+a. Where is closure used in this code? How can you tell? \
+	newRoll is a variable only defined in the function , being returned through a console log. So I would say that is an example of closure.
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change? //
+c. What is the lexical scope of `newRoll`? function scope
 
 ### Task 3 - Stretch Goals
 
@@ -72,7 +73,7 @@ After you have completed the requirements, **create** a new file called `stretch
 
 See if you can complete one or more of the following challenges:
 
-1. Predict the output of the code below and explain why this is the output using what you learned today. When you're ready for answers, view an explanation [here](https://www.coderbyte.com/algorithm/3-common-javascript-closure-questions
+1. Predict the output of the code below an d explain why this is the output using what you learned today. When you're ready for answers, view an explanation [here](https://www.coderbyte.com/algorithm/3-common-javascript-closure-questions
 
 ```js
 (function(){
@@ -81,7 +82,8 @@ See if you can complete one or more of the following challenges:
 console.log("a defined? " + (typeof a !== 'undefined'));
 console.log("b defined? " + (typeof b !== 'undefined'));
 ```
-
+ a defined? integer
+ b defined? integer
 2. Write a function that would allow you to do this using a closure. (This is another interview question we've seen before - when you're ready for answers, view an explanation [here](https://www.coderbyte.com/algorithm/3-common-javascript-closure-questions)).
 
 ```js
