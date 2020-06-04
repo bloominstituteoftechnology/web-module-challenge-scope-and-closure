@@ -121,15 +121,13 @@ and returns the score at each pont in the game, like so:
 Final Score: 6 - 10 */
 
 function scoreboard(callback,inningNumber) {
-  //first part = inningNumber
-  //return home and away score at each inning
-  //return string = to number of innings
+  // add the scores together for each inning
   let home = 0;
   let away = 0;
 
   for (i = 0; i < inningNumber; i++){
-      home =+ callback();
-      away =+ callback();
+      home =+ callback() + home;
+      away =+ callback() + away;
       
       let score = {
         Home: home,
@@ -137,5 +135,6 @@ function scoreboard(callback,inningNumber) {
     }
    console.log(`${i +1}th inning: ${home } - ${away }`)
   }
+  console.log (`Final Score: Home: ${home} - ${away}`)
 }
   scoreboard(inning,9)
