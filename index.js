@@ -27,10 +27,16 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- *    counter1 is 
+ *    counter1 has a local variable which means it can only be used inside the function
+ *    and counter2 has a global variable which can be used anywhere in your code.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ *    counter2 uses closure because it has access the counter in the parent scope but
+ *    return allows it to have a private variable.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ *    Counter1 code would be preferable if you are only using the variable for that function. Counter2 would 
+ *    be preferred if you want to use the variable in multiple functions.
  *
 */
 
