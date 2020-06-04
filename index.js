@@ -81,20 +81,19 @@ finalScore(inning, 9) might return:
 */ 
 
 function finalScore(callback, innings){
-  let home = 0;
-
-  let away = 0;
+  let home = 0; 
+  let away= 0;
 
   for (let i = 0; i<=innings; i++){
     home  += callback();
-    
+    away  += callback(); 
   }
-  for (let i = 0; i<=innings; i++){
-    away  += callback();
-
-    return "Home: "+home;
-    return "Away: "+away;
+  
+  let score = {
+    Home: home,
+    Away: away,
   }
+  return score;
 }
 
   console.log (finalScore (inning, 9))
