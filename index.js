@@ -60,10 +60,10 @@ function inning(){
   const min = 0;
   const max = 3;
   const score = Math.floor(Math.random() * max - min);
-  console.log (score);
+  return  score;
  }
  
- inning();
+ console.log (inning());
  
 
 /* Task 3: finalScore()
@@ -86,14 +86,18 @@ function finalScore(callback, innings){
   let away = 0;
 
   for (let i = 0; i<=innings; i++){
-    home = callback()+home;
-    away = callback()+away;
+    home  += callback();
+    
   }
+  for (let i = 0; i<=innings; i++){
+    away  += callback();
 
-    return 'Home : ${home} Away : ${away}'
+    return "Home: "+home;
+    return "Away: "+away;
   }
+}
 
-  finalScore(inning, 9)
+  console.log (finalScore (inning, 9))
 
 
 /* Task 4: 
