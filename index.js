@@ -27,7 +27,7 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ *    counter1 is 
  * 2. Which of the two uses a closure? How can you tell?
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
@@ -120,8 +120,22 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(callback,inningNumber) {
+  //first part = inningNumber
+  //return home and away score at each inning
+  //return string = to number of innings
+  let home = 0;
+  let away = 0;
+
+  for (i = 0; i < inningNumber; i++){
+      home =+ callback();
+      away =+ callback();
+      
+      let score = {
+        Home: home,
+        Away: away,  
+    }
+   console.log(`${i +1}th inning: ${home } - ${away }`)
+  }
 }
-
-
+  scoreboard(inning,9)
