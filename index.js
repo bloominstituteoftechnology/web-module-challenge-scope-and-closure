@@ -135,6 +135,6 @@ function scoreboard(callback,inningNumber) {
     }
    console.log(`${i +1}th inning: ${home } - ${away }`)
   }
-  console.log (`Final Score: Home: ${home} - ${away}`)
+  console.log (`Final Score: Home: ${home} - Away: ${away}`)
 }
   scoreboard(inning,9)
