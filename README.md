@@ -42,7 +42,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+A: Closure is creation of a "private" scope while declaring any function. Closures can be associated with function's scope ("{}")
 2. Study the following code, then answer the questions below.
+
 
 ```js
 function personalDice(name){
@@ -63,8 +65,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+A: Closures are opened when a new function is declared, in this case it is used in line 50 when personalDice(name) function is declared
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+A: Dan's name and string (" rolled a ") are always same however newRoll can change since it is random everytime finction is called
+
 c. What is the lexical scope of `newRoll`? 
+A: newRoll is declared and initialized with the the return function(), so inside of that function's scope is its lexical scope
 
 ### Task 3 - Stretch Goals
 
