@@ -42,6 +42,8 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+   closure is when you use a global variable to make a local variable in a function.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +65,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+      closure is name because it is getting a global variable and using it in the console.log as a local variable
+      
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+     the name will always be the same and the newRoll will change.
+
 c. What is the lexical scope of `newRoll`? 
+      the lexical scope of newRoll is the math functions.
 
 ### Task 3 - Stretch Goals
 
