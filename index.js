@@ -56,15 +56,15 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
 
-  let min = 0;
-  let max = 3;
-  num = Math.floor(Math.random() * (max - min));
+  const min = 0;
+  const max = 3;
+   const number = Math.floor(Math.random() * max - min);
     /*Code Here*/
-  return num;
+  return number;
 }
-
+console.log(inning());
 /* Task 3: finalScore()
 
 Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
@@ -82,13 +82,13 @@ finalScore(inning, 9) might return:
 function finalScore(callback, innings){
   let home = 0;
   let away = 0;
-  for (let i =0; i <= innings; i++){
+  for (let i = 0; i <= innings; i++){
     home = callback() + home;
     away = callback() + away;
   }
-  return 'Home : ${home} Away : ${away}'
+  return `Home : ${home} Away : ${away}`
 }
-finalScore(inning,9);
+console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -111,21 +111,24 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(inningNum, callback/* CODE HERE */) {
+function scoreboard(innings, callback) {
   let home = 0;
   let away = 0;
-
-  for (i =0; i< inningNum; i++){
-    home =+ callback() + home;
-    away =+ callback() + away;
-
-    let score = {
-      Home: home,
-      Away: away,
+  for (let i =1; i <= innings; i++){
+    home = callback() + home;
+    away = callback() + away;
+    if(i === 1){
+      console.log(`${i}st inning: ${home} - ${away}`);
     }
-    console.log('${i + 1} the inning: ${home} - {away}')
-  }
-  console.log ('Final score: Home: ${home} - Away ${away}')
+    else if(i === 2){
+      console.log(`${i}nd inning: ${home} - ${away}`);
+    }
+    else if(i === 3){
+      console.log(`${i}rd inning: ${home} - ${away}`);
+    }
+        else {
+        console.log(`${i}th inning: ${home} - ${away}`);
+    }
+    }
+  return `Final Score: Home : ${home} Away : ${away}`
 }
-
-
