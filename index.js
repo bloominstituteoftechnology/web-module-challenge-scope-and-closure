@@ -17,7 +17,7 @@
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
-
+console.log('foo', 'bar');
 // ⭐️ Example Challenge END ⭐️
 
 
@@ -28,10 +28,15 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * In counter 1 the count variable is block scoped, while counter2 uses global variables. 
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ * counter1 is a closure, we can tell because it is defining variables in the function, and keeping them "alive" outside of it. 
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ * It is preferrable most (if not all) of the time. 
 */
 
 // counter1 code
@@ -56,11 +61,11 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+  let score = Math.floor(Math.random() * 3);
+  return score;
 }
+// console.log(inning());
 
 /* Task 3: finalScore()
 
@@ -76,12 +81,16 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(callback, num){
+  let final = {Home: 0, Away: 0};
+  for (let i = 0; i < num; i++){
+    final.Home += callback();
+    final.Away += callback();
+  }
+  return final;
 }
-
+console.log(finalScore(inning, 9));
+console.log(finalScore(inning, 5));
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
@@ -103,8 +112,12 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(callback, innings) {
+  let final = {Home: 0, Away: 0};
+  for (let i = 1; i <= innings; i++){
+    final.Home += callback();
+    final.Away += callback();
+    console.log(`${i} inning: ${final.Home} - ${final.Away}`);
+  }
+  console.log(`final score: ${final.Home} - ${final.Away}`);
 }
-
-
