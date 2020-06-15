@@ -42,6 +42,12 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+   Closure in JavaScript is when a child function is defined with
+   access to variables declared in a parent function. These private
+   variables can only be accessed and/or modified through the child
+   function.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +69,21 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+   Here, the private variable used is the input variable `name`. The
+   child function access this private variable, hence closure.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+
+   The name "Dan" always stays the same, but the value rolled is
+   randomly generate and, more often than not, will change.
+
+c. What is the lexical scope of `newRoll`?
+
+   `newRoll` only belongs in the child function. It is declared with a
+   const, and hence cannot be used either by the parent function or
+   globally.
+
 
 ### Task 2c - Exit Ticket
 
@@ -88,6 +107,12 @@ console.log("a defined? " + (typeof a !== 'undefined'));
 console.log("b defined? " + (typeof b !== 'undefined'));
 ```
 
+`var` is used to define the scope of `a` but not `b`, hence making `b`
+a global variable while keeping `a` in the scope of the function. The
+result is that `a` is not be defined outside the function (return
+false) while `b` will be defined (return true).
+
+
 2. Write a function that would allow you to do this using a closure. (This is another interview question we've seen before - when you're ready for answers, view an explanation [here](https://www.coderbyte.com/algorithm/3-common-javascript-closure-questions)).
 
 ```js
@@ -96,7 +121,28 @@ addSix(10); // returns 16
 addSix(21); // returns 27
 ```
 
+Solution:
+```js
+function createBase(baseNumber) {
+	 return (num) => {
+	 	return baseNumber + num;
+	 }
+}
+```
+
 3. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
+
+   Object-oriented programming is a means of organizing data together
+   with a set of functions that use that data. Some pros are that it
+   is a more organized approach to programming, reducing the number of
+   inputs into functions. A con is that it can overuse memory.
+
+   Functional programming is all about mapping inputs to outputs in a
+   function. It promotes lazy evaluation (i.e. only evaluating
+   functions as needed), reduces memory needed, and at least for
+   purely function languages (i.e. no mutability) can reduce side
+   effects between functions.
+
 
 ## Resources
 
