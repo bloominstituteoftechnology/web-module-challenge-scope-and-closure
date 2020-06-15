@@ -27,8 +27,13 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+ * counter one has the variable above the function
+ * 
  * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ * 
+ * 
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
@@ -56,11 +61,11 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(score){
+  return Math.round(Math.random() * 2);
+  }
+console.log(inning());
 
-    /*Code Here*/
-
-}
 
 /* Task 3: finalScore()
 
@@ -75,12 +80,15 @@ finalScore(inning, 9) might return:
 }
 
 */ 
-
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+let final = {Home:0 , Away:0};
+function finalScore(inning, numofInnings){
+for (let i = 1; i < numofInnings + 1; i++){
+  console.log(i);
+  final.Home = final.Home + inning();
 }
+return final;
+}
+console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -103,8 +111,8 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(innings, numofInnings) {
+
 }
 
 
