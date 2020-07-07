@@ -54,7 +54,7 @@ function counter2() {
 
 /* Task 2: inning() 
 
-Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
+Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
 function inning(/*Code Here*/){
 
