@@ -28,10 +28,18 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * counter1 has a function within a function, while counter2 is just a regular function.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ * counter1 uses closure because the inner function is returned and uses a vairable in the outer function.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ * counter1 is prefered when you want to keep the counter variable private.
+ * 
+ * counter2 is prefered when you want to prevent over-consumption of memory.
+ * 
 */
 
 // counter1 code
@@ -56,11 +64,13 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(team){
+  let score = Math.round(Math.random() * 2);
+  return `Team ${team} has a scored ${score} points!`; 
+};
 
-    /*Code Here*/
+console.log(inning("Braves"));
 
-}
 
 /* Task 3: finalScore()
 
