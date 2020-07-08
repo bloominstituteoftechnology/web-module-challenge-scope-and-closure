@@ -9,7 +9,14 @@ The module challenge is the afternoon project or assignment that students work t
 ## Objectives
 
 - Explain function scope
+
+When a variable is declared inside a function, that variable only exists, and can only be used within that function. To access something outside the function, one would have to use the return keyword. Any varaibles outside a function can be accessed by any function.
+
 - Describe what closure is, how closure is created in a program and why it is important to understand closures in JavaScript  
+
+It is a function within another function. That inner function has access to the outer functions scope. 
+
+
 
 ## Introduction
 
