@@ -118,41 +118,43 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
-var awayTeam = 0;
-var homeTeam = 0;
-
-function inningScore(callback){
-  awayTeam = awayTeam + callback();
-  homeTeam = homeTeam + callback();
-  return `${awayTeam} - ${homeTeam}`
-}
-
-let getInningScore = inningScore(inning());
-
-function scoreboard(callback1, callback2, numInnings) {
-  for(let i = 0; i > numInnings; i++){
-    let score = callback2(callback1);
-    if(i = 0){
-      console.log(`1st inning: ${score}`)
-    } else if(i = 1){
-      console.log(`2nd inning: ${score}`)
-    } else if(i = 2){
-      console.log(`3rd inning: ${score}`)
-    } else if(i = 3){
-      console.log(`4th inning: ${score}`)
-    } else if(i = 4){
-      console.log(`5 inning: ${score}`)
-    } else if(i = 5){
-      console.log(`6th inning: ${score}`)
-    } else if(i = 6){
-      console.log(`7th inning: ${score}`)
-    } else if(i = 7){
-      console.log(`8th inning: ${score}`)
-    } else if(i = 8){
-      console.log(`9th inning: ${score}`)
+function scoreboard(getScores, scores, numOfInnings) {
+  let suffix = "";
+  let s = {
+    Home:  0,
+    Away: 0,
+  };
+    let homeArray = []
+    let awayArray = []
+  for (i = 1; i <= numOfInnings; i ++){
+    getScores(scores);
+    s.Home = s.Home + inning();
+    s.Away = s.Away + inning();
+    homeArray.push( s.Home )
+    awayArray.push( s.Away )
+    if (i === 1){
+      suffix = "st";
     }
-    console.log(`Final Score: ${score}`)
+    else if (i === 2) {
+      suffix = "nd";
+    }
+    else if (i === 3) {
+      suffix = "rd";
+    } else {
+      suffix = "th";
+    }
+    console.log(`${i}${suffix} inning: ${s.Home} - ${s.Away} `);
   }
+  const reducer = ( total, num ) => total + num
+  s.Home = homeArray.reduce( reducer )
+  s.Away = awayArray.reduce( reducer ) 
+  return `Final Score: ${s.Home} - ${s.Away} `;
+}
+function getInningScore(){
+ let s = {
+  Home:  0,
+  Away: 0,
 };
-
-console.log(scoreboard(inning, getInningScore, 9));
+  return s.Home,s.Away;
+}
+console.log(scoreboard(getInningScore,inning,9));
