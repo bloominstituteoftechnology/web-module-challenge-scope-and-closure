@@ -69,7 +69,7 @@ function inning(){
   return score; 
 };
 
-console.log(inning());
+// console.log(inning());
 
 
 /* Task 3: finalScore()
@@ -98,7 +98,7 @@ function finalScore(callback, num){
   }
 
 
-console.log(finalScore(inning, 9))
+// console.log(finalScore(inning, 9))
 
 /* Task 4: 
 
@@ -118,7 +118,19 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
+var awayTeam = 0;
+var homeTeam = 0;
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function getInningScore(callback){
+  awayTeam = awayTeam + callback();
+  homeTeam = homeTeam + callback();
+  return `${awayTeam} - ${homeTeam}`
+}
+
+console.log(getInningScore(inning));
+
+function scoreboard(callback1, callback2, numInnings) {
+  for(let i = 0; i < numInnings; i++){
+    return `${i} inning: ${callback2(callback1())}`
+  }
 };
