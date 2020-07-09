@@ -69,7 +69,7 @@ function inning(){
   return score; 
 };
 
-console.log(inning())
+console.log(inning());
 
 
 /* Task 3: finalScore()
@@ -86,35 +86,39 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(callback, num){
+  let score1 = 0;
+  let score2 = 0;
+  game = {};
+  for(let i = 0; i < num; i++){
+      score1 = score1 + callback();
+      score2 = score2 + callback();
+    }
+    return {"Home": score1, "Away": score2};
+  }
 
-  /*Code Here*/
 
-}
+console.log(finalScore(inning, 9))
 
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
-
-(1) Callback function `inning` that you wrote above
-(2) A number of innings
-
+(1) Callback function `getInningScore`
+(2) Callback function `inning`
+(3) A number of innings
 and returns the score at each pont in the game, like so:
+1st inning: awayTeam - homeTeam
+2nd inning: awayTeam - homeTeam
+3rd inning: awayTeam - homeTeam
+4th inning: awayTeam - homeTeam
+5th inning: awayTeam - homeTeam
+6th inning: awayTeam - homeTeam
+7th inning: awayTeam - homeTeam
+8th inning: awayTeam - homeTeam
+9th inning: awayTeam - homeTeam
+Final Score: awayTeam - homeTeam */
 
-1st inning: 0 - 2
-2nd inning: 1 - 3
-3rd inning: 1 - 3
-4th inning: 2 - 4
-5th inning: 4 - 6
-6th inning: 4 - 6
-7th inning: 4 - 6
-8th inning: 5 - 8
-9th inning: 6 - 10
-
-Final Score: 6 - 10 */
 
 function scoreboard(/* CODE HERE */) {
   /* CODE HERE */
-}
-
-
+};
