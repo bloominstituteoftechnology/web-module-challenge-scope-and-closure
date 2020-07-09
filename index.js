@@ -121,13 +121,13 @@ Final Score: awayTeam - homeTeam */
 var awayTeam = 0;
 var homeTeam = 0;
 
-function getInningScore(callback){
+function inningScore(callback){
   awayTeam = awayTeam + callback();
   homeTeam = homeTeam + callback();
   return `${awayTeam} - ${homeTeam}`
 }
 
-
+let getInningScore = inningScore(inning());
 
 function scoreboard(callback1, callback2, numInnings) {
   for(let i = 0; i > numInnings; i++){
