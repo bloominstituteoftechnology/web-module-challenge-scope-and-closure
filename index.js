@@ -127,10 +127,32 @@ function getInningScore(callback){
   return `${awayTeam} - ${homeTeam}`
 }
 
-console.log(getInningScore(inning));
+
 
 function scoreboard(callback1, callback2, numInnings) {
-  for(let i = 0; i < numInnings; i++){
-    return `${i} inning: ${callback2(callback1())}`
+  for(let i = 0; i > numInnings; i++){
+    let score = callback2(callback1);
+    if(i = 0){
+      console.log(`1st inning: ${score}`)
+    } else if(i = 1){
+      console.log(`2nd inning: ${score}`)
+    } else if(i = 2){
+      console.log(`3rd inning: ${score}`)
+    } else if(i = 3){
+      console.log(`4th inning: ${score}`)
+    } else if(i = 4){
+      console.log(`5 inning: ${score}`)
+    } else if(i = 5){
+      console.log(`6th inning: ${score}`)
+    } else if(i = 6){
+      console.log(`7th inning: ${score}`)
+    } else if(i = 7){
+      console.log(`8th inning: ${score}`)
+    } else if(i = 8){
+      console.log(`9th inning: ${score}`)
+    }
+    console.log(`Final Score: ${score}`)
   }
 };
+
+console.log(scoreboard(inning, getInningScore, 9));
