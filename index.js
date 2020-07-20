@@ -27,11 +27,12 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ * Counter1 has count declared inside of the function, Counter2 has a globally defined count variable
+ 
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ * Counter1 uses the closure, because it has another function inside of it.
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ *Counter1 code would be better for keeping track of multiple games at one time, whereas Counter2's count would never be 0 after the first time it is ran
 */
 
 // counter1 code
@@ -56,9 +57,10 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
+  return Math.floor(Math.random() * 3);
 
-    /*Code Here*/
+  
 
 }
 
@@ -76,11 +78,19 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(inning, numOfInnings){
+  let home = 0;
+  let away = 0;
+  for (let i = 0; i < numOfInnings; i++){
+    home = home + inning();
+    away = away + inning();
+  }
+    return {"Home": home,  "Away": away}
+  }
 
-  /*Code Here*/
+  
 
-}
+
 
 /* Task 4: 
 
@@ -102,9 +112,23 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
+function getInningScore(inning){
+  let home = inning();
+  let away = inning();
+  return away + "-"+ home;
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+}
+
+function scoreboard( getInningScore, inning, numOfInnings) {
+  let homeTeam = 0;
+  let awayTeam = 0;
+  for (let i = 1; i === numOfInnings; i++){
+    homeTeam = homeTeam + inning();
+    awayTeam = awayTeam + inning();
+    return i + "inning" + awayTeam + "-" + homeTeam;
+  }
+
+  
 }
 
 
