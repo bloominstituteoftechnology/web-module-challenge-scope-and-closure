@@ -112,6 +112,8 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
+//Make a getInningScore Function
+
 function getInningScore(inning) {
 	const home = inning();
 	const away = inning();
