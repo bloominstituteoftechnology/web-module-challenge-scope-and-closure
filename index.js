@@ -124,17 +124,20 @@ function getInningScore(inning) {
 }
 
 function scoreboard( getInningScore, inning, numOfInnings) {
-	const scores = { Home: 0, Away: 0 };
-	let scoreText = '';
+	const scores = {
+     Home: 0,
+      Away: 0
+     };
+	let scoreText = " ";
 	for (let i = 0; i < numOfInnings; i++) {
 		let score = getInningScore(inning);
 		scores.Home += score.Home;
 		scores.Away += score.Away;
-		scoreText += `${i + 1}st inning: ${scores.Away} - ${scores.Home} \n`;
-		if (i + 1 === inning) {
+		scoreText += `${i + 1} inning: ${scores.Away} - ${scores.Home} \n`;
+		if (i + 1  === numOfInnings) {
 			const finalInning = getInningScore(inning);
-			scores.Home += finalInning.Home;
-			scores.Away += finalInning.Away;
+			scores.Home += score.Home
+			scores.Away += score.Away;
 			scoreText += `Final Score: ${scores.Away} - ${scores.Home}`;
 		}
 	}
