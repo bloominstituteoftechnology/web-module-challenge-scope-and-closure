@@ -31,7 +31,7 @@ function processFirstItem(stringList, callback) {
  * 2. Which of the two uses a closure? How can you tell?
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ * .
 */
 
 // counter1 code
