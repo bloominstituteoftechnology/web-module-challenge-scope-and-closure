@@ -25,6 +25,7 @@ There are layers upon layers of nested functions within the game of baseball. Yo
 
 ## Instructions
 
+
 ### Task 1 - Set Up Project and Tests
 
 1. Fork repo and add TL as collaborator on Github
@@ -63,8 +64,14 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+Within the personalDice function name is used as closure because it is referenced as a perameter and assigned value within the return of the function .
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+When dansRoll is called the first and second time name stays the same outside the return function's scope. However Math.random will always return a random number between 1 and 6 which makes each call return a different value. 
+
 c. What is the lexical scope of `newRoll`? 
+the lexical scope is the private scope block returned where all variables are non accessible outside its scope block  
+
 
 ### Task 2c - Exit Ticket
 
