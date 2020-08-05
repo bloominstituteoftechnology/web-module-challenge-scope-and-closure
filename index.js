@@ -27,10 +27,13 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+ * The difference in counter 1 logs the previous result and counter 2 does not.
  * 
  * 2. Which of the two uses a closure? How can you tell?
+ * Counter1 does because it references a variable outside the function. 
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * Counter1 when you want to log every count and counter2 when that is not needed.
  *
 */
 
