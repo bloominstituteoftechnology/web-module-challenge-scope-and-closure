@@ -27,18 +27,20 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- *    The main difference is that closure never goes outside its function  in counter 1 while counter2s closure goes 
- *    outisde the function's scope   
+ *    The main difference is closure where variables never go outside its function  in counter 1 while counter2s closure goes 
+ *    outisde the function's scope and has variables accessible on the global block  
  * 
  * 2. Which of the two uses a closure? How can you tell?
- *    counter2 because it maniupulating the count variable outisde the function's scope
+ *    They both use closure. However counter1 does not go outside the the functions scope while counter2 does. 
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *    Counter 1 code would be quicker and more light weight. It also has the option of making count assignable as a parameter which 
- *    would be more structurized
+ *    would be more structuralized. Either way I wold prefer counter1 over counter2 because there is more structure, the code is more condensed, and
+ *    we would not have to directly access global variables to use the function. I find it easier to return a function that never accesses
+ *    any thing outisde its function scope. The possiblity to make a mistake decreases as well with counter 1. 
  * 
  *    The counter2 code would be good if there was variables on the global scope we needed to access. It would not run as fast though without 
- *    a callback function and the same variable would not be accessible as a parameter with its global closure
+ *    a callback function and the same variable would not be accessible as a parameter with its global scope closure
 */
 
 // counter1 code
@@ -50,7 +52,10 @@ function counterMaker() {
 }
 
 const counter1 = counterMaker();
-console.log(counter1());
+console.log( 'counter1: '+counter1());
+console.log('counter1: '+counter1());
+console.log('counter1: '+counter1());
+console.log('counter1: '+counter1());
 // counter2 code
 let count = 0;
 
@@ -69,7 +74,7 @@ function inning(){
    return Math.floor(Math.random() * Math.floor(3));
 
 }
-console.log(inning());
+console.log('innings random number between 0 and 2: '+inning());
 
 /* Task 3: finalScore()
 
@@ -87,24 +92,35 @@ finalScore(inning, 9) might return:
 */ 
 
 function finalScore(inning,innings){
-    let finalScoreOfGame = {Home:0,Away:0};
-    if(innings < 9){
-      // Recursivly increase finalScore function until one of the Teams win within 8 innings
-    }else if(innings === 9){
-      // Assert there is no tie
-        if(finalScoreOfGame.Home === finalScoreOfGame.Away){
-            // Extra innigs Keep increasing innings until final Score is not tied & a team won
-
-        }else{
-          return finalScoreOfGame;
+  let finalScoreOfGame = {Home:0,Away:0};
+  // a number between 0 and 1 0 means home 1 means away
+  let scored = inning;
+  let homeOraway;
+   // let home = false;
+    for(let i = innings; i <= 9; i++){
+      homeOraway = Math.floor(Math.random() * Math.floor(2));
+      scored = inning;
+        if(homeOraway === 0){ 
+          // Home scored
+          console.log('Before scored '+scored+' finalscore.Home'+ finalScoreOfGame.Home);
+          finalScoreOfGame.Home = finalScoreOfGame.Home + scored;
+          console.log('After scored '+scored+' finalscore.Home'+ finalScoreOfGame.Home);
+        }else{ // Away Scored
+          console.log('Before scored '+scored+' finalscore.Away '+ finalScoreOfGame.Away);
+          finalScoreOfGame.Away = finalScoreOfGame.Away + scored;
+          console.log('After scored '+scored+' finalscore.Away '+ finalScoreOfGame.Away);
         }
+      
+
+      
     }
-
-    return finalScoreOfGame;
-
+  return finalScoreOfGame;
   
 
 }
+let fscore = finalScore(inning(),3);
+console.log('final score task3 Home: '+fscore.Home + ' Away: '+ fscore.Away);
+
 
 /* Task 4: 
 
