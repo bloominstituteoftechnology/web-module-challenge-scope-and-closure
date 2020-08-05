@@ -42,6 +42,8 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+A closure is is a combination of a function and its reference to its surounding state. This surrounding enviroment is known as the lexical enviroment and the function will call upon elements in this enviroment to run the code.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +65,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+It is used inside the function and outside when it calls upon the variable dansRoll & zoesRoll. You can tell this because those variables are outside the function and are called upon at the end of the code to return the function.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+What is always the same is that it returns a random number between 1-6 and logs dans name in a string. What changes is that it can log the previous roll and return both the first and second dice rolls.
+
 c. What is the lexical scope of `newRoll`? 
+It is inside the function. It is not on the global scope, but inside the function so it can only be referenced there.
 
 ### Task 2c - Exit Ticket
 
