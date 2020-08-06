@@ -110,9 +110,23 @@ function finalScore(inning,innings){
           finalScoreOfGame.Away = finalScoreOfGame.Away + scored;
           console.log('After scored '+scored+' finalscore.Away '+ finalScoreOfGame.Away);
         }
-      
-
-      
+    }
+  // Assert the game never ends tied
+    while(finalScoreOfGame.Home === finalScoreOfGame.Away){
+      homeOraway = Math.floor(Math.random() * Math.floor(2));
+      scored = inning;
+      /// When inning returns only zero this will break the infinite loop
+      if(scored === 0) scored = scored + 1;
+        if(homeOraway === 0){ 
+          // Home scored
+          console.log('Before scored '+scored+' finalscore.Home'+ finalScoreOfGame.Home);
+          finalScoreOfGame.Home = finalScoreOfGame.Home + scored;
+          console.log('After scored '+scored+' finalscore.Home'+ finalScoreOfGame.Home);
+        }else{ // Away Scored
+          console.log('Before scored '+scored+' finalscore.Away '+ finalScoreOfGame.Away);
+          finalScoreOfGame.Away = finalScoreOfGame.Away + scored;
+          console.log('After scored '+scored+' finalscore.Away '+ finalScoreOfGame.Away);
+        }
     }
   return finalScoreOfGame;
   
@@ -142,9 +156,17 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
+function getInningScore(gameObj){
 
-function scoreboard() {
- 
+
+  return function(){
+    return ``;
+  }
+}
+
+function scoreboard(getInningScore,inning,numInnings) {
+
+  
 }
 
 
