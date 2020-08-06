@@ -81,16 +81,18 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(inning, index){
-  let homeScore = 0;
-  let awayScore = 0;
-  for (let i = 0; i<index; i++){
-    homeScore += inning();
-    awayScore += inning();
+function finalScore(inning, num) {
+  let runs = { Home: 0, Away: 0 };
+  for (i = 0; i < num; i++) {
+    runs["Home Team"] += inning();
+    runs["Away Team"] += inning();
   }
+  return score;
 }
 
-console.log(finalScore(inning,9));
+
+console.log(finalScore(inning, 9));
+
 
 
 /* Task 4: 
