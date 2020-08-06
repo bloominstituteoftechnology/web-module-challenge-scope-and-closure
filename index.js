@@ -87,7 +87,7 @@ function finalScore(inning, num) {
     runs["Home Team"] += inning();
     runs["Away Team"] += inning();
   }
-  return score;
+  return runs;
 }
 
 
@@ -116,14 +116,27 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inning, num) {
+let runs = {}
+let finalScore = getInningScore(0,0);
+let topOfInning = [
+  "1", "2", "3", "4", "5", "6", "7", "8","9",
+];  
+
+for (i = 0; i < num; i++) {
+  runs = getInningScore(inning(), inning());
+  finalScore["Home Team"] += runs ["Home Team"];
+  finalScore["Away Team"] += runs ["Away Team"];
+  console.log(`${topOfInning[i]} inning: ${runs["Home Team"]} - ${runs["Away Team"]}`);
 }
+console.log(`Final: ${finalScore["Away Team"]} - ${finalScore["Home Team"]}`);
 
+}
+ function getInningScore(team1,team2){
+   return {Home: team1, Away: team2};
+ }
 
-
-
-
+console.log(scoreboard(getInningScore,inning,9))
 
 
 // function final(){
