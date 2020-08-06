@@ -161,17 +161,57 @@ function getInningScore(gameObj){
 
   return function s(){
     for(a in gameObj){
+
+      // todo: add st nd depending on index number
       return a+1 +' inning: awayTeam ' + gameObj.Away +' homeTeam '+ gameObj.Home; 
     }
     
   }
 }
 
-function scoreboard(getInningScore,inning,numInnings) {
+// Make the object with the games it in
+function makeRandomObjWithGames(amountOfInnings,inning,obj){
+//  let obj = [{home:0,away:0}];
 
   
+    for(let i = 0; i < amountOfInnings; i++){
+      //let randScore = Math.floor(Math.random() * Math.floor(5));
+      let randScore = inning();
+      console.log('rand'+randScore);
+      obj.push({home:randScore,away:randScore});
+
+    }
+    return obj;
+  
+}
+function getInningScore(ltobj){
+
+
+
+  return function h(){
+    
+      for( a in ltobj){
+        // todo: add st nd depending on index number
+      return a+1 +' inning: awayTeam ' + ltobj[a].away +' homeTeam '+ ltobj[a].home; 
+      }
+    
+  }
 }
 
-    let getInScore = getInningScore(fscore);
-  console.log(getInScore());
+function scoreboard(getInningScore, inning,numInnings) {
+ 
+// Make the game object
+ let l = makeRandomObjWithGames(numInnings,inning,lastTaskGameObj);
+for(let ll = 0; ll < l.length; ll++ ){
+  let ff = getInningScore(l);
+  console.log(ff);
+}
+
+ 
+}
+let numInnings = 9;
+// Make the game object
+let lastTaskGameObj   = [{home:0,away:0}];
+//lastTaskGameObj.map(e => console.log('inside the scoreboard '+e.away + ' ' + e.home));
+scoreboard(getInningScore(lastTaskGameObj),inning,9);
 
