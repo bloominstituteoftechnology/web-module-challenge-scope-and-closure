@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+A closure is a function and its lexical environment that has everything it needs to run properly. It is full sel contained. 
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +66,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+The 'personalDice' function using the 'name' variable without passing it into the function. 
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+The name remains the same, but the variable 'newRoll" changes. 
+
 c. What is the lexical scope of `newRoll`? 
+
+It remains within the function.
 
 ### Task 2c - Exit Ticket
 

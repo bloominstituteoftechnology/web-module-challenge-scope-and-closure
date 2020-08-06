@@ -28,10 +28,18 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * Counter 1 is local
+ * Counter 2 is global
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ * Counter 1, function within a function
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ * If you do not want your count changed, counter1.
+ * If you want to be able to change your count, counter2. 
+ * 
 */
 
 // counter1 code
@@ -56,11 +64,11 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning() {
+  return math.floor(math.random()*3)+1);
 }
+console.log("Random Score: ");
+for (let i=0; i<4; i++) console.log("Inning: " + inning());
 
 /* Task 3: finalScore()
 
@@ -76,11 +84,16 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(inning, number){
+  let score= {Home: 0, Away: 0};
+  for(i=0; i<number; i++) {
+    score["Home"] += inning();
+    score["Away"] += inning();
+  }
+   return score;
 }
+console.log(finalScore(inning, 9));
+
 
 /* Task 4: 
 
@@ -103,8 +116,15 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+function scoreboard(inningScore, inning, number) {
+  let score={};
+  let finalScore = inningScore;
+  let inningNumber = ["First", "Second, Third", "Fourth", "Fifth", 'Sixth', "Seventh, "Eighth", "Ninth"];
+ for(i=0; i<number; i++) {
+   score= inningScore(inning(), inning());
+   finalScore["Home"] += score["Away"];
 
+ }
+  console.log(` ${finalScore["Away"] - ${finalScore["Home"]}}`);
+  console.log(scoreboard(inningScore, inning, 9));
 
