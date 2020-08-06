@@ -188,9 +188,10 @@ function getInningScore(ltobj){
 
 
 
-  return function h(){
     
       for( a in ltobj){
+
+  return function h(ltobj){
         // todo: add st nd depending on index number
       return a+1 +' inning: awayTeam ' + ltobj[a].away +' homeTeam '+ ltobj[a].home; 
       }
@@ -213,5 +214,5 @@ let numInnings = 9;
 // Make the game object
 let lastTaskGameObj   = [{home:0,away:0}];
 //lastTaskGameObj.map(e => console.log('inside the scoreboard '+e.away + ' ' + e.home));
-scoreboard(getInningScore(lastTaskGameObj),inning,9);
+scoreboard(getInningScore(lastTaskGameObj),inning,numInnings);
 
