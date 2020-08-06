@@ -61,10 +61,11 @@ Write a function called `inning` that returns a random number of points that a t
 
 
 function inning(){
-  return Math.floor(Math.random() * 3);
+  let runsScore = Math.floor(Math.random() * 3);
+  return runsScore
 }
 
-console.log("runs scored " + inning());
+inning();
 
 
 /* Task 3: finalScore()
@@ -82,12 +83,13 @@ finalScore(inning, 9) might return:
 */ 
 
 function finalScore(inning, num) {
-  let runs = { Home: 0, Away: 0 };
+  let Home = 0;
+  let Away = 0;
   for (i = 0; i < num; i++) {
-    runs["Home Team"] += inning();
-    runs["Away Team"] += inning();
+    Home += inning();
+    Away += inning();
   }
-  return runs;
+  return `Home Team Runs:${Home} \nAway Team Runs:${Away}`;
 }
 
 
