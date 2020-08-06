@@ -159,8 +159,11 @@ Final Score: awayTeam - homeTeam */
 function getInningScore(gameObj){
 
 
-  return function(){
-    return ``;
+  return function s(){
+    for(a in gameObj){
+      return a+1 +' inning: awayTeam ' + gameObj.Away +' homeTeam '+ gameObj.Home; 
+    }
+    
   }
 }
 
@@ -169,4 +172,6 @@ function scoreboard(getInningScore,inning,numInnings) {
   
 }
 
+    let getInScore = getInningScore(fscore);
+  console.log(getInScore());
 
