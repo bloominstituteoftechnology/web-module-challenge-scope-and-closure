@@ -27,13 +27,13 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * The difference in counter 1 logs the previous result and counter 2 does not.
+ * The difference is that counter1 logs the variable inside the function and counter2 logs it in the global scope.
  * 
  * 2. Which of the two uses a closure? How can you tell?
- * Counter1 does because it references a variable outside the function. 
+ * Counter2 does because it references a variable outside the function. 
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- * Counter1 when you want to log every count and counter2 when that is not needed.
+ * Counter1 when you only need to access the variable in the function. Counter2 when you want to access the variable globally.
  *
 */
 
@@ -59,12 +59,13 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(team){
-  let atBat = Math.floor(Math.random() * 3);
-  console.log(`${team} scored ${atBat} this inning`)
-  
-  }
-  inning("teamA");
+
+function inning(){
+  return Math.floor(Math.random() * 3);
+}
+
+console.log("runs scored " + inning());
+
 
 /* Task 3: finalScore()
 
@@ -80,11 +81,17 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(inning, index){
+  let homeScore = 0;
+  let awayScore = 0;
+  for (let i = 0; i<index; i++){
+    homeScore += inning();
+    awayScore += inning();
+  }
 }
+
+console.log(finalScore(inning,9));
+
 
 /* Task 4: 
 
@@ -112,3 +119,12 @@ function scoreboard(/* CODE HERE */) {
 }
 
 
+
+
+
+
+
+// function final(){
+
+
+//
