@@ -67,6 +67,13 @@ function inning(){
 
 inning();
 
+function awayInning(){
+  let runsScore = Math.floor(Math.random() * 3);
+  return runsScore
+}
+
+awayInning();
+
 
 /* Task 3: finalScore()
 
@@ -118,28 +125,48 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(getInningScore, inning, num) {
-let runs = {}
-let finalScore = getInningScore(0,0);
-let topOfInning = [
-  "1", "2", "3", "4", "5", "6", "7", "8","9",
-];  
-
-for (i = 0; i < num; i++) {
-  runs = getInningScore(inning(), inning());
-  finalScore["Home Team"] += runs ["Home Team"];
-  finalScore["Away Team"] += runs ["Away Team"];
-  console.log(`${topOfInning[i]} inning: ${runs["Home Team"]} - ${runs["Away Team"]}`);
+function scoreboard(callback, callback2, num) {
+  let Home = 0;
+  let Away = 0;
+  for (let i = 1; i <= num; i++) {
+    Home += callback();
+    Away += callback2();
+    if (i == 1) {
+      console.log(`${i}st inning: ${Away}-${Home}`)
+    }
+     if (i == 2) {
+      console.log(`${i}nd inning: ${Away}-${Home}`)
+    }
+     if (i == 3) {
+      console.log(`${i}rd inning: ${Away}-${Home}`)
+    }
+     if (i == 4) {
+      console.log(`${i}th inning: ${Away}-${Home}`)
+    }
+     if (i == 5) {
+      console.log(`${i}th inning: ${Away}-${Home}`)
+    }
+     if (i == 6) {
+      console.log(`${i}th inning: ${Away}-${Home}`)
+    }
+     if (i == 7) {
+      console.log(`${i}th inning: ${Away}-${Home}`)
+    }
+     if (i == 8) {
+      console.log(`${i}th inning: ${Away}-${Home}`)
+    }
+     if (i == 9) {
+      console.log(`${i}th inning: ${Away}-${Home}`)
+    }
+  }
+return `Final Score: ${Away}-${Home}`
 }
-console.log(`Final: ${finalScore["Away Team"]} - ${finalScore["Home Team"]}`);
 
-}
- function getInningScore(team1,team2){
-   return {Home: team1, Away: team2};
- }
+console.log(scoreboard(inning,awayInning,9))
 
-console.log(scoreboard(getInningScore,inning,9))
 
+
+//review tomorrow
 
 // function final(){
 
