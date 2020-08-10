@@ -65,7 +65,7 @@ function counter2() {
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
 function inning() {
-  return math.floor(math.random()*3)+1);
+  return Math.floor(Math.random()*3);
 }
 console.log("Random Score: ");
 for (let i=0; i<4; i++) console.log("Inning: " + inning());
@@ -115,16 +115,22 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
+function getInningScore(callback){
+  return callback 
+}
 
 function scoreboard(inningScore, inning, number) {
   let score={};
   let finalScore = inningScore;
-  let inningNumber = ["First", "Second, Third", "Fourth", "Fifth", 'Sixth', "Seventh, "Eighth", "Ninth"];
+  let inningNumber = ["First", "Second, Third", "Fourth", "Fifth", 'Sixth', "Seventh", "Eighth", "Ninth"];
  for(i=0; i<number; i++) {
    score= inningScore(inning(), inning());
    finalScore["Home"] += score["Away"];
 
  }
-  console.log(` ${finalScore["Away"] - ${finalScore["Home"]}}`);
-  console.log(scoreboard(inningScore, inning, 9));
+  console.log(` ${finalScore["Away"]} - ${finalScore["Home"]}`);
+} 
+
+console.log(scoreboard(getInningScore, inning, 9));
+
 
