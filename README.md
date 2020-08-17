@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+A closure is a function that can save the values of the function surrounding it after that outer fuction is executed. 
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +66,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+the anonymous function returned in line 52 opens the closure. It is the function inside of a function. 
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+the name, Dan, will always be the same. the random die returned can change. 
+
 c. What is the lexical scope of `newRoll`? 
+the anonymous fuction returned by personalDice(name)
 
 ### Task 2c - Exit Ticket
 
