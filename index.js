@@ -28,9 +28,17 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * counter1 has function level scope and therefore the score does not exist outside of the function counterMaker, whereas in counter2 the score is returned via the argument outside of the function scope
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ * The second one uses a closure because it reaches outside of it's current scope to reach the argument above it and return count++
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
+ * counter1 is preferable if we are trying to reset to 0 every time the function runs and counter2 is prefereable if we do not want to reset the function for whatever reason
+ * 
+ * 
  *
 */
 
@@ -44,6 +52,8 @@ function counterMaker() {
 
 const counter1 = counterMaker();
 
+console.log(counter1());
+
 // counter2 code
 let count = 0;
 
@@ -51,13 +61,17 @@ function counter2() {
   return count++;
 }
 
+console.log(counter2())
 
 /* Task 2: inning() 
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
+function inning(){
+    for (let i = 0; i < 2; i++){
+      var i = Math.round(Math.random());
+    }
+    return
     /*Code Here*/
 
 }
