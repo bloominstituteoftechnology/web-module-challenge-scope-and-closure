@@ -1,4 +1,6 @@
 // ⭐️ Example Challenge START ⭐️
+function is this working()
+console.log(is this working)
 
 /**
  * ### Challenge `processFirstItem`
@@ -17,6 +19,10 @@
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
+callback(2)
+
+
+
 
 // ⭐️ Example Challenge END ⭐️
 
@@ -27,9 +33,10 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ * Counter1 block because it opperates inside the function.
+ * Counter two is global because it apperates outside the function.
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ * Counter1 uses closer related to the use of two functions.
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
 */
@@ -49,6 +56,7 @@ let count = 0;
 
 function counter2() {
   return count++;
+
 }
 
 
@@ -56,11 +64,16 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(num1, num2, cb){
 
-    /*Code Here*/
+    return cb(num1, num2,);
+    console.log(inning(3, 5,)
+
+
+
 
 }
+
 
 /* Task 3: finalScore()
 
@@ -76,7 +89,7 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(inning, 3) {
 
   /*Code Here*/
 
@@ -103,8 +116,8 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(awayTeam, homeTeam, cb) {
+  return cb(awayTeam, homeTeam);
 }
 
 
