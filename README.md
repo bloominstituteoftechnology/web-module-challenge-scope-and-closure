@@ -52,17 +52,15 @@ function personalDice(name){
     console.log(`${name} rolled a ${newRoll}`)
   }
 }
-
 const dansRoll = personalDice("Dan");
-
 const zoesRoll = personalDice("Zoe");
-
 
 dansRoll();
 dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+ - 
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
 c. What is the lexical scope of `newRoll`? 
 
