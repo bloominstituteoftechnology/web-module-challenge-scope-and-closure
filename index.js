@@ -148,3 +148,21 @@ const scoreBoard = (numberscoverter, finalScore, innings, num) => {
   return tempString
 }
 console.log(scoreBoard(numbersconverter, finalScore, inning, 4))
+
+
+
+function personalDice(name){
+  return function(){
+      // generate random number between 1 and 6
+    const newRoll = Math.floor(Math.random() * 6);
+    console.log(`${name} rolled a ${newRoll}`)
+  }
+}
+
+const dansRoll = personalDice("Dan");
+
+const zoesRoll = personalDice("Zoe");
+
+
+dansRoll();
+dansRoll();
