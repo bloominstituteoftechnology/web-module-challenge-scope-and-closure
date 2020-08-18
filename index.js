@@ -43,25 +43,25 @@ function processFirstItem(stringList, callback) {
 */
 
 // counter1 code
-function counterMaker() {
-  let count = 0;
-  return function counter() {
-   return count++;
-  }
-}
+// function counterMaker() {
+//   let count = 0;
+//   return function counter() {
+//    return count++;
+//   }
+// }
 
-const counter1 = counterMaker();
+// const counter1 = counterMaker();
 
-console.log(counter1());
+// console.log(counter1());
 
-// counter2 code
-let count = 0;
+// // counter2 code
+// let count = 0;
 
-function counter2() {
-  return count++;
-}
+// function counter2() {
+//   return count++;
+// }
 
-console.log(counter2())
+// console.log(counter2())
 
 /* Task 2: inning() 
 
@@ -97,7 +97,7 @@ function finalScore(inning, number){
     
   }
 
-  return {home, away};
+  return {Home:home, Away:away};
 }
 
 console.log(finalScore(inning, 7));
@@ -124,15 +124,45 @@ Final Score: awayTeam - homeTeam */
 
 
 function scoreboard(getInningScore, inning, number) {
-  function getInningScore(inning, number){
-    for(let i = 0; i < 10; i++){
-      home = home + inning();
-      away = away + inning();
-      return {home, away};
-    }
+  let home = 0
+  let away = 0
   
-    
+  for(let i = 0; i < number; i++){
+    home = getInningScore(inning, i).Home
+    away = getInningScore(inning, i).Away
+
+    if(i == 1){
+      console.log(`${i}st inning: ${away} - ${home}`)
+
+      }else{
+        console.log(`${i}nd inning: ${away} - ${home}`)
+      }
+  }
+  return `finalScore ${away} - ${home}` 
   }
 
-}
+  console.log(scoreboard(finalScore, inning, 8));
+  
+// function scoreboard(finalScore, inning ,inningsNumber) {
+//   let home = 0;
+//   let away = 0;
+//   for(let i = 1; i <= inningsNumber; i++ ) {
+//     home = finalScore(inning, i).Home;
+//     away = finalScore(inning, i).Away;
+//     if(i == 1) {
+//       console.log(`${i}st inning: ${away} - ${home}`)
+//     } else if(i == 2) {
+//       console.log(`${i}nd inning: ${away} - ${home}`)
+//     } else if(i == 3) {
+//       console.log(`${i}rd inning: ${away} - ${home}`)
+//     } else {
+//       console.log(`${i}th inning: ${away} - ${home}`)
+//     }
+//   }
+//   return `Final Score: ${away} - ${home}`
+// }
+//  console.log(scoreboard(finalScore, inning, 9))
+  
+    
+
 
