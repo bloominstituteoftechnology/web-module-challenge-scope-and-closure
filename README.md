@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+Closure is when you call upon something outside of the function's scope to be used inside of the function. 
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +66,18 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+dansRoll() calls on a function from outside of it's scope
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+This may not return to the starting neutral point of zero since the function calls on the result of the previous roll.
+
+
 c. What is the lexical scope of `newRoll`? 
+
+The lexical scope of newRoll is the scope of the function personalDice.
+
 
 ### Task 2c - Exit Ticket
 
