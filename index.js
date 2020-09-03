@@ -2,14 +2,14 @@
 
 /**
  * ### Challenge `processFirstItem`
- * 
+ *
  * @instructions
  * Implement a higher-order function called `processFirstItem`.
  * It takes two arguments:
  * @param stringList an array of strings.
  * @param callback function that takes a string as its argument.
  * @returns the result of invoking `callback` with the FIRST element in `stringList`.
- * 
+ *
  * Example of usage of this higher-order function:
  * Invoking `processFirstItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'foofoo'.
@@ -18,6 +18,7 @@ function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
 
+
 // ⭐️ Example Challenge END ⭐️
 
 
@@ -25,13 +26,15 @@ function processFirstItem(stringList, callback) {
 
 /* Task 1: `counterMaker`
  * Study the code for counter1 and counter2. Answer the questions below.
- * 
- * 1. What is the difference between counter1 and counter2?
- * 
- * 2. Which of the two uses a closure? How can you tell?
- * 
- * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ * 1. What is the difference between counter1 and counter2?
+ *  The variable is inside the functional scope in counter1. The variable is part of the global scope in counter2
+ * 2. Which of the two uses a closure? How can you tell?
+ *  counter 2. It is declared as a function expression and creates a functional scope.
+ * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?
+ *    *	Counter 2 would be used strictly as a function and would only work in that particular situation.
+ *      Counter 2 is also ideal for hoisting.
+ *      To be able to assign various variables to a function then counter 1 would be ideal
 */
 
 // counter1 code
@@ -52,39 +55,50 @@ function counter2() {
 }
 
 
-/* Task 2: inning() 
+/* Task 2: inning()
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
-
+  let points = Math.round(Math.random()*2);
+  return points;
 }
+
+console.log(inning());
 
 /* Task 3: finalScore()
 
 Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
 
-For example, 
+For example,
 
-finalScore(inning, 9) might return: 
+finalScore(inning, 9) might return:
 {
   "Home": 11,
   "Away": 5,
 }
 
-*/ 
+*/
 
-function finalScore(/*code Here*/){
+function finalScore(callback,inn){
+  let gameScore = {Home: 0, Away: 0};
 
-  /*Code Here*/
+  for(let i = 1; i<=inn; i++) {
+    let homeScore = callback();
+    let awayScore = callback();
 
+    gameScore.Home+=homeScore;
+    gameScore.Away+=awayScore;
+  }
+  return gameScore;
 }
 
-/* Task 4: 
+console.log(finalScore(inning,9));
 
-Create a function called `scoreboard` that accepts the following parameters: 
+/* Task 4:
+
+Create a function called `scoreboard` that accepts the following parameters:
 
 (1) Callback function `getInningScore`
 (2) Callback function `inning`
@@ -103,8 +117,43 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+function scoreboard(callback, inn) {
+  // Here I declare the object with 0 values which is the starting score. This is the the higher order function.
+  let gameScore = {Home: 0, Away: 0};
 
+  // loop (that starts from i=1 representing the 1st inning with "i" representing an inning) to iterate the "inn" argument's "parameter value"
+  for(let i = 1; i<=inn; i++) {
+    let homeScore = callback();
+    let awayScore = callback();
+
+    gameScore.Home+=homeScore;
+    gameScore.Away+=awayScore;
+
+    // function within the loop to declare "getInningScore" function within the higher function
+    function getInningScore(){
+      if(i===1){
+        return `${i}st inning: ${gameScore.Away} - ${gameScore.Home}`;
+      }
+      else if(i===2){
+        return `${i}nd inning: ${gameScore.Away} - ${gameScore.Home}`;
+      }
+      else if(i===3){
+        return `${i}rd inning: ${gameScore.Away} - ${gameScore.Home}`;
+      }
+      else {
+        return `${i}th inning: ${gameScore.Away} - ${gameScore.Home}`;
+      }
+    }
+
+    console.log(getInningScore());
+  }
+
+
+
+  return `Final Score: ${gameScore.Away} - ${gameScore.Home}`;
+
+/* CODE HERE */
+ }
+
+console.log(scoreboard(inning, 9));
 
