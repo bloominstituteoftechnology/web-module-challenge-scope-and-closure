@@ -9,7 +9,7 @@ The module challenge is the afternoon project or assignment that students work t
 ## Objectives
 
 - Explain function scope
-- Describe what closure is, how closure is created in a program and why it is important to understand closures in JavaScript  
+- Describe what closure is, how closure is created in a program and why it is important to understand closures in JavaScript
 
 ## Introduction
 
@@ -17,7 +17,7 @@ This challenge focuses on both scope and closures.
 
 In this challenge you will be working to build a `scoreboard` (in the console) that takes randomly generated data and keeps track of a game's progress. If you're not familiar with the rules of baseball what you need to know is this: there are 9 innings and teams take turns "at-bat." Teams can only score while they are at bat. A team stops being at bat once they have gotten 3 `outs` by either striking out or through game play. You can read more about baseball rules [here](https://www.rulesofsport.com/sports/baseball.html).
 
-A scoreboard in a major league stadium looks something like this. In fact, the scoreboard at Fenway Park in Boston is actually quite famous. 
+A scoreboard in a major league stadium looks something like this. In fact, the scoreboard at Fenway Park in Boston is actually quite famous.
 
 ![Fenway Scoreboard](https://storage.googleapis.com/afs-prod/media/media:e959506330fd4e5890023c93cfbaac55/800.jpeg)
 
@@ -44,6 +44,8 @@ Edit the `ReadMe` file with your answers.
 1. In your own words, define closure (1-2 sentences).
 2. Study the following code, then answer the questions below.
 
+1. Closure basically means an inner function has the same access to arguments and parameters as its primary function. This applies even if the primary function has returned.
+
 ```js
 function personalDice(name){
   return function(){
@@ -62,9 +64,9 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+a. Where is closure used in this code? How can you tell? in the outer function it is pulling the arguments and parameters from the primary function personalDice
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change? We would never know who the winner is since we are not calling Zoe's rolls.
+c. What is the lexical scope of `newRoll`? It can assess the outer levels of the function.
 
 ### Task 2c - Exit Ticket
 
