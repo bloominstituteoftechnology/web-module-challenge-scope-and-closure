@@ -27,8 +27,11 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ * Counter one doesnt save the previous data, no way to keep track
+ * counter two recalls the last number and you can see how it got there
  * 2. Which of the two uses a closure? How can you tell?
+ * The first one.
+ * The second isnt referencing a variable from inside the function
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
@@ -56,12 +59,12 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
-}
-
+function inning(points){
+  return Math.floor(Math.random() * Math.floor(3));
+  }
+  
+  inning();
+  
 /* Task 3: finalScore()
 
 Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
@@ -76,17 +79,29 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
 
-  /*Code Here*/
+function finalScore(final , num){
+  let score = {Home: 0, Away: 0};
 
+  for(let i = 0; i<=num; i++) {
+    let homeScore = final();
+    let awayScore = final();
+
+    score.Home += homeScore;
+    score.Away += awayScore;
+  }
+
+  return score;
 }
+  console.log(finalScore(inning,9));
+
+
 
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
 
-(1) Callback function `getInningScore`
+(1) Callback function `finalScore`
 (2) Callback function `inning`
 (3) A number of innings
 
@@ -106,5 +121,22 @@ Final Score: awayTeam - homeTeam */
 function scoreboard(/* CODE HERE */) {
   /* CODE HERE */
 }
+function scoreboard(callBackFS, callBackInn, innNum) {
+  let score = inning();
+  let gameScore = {Home: 0, Away: 0};
+  let innNum += gameScore
+  for (let score = 0; score < 8; score++)
+    
+    if(score < 8){
+    return innNum }
+    
 
+
+
+
+  
+
+}
+
+console.log(scoreboard());
 
