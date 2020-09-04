@@ -113,10 +113,13 @@ finalScore(inning, 9) might return:
 
 // finalScore(inning, 9)
 
+var homeScore = 0;
+var awayScore = 0;
+
 function getInningScore(prior) {
   let i = 1;
-  let homeScore = prior();
-  let awayScore = prior();
+  homeScore = prior();
+  awayScore = prior();
   return `Away Team: ${awayScore} - Home Team: ${homeScore}`;
 }
 
@@ -132,7 +135,7 @@ function finalScore(prior, number) {
   return { Home: home, Away: away };
 }
 
-console.log(finalScore(inning, 4));
+// console.log(finalScore(inning, 4));
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
@@ -156,9 +159,16 @@ Final Score: awayTeam - homeTeam */
 
 function scoreBoard(getInningScore, prior, numInnings) {
   let board = [];
+  let homeFinalScore = 0;
+  let awayFinalScore = 0;
   for (let i = 1; i <= numInnings; i++) {
     board.push(`Inning ${i}: ${getInningScore(prior)}`);
+    homeFinalScore += homeScore;
+    awayFinalScore += awayScore;
   }
+  board.push(
+    `Final Score: Away Team: ${awayFinalScore} - Home Team: ${homeFinalScore}`
+  );
   return board;
 }
 
