@@ -2,46 +2,48 @@
 
 /**
  * ### Challenge `processFirstItem`
- * 
+ *
  * @instructions
  * Implement a higher-order function called `processFirstItem`.
  * It takes two arguments:
  * @param stringList an array of strings.
  * @param callback function that takes a string as its argument.
  * @returns the result of invoking `callback` with the FIRST element in `stringList`.
- * 
+ *
  * Example of usage of this higher-order function:
  * Invoking `processFirstItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'foofoo'.
-*/
+ */
 function processFirstItem(stringList, callback) {
-  return callback(stringList[0])
+  return callback(stringList[0]);
 }
 
 // ⭐️ Example Challenge END ⭐️
-
 
 ///// M V P ///////
 
 /* Task 1: `counterMaker`
  * Study the code for counter1 and counter2. Answer the questions below.
- * 
- * 1. What is the difference between counter1 and counter2?
- * 
- * 2. Which of the two uses a closure? How can you tell?
- * 
- * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
-*/
+ * 1. What is the difference between counter1 and counter2?
+ * counter 1 saves count as persistent data (known as Persistent Lexically Scoped Reference Data). This data stores the result of count in the functions global scope and will incrament the counter and save the result perminently. This enables us to run the function multiple times and incrament the counter multiple times.  Counter 2 does not contain this persistent data so every time we run function 2 the result will be 1.
+ *
+ * 2. Which of the two uses a closure? How can you tell?
+ * the counter 2 function utilizes closure because it is "reaching" out to a globally referenced const label for the definition of count.
+ *
+ * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?
+ * Counter 1 is preferrable in most cases in Javascript. Whenever we need to access and manipulate the counter later on in the code we will want to utilize the persistant data storage given by the first function. THe second function is fine if we only need to incrament the counter once and never again.
+ */
 
 // counter1 code
 function counterMaker() {
   let count = 0;
   return function counter() {
-   return count++;
-  }
+    return count++;
+  };
 }
 
+// less secure
 const counter1 = counterMaker();
 
 // counter2 code
@@ -51,15 +53,33 @@ function counter2() {
   return count++;
 }
 
-
 /* Task 2: inning() 
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+// var inningScores = [];
 
-    /*Code Here*/
+// const inning = function() {
+//   score = [];
+//     for (let i = 0; i < 18; i++){
+// const result = Math.floor(Math.random()*3);
+// score.push(result);
+//     }
+// for (let i = 0; i < 18; i++){
+// let inningScoreObject = {home: score[i], away: score[++i]};
+//  inningScores.push(inningScoreObject);
+//  }
+// return inningScores;
+//   }
 
+//   console.log(inning());
+
+function inning() {
+  let score = Math.floor(Math.random() * 3);
+  if (score === 3) {
+    score = 2;
+  }
+  return score;
 }
 
 /* Task 3: finalScore()
@@ -74,19 +94,48 @@ finalScore(inning, 9) might return:
   "Away": 5,
 }
 
-*/ 
+*/
 
-function finalScore(/*code Here*/){
+//
 
-  /*Code Here*/
+// var inningScores = [];
 
+// function finalScore(inning, inningNumber) {
+// for (let i = 0; i < inningNumber * 2; i++){
+//   let inningScoreObject = {home: score[i], away: score[++i]};
+//   inningScores.push(inningScoreObject);
+// }
+// return inningScores;
+// }
+
+// finalScore(inning, 9)
+
+function getInningScore(prior) {
+  let i = 1;
+  let homeScore = prior();
+  let awayScore = prior();
+  return `Away Team: ${awayScore} - Home Team: ${homeScore}`;
 }
 
+getInningScore(inning);
+
+function finalScore(prior, number) {
+  let home = 0;
+  let away = 0;
+  for (let i = 0; i <= number; i++) {
+    home = home + prior();
+    away += prior();
+  }
+  return { Home: home, Away: away };
+}
+
+console.log(finalScore(inning, 4));
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
 
 (1) Callback function `getInningScore`
+
 (2) Callback function `inning`
 (3) A number of innings
 
@@ -102,9 +151,12 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
-
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreBoard(getInningScore, prior, numInnings) {
+  let board = [];
+  for (let i = 1; i <= numInnings; i++) {
+    board.push(`Inning ${i}: ${getInningScore(prior)}`);
+  }
+  return board;
 }
 
-
+console.log(scoreBoard(getInningScore, inning, 9));
