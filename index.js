@@ -26,13 +26,16 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  *
  * 1. What is the difference between counter1 and counter2?
- * counter 1 saves count as persistent data (known as Persistent Lexically Scoped Reference Data). This data stores the result of count in the functions global scope and will incrament the counter and save the result perminently. This enables us to run the function multiple times and incrament the counter multiple times.  Counter 2 does not contain this persistent data so every time we run function 2 the result will be 1.
+ * counter 1 saves count as persistent data (known as Persistent Lexically Scoped Reference Data). This data stores the result of count in the functions reference scope and will incrament the counter and save the result perminently. Counter 2 just calls a globally stored const label known as count and incraments it globally. 
  *
  * 2. Which of the two uses a closure? How can you tell?
- * the counter 2 function utilizes closure because it is "reaching" out to a globally referenced const label for the definition of count.
+ * This actually depends on the implementation of these two functions. As it sits right now function 2 utilizes closure as it has to "reach out" of the function to reference the global counter. However if we were to run the counter function inside example one it would also be utilizing closure to achieve the incramentation of the counter. (IE)
+ * const myNewFunc =  countMaker();
+    myNewFunc(); 
+    myNewFunc();
  *
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?
- * Counter 1 is preferrable in most cases in Javascript. Whenever we need to access and manipulate the counter later on in the code we will want to utilize the persistant data storage given by the first function. THe second function is fine if we only need to incrament the counter once and never again.
+ * Counter 1 is preferrable in most cases in Javascript. It is more secure and flexable. However scenario 2 is okay to use for simple applications that just need to return a counter or if we are modifying the const label once. 
  */
 
 // counter1 code
