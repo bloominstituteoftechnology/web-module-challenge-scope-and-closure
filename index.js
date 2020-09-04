@@ -14,9 +14,11 @@
  * Invoking `processFirstItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'foofoo'.
 */
+
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
+
 
 // ⭐️ Example Challenge END ⭐️
 
@@ -28,9 +30,14 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * The code for counter1 has a count variable that is scoped within the function counterMaker(). The count can only be accessed within the function by the function. It then has another function nested which increases the variable count. It can access this
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ *    
+ * When we only care about the number of usage for counter1. Dont care about what the current count is.
+ * When we want to track the total amount used. This has to be referenced.
  *
 */
 
@@ -56,11 +63,15 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
-
+    return Math.floor(Math.random() * Math.floor(3)); // round down the total number ( random number from 0 to 1 multiplied by the rounded down 3)
+   
 }
+
+
+
+// console.log(inning())
 
 /* Task 3: finalScore()
 
@@ -75,12 +86,38 @@ finalScore(inning, 9) might return:
 }
 
 */ 
-
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
+  
+function finalScore(callback, num){
+  
+  let home = 0;
+  let away = 0;
+  
+  return function scoreCounter() {
+    for (i = 0; i < num; i++) {
+      home += callback
+      away += callback
+      score =
+  }
+  
+  return {Home: home, Away: away}
+  
+}
 
 }
+
+
+
+console.log(inning(), 9)
+
+
+// function annoyingSong() {
+//   for (i = 99; i > 0; i--)
+//       console.log(`${i} bottles of soda on the wall, ${i} ,bottles of soda, take one down pass it around, ${i -1} bottles of soda on the wall..."`);
+// }
+
+// annoyingSong()
+
+
 
 /* Task 4: 
 
