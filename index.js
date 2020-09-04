@@ -30,12 +30,12 @@ function processFirstItem(stringList, callback) {
  *
  * 2. Which of the two uses a closure? How can you tell?
  * This actually depends on the implementation of these two functions. As it sits right now function 2 utilizes closure as it has to "reach out" of the function to reference the global counter. However if we were to run the counter function inside example one it would also be utilizing closure to achieve the incramentation of the counter. (IE)
- * const myNewFunc =  countMaker();
+ * const myNewFunc =  counterMaker();
     myNewFunc(); 
     myNewFunc();
  *
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?
- * Counter 1 is preferrable in most cases in Javascript. It is more secure and flexable. However scenario 2 is okay to use for simple applications that just need to return a counter or if we are modifying the const label once. 
+ * Counter 1 is preferrable in most cases in Javascript. It is more secure and flexable because it can be used to create multiple counters. However scenario 2 is easier to use and implament if we only need one counter. In order to use the first counter we need to create a new function and set it's value to the result of the function CounterMaker. Otherwise if we try to just run counterMaker, the result will be [function: counter] and if we try to call the counter function from outside the outer function we will get a reference error because that inner function does not exist in the global scope. 
  */
 
 // counter1 code
@@ -47,7 +47,6 @@ function counterMaker() {
 }
 
 // less secure
-const counter1 = counterMaker();
 
 // counter2 code
 let count = 0;
@@ -84,6 +83,8 @@ function inning() {
   }
   return score;
 }
+
+console.log(inning());
 
 /* Task 3: finalScore()
 
@@ -123,7 +124,7 @@ function getInningScore(prior) {
   return `Away Team: ${awayScore} - Home Team: ${homeScore}`;
 }
 
-getInningScore(inning);
+console.log(getInningScore(inning));
 
 function finalScore(prior, number) {
   let home = 0;
@@ -134,6 +135,7 @@ function finalScore(prior, number) {
   }
   return { Home: home, Away: away };
 }
+console.log(finalScore(inning, 3));
 
 // console.log(finalScore(inning, 4));
 /* Task 4: 
