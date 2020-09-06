@@ -30,14 +30,19 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
- * The code for counter1 has a count variable that is scoped within the function counterMaker(). The count can only be accessed within the function by the function. It then has another function nested which increases the variable count. It can access this
- * 
+ The code for counter1 has a count variable that is scoped within the function counterMaker(). This variable can only be accessed within the function by the function. It then has another function nested which increases the variable count. It can access the count variable outside its scope.
+ 
+ The counter 2 code pulls data and pushes data to the global variable count data to be stored in memory so that the count is increased each time the function is invoked.
+ 
  * 2. Which of the two uses a closure? How can you tell?
- * 
+
+ Counter1 code uses closure. I can tell because there is a function that is wrapped inside a parent function. It is capable of getting data from the parent function.
+
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *    
- * When we only care about the number of usage for counter1. Dont care about what the current count is.
- * When we want to track the total amount used. This has to be referenced.
+ Counter1 code would be preferable when we do not need to keep a global tally of a count as it remains specific to the function. It would be preferrable to count one specific task. It could also be used to count other specific tasks at a start of zero. An example being daily visits to a website being tracked with dated counters.
+
+ Counter2 code would be ideal when we want to track the total amount counted for one thing since the counter affects one global variable. An example could be total amount of visits to a website for the month.
  *
 */
 
@@ -50,6 +55,7 @@ function counterMaker() {
 }
 
 const counter1 = counterMaker();
+const counter3 = counterMaker();
 
 // counter2 code
 let count = 0;
@@ -58,6 +64,18 @@ function counter2() {
   return count++;
 }
 
+console.log(counter1())
+console.log(counter1())
+console.log(counter1())
+
+
+
+console.log(counter2())
+console.log(counter2())
+console.log(counter2())
+
+console.log(counter1())
+console.log(counter3())
 
 /* Task 2: inning() 
 
@@ -87,27 +105,27 @@ finalScore(inning, 9) might return:
 
 */ 
   
-function finalScore(callback, num){
+// function finalScore(callback, num){
   
-  let home = 0;
-  let away = 0;
+//   let home = 0;
+//   let away = 0;
   
-  return function scoreCounter() {
-    for (i = 0; i < num; i++) {
-      home += callback
-      away += callback
-      score =
-  }
+//   return function scoreCounter() {
+//     for (i = 0; i < num; i++) {
+//       home += callback
+//       away += callback
+//       score =
+//   }
   
-  return {Home: home, Away: away}
+//   return {Home: home, Away: away}
   
-}
+// }
 
-}
+// }
 
 
 
-console.log(inning(), 9)
+// console.log(inning(), 9)
 
 
 // function annoyingSong() {
