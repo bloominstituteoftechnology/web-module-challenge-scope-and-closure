@@ -88,7 +88,7 @@ function inning(){
    
 }
 
-// console.log(inning())
+console.log(inning())
 
 
 
@@ -144,9 +144,49 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
+ // Okay
+ // create array with objects as elements to store inning results
+ let home = 0  
+ let away = 0
+ let inningscores = [
+   {Inning: 1, Home: home, Away: away, Result: "1st inning: "},
+   {Inning: 2, Home: home, Away: away, Result: "2nd inning: "},
+   {Inning: 3, Home: home, Away: away, Result: "3rd inning: "},
+   {Inning: 4, Home: home, Away: away, Result: "4th inning: "},
+   {Inning: 5, Home: home, Away: away, Result: "5th inning: "},
+   {Inning: 6, Home: home, Away: away, Result: "6th inning: "},
+   {Inning: 7, Home: home, Away: away, Result: "7th inning: "},
+   {Inning: 8, Home: home, Away: away, Result: "8th inning: "},
+   {Inning: 9, Home: home, Away: away, Result: "9th inning: "}
+ ]
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+// create func that takes cb and num
+function getInningScore(callback, num){  
+
+    for (let i = 0; i < num; i++) { //create for loop 
+      inningscores[i].Home = inningscores[i].Home + callback(); // create score
+      inningscores[i].Away = inningscores[i].Away + callback(); // create score 
+      console.log(`${inningscores[i].Result} Away: ${inningscores[i].Away} - Home: ${inningscores[i].Home}`)//log results
+    }
+  let awaysum = inningscores.reduce(function (total, currentValue){ //used a reduce method to calc sum of scores
+      return total + currentValue.Away;
+    }, away); 
+  let homesum = inningscores.reduce(function (total, currentValue){
+    return total + currentValue.Home;
+  }, home); 
+  console.log(`Final Score: Away: ${awaysum} - Home: ${homesum}`)  
+  return  // return 
+}     
+
+function scoreboard(getInningScore, callback, num) {
+   
+  getInningScore(callback, num)
+  callback()
+  
+  return;
+
 }
 
+
+scoreboard(getInningScore, inning, 9)
 
