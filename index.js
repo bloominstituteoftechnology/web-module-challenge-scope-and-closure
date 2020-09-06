@@ -82,8 +82,9 @@ function counter2() {
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
 function inning(){
-
-    return Math.floor(Math.random() * Math.floor(3)); // round down the total number ( random number from 0 to 1 multiplied by the rounded down 3)
+    let random = 0
+    random = Math.floor(Math.random() * Math.floor(3));
+    return random // round down the total number ( random number from 0 to 1 multiplied by the rounded down 3)
    
 }
 
@@ -105,44 +106,22 @@ finalScore(inning, 9) might return:
 
 */ 
   
-function finalScore(){
+function finalScore(callback, num){ // create function that takes callback and num as innings
   let home = 0 // set home var to 0
   let away = 0 // set away var to 0
-  let score = {Home: home, Away: away} // create obj called score with properties
-
-  return function() { // return a function that calculates random score for home and away
-
-        score.Home = score.Home + inning()
-        score.Away = score.Away + inning()
-        return score;
+  let score = {Home: home, Away: away} // create obj called score with properties Home and Away
+    for (let i = 0; i < num; i++) { //create for loop that runs for amount of innings
+        score.Home = score.Home + callback(); // in each loop add a random # to score's home key
+        score.Away = score.Away + callback(); // in each loop add a random # to score's away key
     }
-  
-    
-
-}
-
-const finscore = finalScore(); // assign var finalScore function to store final results
-
-console.log(finscore())
+  return score // return the score variable to end the function once all loops are complete
+}    
 
 
-// let home = 5
-// let away = 0
 
-// const score = {Home: home, Away: away}
+const finscore = finalScore(); // assign var finalScore function to function expression finscore to store final results
 
-// score.Home = inning()
-// score.Away = inning()
-// console.log(score)
-
-
-// function annoyingSong() {
-//   for (i = 99; i > 0; i--)
-//       console.log(`${i} bottles of soda on the wall, ${i} ,bottles of soda, take one down pass it around, ${i -1} bottles of soda on the wall..."`);
-// }
-
-// annoyingSong()
-
+console.log(finalScore(inning, 9))
 
 
 /* Task 4: 
