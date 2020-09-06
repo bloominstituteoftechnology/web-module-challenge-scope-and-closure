@@ -64,18 +64,18 @@ function counter2() {
   return count++;
 }
 
-console.log(counter1())
-console.log(counter1())
-console.log(counter1())
+// console.log(counter1())
+// console.log(counter1())
+// console.log(counter1())
 
 
 
-console.log(counter2())
-console.log(counter2())
-console.log(counter2())
+// console.log(counter2())
+// console.log(counter2())
+// console.log(counter2())
 
-console.log(counter1())
-console.log(counter3())
+// console.log(counter1())
+// console.log(counter3())
 
 /* Task 2: inning() 
 
@@ -87,9 +87,9 @@ function inning(){
    
 }
 
-
-
 // console.log(inning())
+
+
 
 /* Task 3: finalScore()
 
@@ -105,27 +105,35 @@ finalScore(inning, 9) might return:
 
 */ 
   
-// function finalScore(callback, num){
-  
-//   let home = 0;
-//   let away = 0;
-  
-//   return function scoreCounter() {
-//     for (i = 0; i < num; i++) {
-//       home += callback
-//       away += callback
-//       score =
-//   }
-  
-//   return {Home: home, Away: away}
-  
-// }
+function finalScore(){
+  let home = 0 // set home var to 0
+  let away = 0 // set away var to 0
+  let score = {Home: home, Away: away} // create obj called score with properties
 
-// }
+  return function() { // return a function that calculates random score for home and away
+
+        score.Home = score.Home + inning()
+        score.Away = score.Away + inning()
+        return score;
+    }
+  
+    
+
+}
+
+const finscore = finalScore(); // assign var finalScore function to store final results
+
+console.log(finscore())
 
 
+// let home = 5
+// let away = 0
 
-// console.log(inning(), 9)
+// const score = {Home: home, Away: away}
+
+// score.Home = inning()
+// score.Away = inning()
+// console.log(score)
 
 
 // function annoyingSong() {
