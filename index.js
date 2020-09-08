@@ -27,14 +27,17 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+ * 
  * Counter one doesnt save the previous data, no way to keep track
  * counter two recalls the last number and you can see how it got there
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
  * The first one.
  * The second isnt referencing a variable from inside the function
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ * Counter two would be more useful if you had a clicker or needed to reset the count everytime
 */
 
 // counter1 code
@@ -45,7 +48,7 @@ function counterMaker() {
   }
 }
 
-const counter1 = counterMaker();
+const counter = counterMaker();
 
 // counter2 code
 let count = 0;
@@ -63,7 +66,7 @@ function inning(points){
   return Math.floor(Math.random() * Math.floor(3));
   }
   
-  inning();
+  console.log(inning());
   
 /* Task 3: finalScore()
 
@@ -84,11 +87,11 @@ function finalScore(final , num){
   let score = {Home: 0, Away: 0};
 
   for(let i = 0; i<=num; i++) {
-    let homeScore = final();
-    let awayScore = final();
+    // let homeScore = final();
+    // let awayScore = final();
 
-    score.Home += homeScore;
-    score.Away += awayScore;
+    score.Home += final();
+    score.Away += final();
   }
 
   return score;
@@ -117,26 +120,17 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
-
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
-function scoreboard(callBackFS, callBackInn, innNum) {
-  let score = inning();
-  let gameScore = {Home: 0, Away: 0};
-  let innNum += gameScore
-  for (let score = 0; score < 8; score++)
-    
-    if(score < 8){
-    return innNum }
-    
+// to get 1st, 2nd etc use #before inning like {`#inning?
 
 
 
-
+ function scoreboard(callbackFinalS, callBackInn, innN) {
+  var placeI = {inning: awayTeam - homeTeam}
   
+  for(var placeI = 0; placeI <= callbackFinalS; placeI++ ){
 
-}
+    
+  }
 
-console.log(scoreboard());
 
+ }
