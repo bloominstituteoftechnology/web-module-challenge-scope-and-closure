@@ -14,9 +14,14 @@
  * Invoking `processFirstItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'foofoo'.
 */
+
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
+
+var str = ["foo", "bar"];
+console.log("Example Challenge: ");
+console.log(processFirstItem(str, (str) => str + str));
 
 // ⭐️ Example Challenge END ⭐️
 
@@ -47,10 +52,14 @@ function counterMaker() {
   let count = 0;
   return function counter() {
    return count++;
-  }
+  };
 }
 
 const counter1 = counterMaker();
+console.log("Counter #1 code function: ", counterMaker());
+counter1();
+counter1();
+console.log("Counter #1 closure code function after executing twice: ", counter1());
 
 // counter2 code
 let count = 0;
@@ -59,16 +68,21 @@ function counter2() {
   return count++;
 }
 
+counter2();
+counter2();
+console.log("Counter #2 code function after executing twice: ", counter2());
+console.log("Task #1");
 
 /* Task 2: inning() 
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
 function inning() {
-  return Math.floor(Math.random()*3);
+  return Math.floor(3 * Math.random()); 
 }
-console.log("Random Score: ");
-for (let i=0; i<4; i++) console.log("Inning: " + inning());
+
+for (let i=0; i<5; i++) console.log("Score in random inning: ", inning());
+console.log("Task #2");
 
 /* Task 3: finalScore()
 
@@ -84,16 +98,20 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(inning, number){
-  let score= {Home: 0, Away: 0};
-  for(i=0; i<number; i++) {
+function finalScore(inning, num) {
+  let score= {
+    Home: 0,
+    Away: 0,
+  };
+
+  for (i=0; i< num; i++) {
     score["Home"] += inning();
     score["Away"] += inning();
   }
    return score;
 }
-console.log(finalScore(inning, 9));
-
+console.log("The final score is: ", finalScore(inning, 9));
+console.log("Task #3");
 
 /* Task 4: 
 
@@ -115,22 +133,33 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
-function getInningScore(callback){
-  return callback 
-}
-
-function scoreboard(inningScore, inning, number) {
+function scoreboard(getInningScore, inning, num) {
   let score={};
-  let finalScore = inningScore;
-  let inningNumber = ["First", "Second, Third", "Fourth", "Fifth", 'Sixth', "Seventh", "Eighth", "Ninth"];
- for(i=0; i<number; i++) {
-   score= inningScore(inning(), inning());
-   finalScore["Home"] += score["Away"];
+  let finalScore = getInningScore(0,0);
+  let inningNum = [
+    "First",
+    "Second",
+    "Third",
+    "Fourth",
+    "Fifth",
+    "Sixth",
+    "seventh",
+    "Eighth",
+    "Ninth",
+  ]};
 
- }
-  console.log(` ${finalScore["Away"]} - ${finalScore["Home"]}`);
-} 
+  for (i=0; i<num; i++) {
+    score = getInningScore(inning(), inning());
+    finalScore["Home"] += score["Home"];
+    finalScore["Away"] += score["Away"];
+    console.log('${inningNum[i]} inning: ${score["Away"]} - ${score["Home"]}');
+  }
 
-console.log(scoreboard(getInningScore, inning, 9));
+  console.log('Final Score: ${finalScore["Away"]} - ${finalScore["Home"]}');
 
-
+  function getInningScore(val1, val2) {
+    return {Home: val1, Away: val2};
+  }
+  
+  console.log(scoreboard(getInningScore, inning, 9));
+  console.log("Task #4");
