@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+  Closure is when you put a function in another function. The inner function will have acces to varibales inside the outer function but the outer function will not have accres to the variable of the inside function.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +66,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+  Closure is used on line 52. It's a function inside a function.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+  Name will always be the same and a new roll will be calculated every time.
+
 c. What is the lexical scope of `newRoll`? 
+
+  its avaiable only in the unnamed function.
 
 ### Task 2c - Exit Ticket
 
