@@ -89,14 +89,15 @@ function finalScore(callback, number){
   let awayPoints = 0;
 
   for(let i = 0 ; i <= number; i++){
-    if(callback === 0){
-      homePoints = homePoints + (callback + number); awayPoints = awayPoints + 0;
-    } else if(callback === 1){
-      awayPoints = awayPoints + (callback + number);
-      homePoints = homePoints + 0;
-    } else if(callback === 2) {
-      homePoints = homePoints + (callback + number);
-      awayPoints = awayPoints + (callback + number);
+    if(callback() === 0){
+      homePoints += (callback() * number); 
+      
+    } else if(callback() === 1){
+      awayPoints += (callback() * number);
+     
+    } else if(callback() === 2) {
+      homePoints += (callback() * number);
+      awayPoints +=  (callback() * number);
     }
   }
   
@@ -106,8 +107,7 @@ function finalScore(callback, number){
   }
   return finalScores;
 }
-
-console.log(finalScore(inning(), 2));
+console.log(finalScore(inning, 3));
 
 
 
@@ -132,8 +132,20 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(scoreFunc, inningFunc, number) {
+  let inningScore = function getInningScore(){
+    inningScore = inningFunc() * number;
+  }
+
+  if(number <= 9){
+  return `${number} inning: ${awayPoints} - ${homePoints}`;
+  }
+  if(number > 9){
+    return `Final Score: ${awayPoints} - ${homePoints}`;
+  }
+
+
 }
 
+console.log(scoreboard(getInningScore, inning, 8));
 
