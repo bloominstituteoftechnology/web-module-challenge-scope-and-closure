@@ -28,10 +28,16 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * counter1 has it returning a function while counter2 is only returning the count.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ * counter1 uses a closure because the counter function has access to the variable count in its lexical enviornment(function counterMaker)
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ * counter1 would be prefered in a scenario that would have the change repeated(in this case the count) and the return data saved to be the new plugin such as the count can be number of steps taken.
+ * It'd be best told 8,751 steps rather than doing 1 step but with 1 repeating for 8,751 times. counter2 would be better for a scenario it only needed to be applied once but used by other functions as a refrence.
 */
 
 // counter1 code
@@ -56,11 +62,11 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(points){
+  points = Math.round(Math.random * 2);
+   return points
 }
+console.log(inning());
 
 /* Task 3: finalScore()
 
