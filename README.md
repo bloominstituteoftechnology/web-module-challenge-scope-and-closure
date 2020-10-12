@@ -42,6 +42,8 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+    - Closure means that an inner fuction always has acces to the variables and parameters of it outer function, even after the outer funtion has returned.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +65,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+    - Where personalDice() is assigned to const dansRoll and zoesRoll.
+ 
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+    - The name being passed to personalDice is always the same. The random number generated can change.
+
 c. What is the lexical scope of `newRoll`? 
+    - The lexical scope of newRoll is the personalDice function.
 
 ### Task 2c - Exit Ticket
 

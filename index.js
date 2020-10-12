@@ -124,30 +124,30 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function getInningScore(inputInning, awayScore, homeScore){
-  if(inputInning === 1){
+function getInningScore(inputInning, awayScore, homeScore){               // getInningScore takes the current inning, away score and home score as inputs
+  if(inputInning === 1){                                                  // console.log output for 1st inning
     console.log(`1st inning: ${awayScore} - ${homeScore}`)
-  } else if(inputInning === 2){
+  } else if(inputInning === 2){                                           // console.log output for 2nd inning
     console.log(`2nd inning: ${awayScore} - ${homeScore}`)
-  }else if(inputInning === 3){
+  }else if(inputInning === 3){                                            // console.log output for 3rd inning
     console.log(`3rd inning: ${awayScore} - ${homeScore}`)
   }else{
-    console.log(`${inputInning}th inning: ${awayScore} - ${homeScore}`)
+    console.log(`${inputInning}th inning: ${awayScore} - ${homeScore}`)   // console.log output for subsequent innings
   }
 }
 
-function scoreboard(inputInningScore, showInningScore, numOfInnings) {
-  let homeScore=0;
-  let awayScore=0;
+function scoreboard(inputInningScore, showInningScore, numOfInnings) {    // scoreboard takes in a a function for a random score, a function to print out each line of the inning score and a number of innings played
+  let homeScore=0;                                                        // initalize variable for home score
+  let awayScore=0;                                                        // initalize variable for away score
 
-  for(let inningNumber=1; inningNumber<=numOfInnings; inningNumber++){
-    let homeRunsScored=inputInningScore();
-    homeScore=homeScore+homeRunsScored;
-    let awayRunsScored=inputInningScore();
-    awayScore=awayScore+awayRunsScored;
-    showInningScore(inningNumber, awayScore, homeScore);
+  for(let inningNumber=1; inningNumber<=numOfInnings; inningNumber++){    // for loop that runs as many times as innings specified
+    let homeRunsScored=inputInningScore();                                // get an inning score for home
+    homeScore=homeScore+homeRunsScored;                                   // add the above value to the total score
+    let awayRunsScored=inputInningScore();                                // get an inning score for away
+    awayScore=awayScore+awayRunsScored;                                   // add the above value to the total score
+    showInningScore(inningNumber, awayScore, homeScore);                  // call getInningScore, give it the current inning number, away score and home score
   }
-  return `Final Score: ${awayScore} - ${homeScore}`
+  return `Final Score: ${awayScore} - ${homeScore}`                       // return Final Score line
 }
 
 console.log(scoreboard(inning, getInningScore, 9))
