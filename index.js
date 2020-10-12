@@ -28,11 +28,16 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ *    The scope of the function. The first counter is a higher-order function, and esentially nests one function within another. 
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ *     The first code uses closer to make the variables specific to the function. 
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
-*/
+ *      
+ *    Some situations in which you would want to the code to be locally scoped, perhaps a more general scope would effect other functions of the code. 
+*/      
 
 // counter1 code
 function counterMaker() {
@@ -58,7 +63,8 @@ Write a function called `inning` that returns a random number of points that a t
 
 function inning(/*Code Here*/){
 
-    /*Code Here*/
+      return (math.floor(2)math.random) 
+  }
 
 }
 
