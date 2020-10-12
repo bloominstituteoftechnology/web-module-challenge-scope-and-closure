@@ -42,6 +42,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+- Closure represents the ability to access a variable depending on it's relationship to a function. If the function attempting to call it is outside the function in which the variable was declared, it would not be able to do so. However, variables that are accessed by functions nested within the function from where it was declared can access it. 
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +64,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+- Closure is used in the return function, as the varibale newRoll cannot be accessed outside of it. 
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+- The return method that the parameter goes through is always the same. However, the parameter may change based on user input and the newRoll would be different. 
 c. What is the lexical scope of `newRoll`? 
+- The lexical scope of newRoll is only within the return function. 
 
 ### Task 2c - Exit Ticket
 
