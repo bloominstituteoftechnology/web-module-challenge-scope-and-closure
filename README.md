@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+Closure gives us the ability to have functions call each other and pass things back and forth. Closure will remember previous results. 
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +66,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+Closure is used in the const dansRoll and const zoesRoll because it is printing off the console.log in personalDice. "Dan" and "Zoe" are parameters that will be passed in to the personDice problem and the results will be remembers. 
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+
+Each time is random number between 1 and 6. It will always be a number in this range, but the number could change every time. 
+
+c. What is the lexical scope of `newRoll`? \
+
+newRoll can only be accessed inside of the anonymous function ().
 
 ### Task 2c - Exit Ticket
 

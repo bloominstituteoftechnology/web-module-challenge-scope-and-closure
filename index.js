@@ -28,9 +28,18 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * counter1 is a higher order function. It does not have a global variable. 
+ * 
+ * counter2 is function that calls a global variable. 
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ * counter1 uses closure because a new variable is declared that uses the previous function. 
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
+ * counter1 would be preferred when you want the information to be remembered and 
+ * incremeted each time it is invoked. Counter2 is preferred when you're writing a function
  *
 */
 
@@ -56,11 +65,12 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
+    let randomScore = Math.round(Math.random()*2);
+    return randomScore;
+    }
 
-    /*Code Here*/
-
-}
+inning();
 
 /* Task 3: finalScore()
 
@@ -76,11 +86,15 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(inning, number){ 
+  let score = {"Home": 0, "Away": 0};
+  for(let i = 0; i<= number; i++){
+    score.Home += inning();
+    score.Away += inning();
+  }
+  return score;
 }
+console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -103,8 +117,8 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inning, number) {
+  
 }
-
+console.log(scoreboard());
 
