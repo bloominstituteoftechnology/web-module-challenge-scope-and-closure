@@ -84,18 +84,22 @@ finalScore(inning, 9) might return:
 */ 
 
 function finalScore(inning, num){
-  
   let finScore = {
     Home: 0,
     Away: 0,
   };
-  for(let i = 0; i <= num; i++){
-    finScore.Home += inning();
-    finScore.Away += inning();
+
+  function eachTeamScore(inning){
+    let singleScore = 0;
+    for(let i = 0; i <= num; i++){
+    singleScore += inning();
+    }
+    return singleScore;
   }
+  return finScore.Home = eachTeamScore();
+  return finScore.Away = eachTeamScore();
   return finScore;
 }
-
 console.log(finalScore(inning,9));
 
 finalScore(inning, 9)
