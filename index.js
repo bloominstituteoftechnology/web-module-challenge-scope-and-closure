@@ -27,10 +27,11 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ * counter1 always starts at 0 unless you call on the function counter(), but counter 2 doesnt give a choice to start at 0 or not
  * 2. Which of the two uses a closure? How can you tell?
- * 
- * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * counter 1 because it it contained within the larger function and stops when the function is finished
+ * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?
+ * when you have numbers that you want to count to a certain number starting at a given number, and use 2 when you are just counting from 0 
  *
 */
 
