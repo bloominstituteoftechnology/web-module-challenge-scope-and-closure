@@ -42,6 +42,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+> A closure is created when you create a function inside of another function. 
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +64,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+> A closure is used on the line immediately following the personalDice() function declaration. It is a function created within another function. 
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+> The random number generated will always be the same (a random number between 1-6). The result can change every time `dansRoll` is called. 
 c. What is the lexical scope of `newRoll`? 
+> The lexical scope of `newRoll` is personalDice(), since newRoll has access to its outer function's variables. 
 
 ### Task 2c - Exit Ticket
 

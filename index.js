@@ -27,13 +27,15 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- >
+ > The main difference between the two counters is that counter1 uses a Closure by including another function within the function. 
+ > 
  * 
  * 2. Which of the two uses a closure? How can you tell?
  > counter1 uses a closure because it is calling a function within a function. The inner function, counter(), is the closure in this case. 
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?
- >  
+ > counter1 would be preferable if you're using counterMaker() on multiple variables. 
+ > counter2 would be preferable if you want to use counter2() on a single variable.
  *
 */
 
@@ -44,25 +46,24 @@ function counterMaker() {
    return count++;
   }
 }
-
 const counter1 = counterMaker();
 
 // counter2 code
 let count = 0;
-
 function counter2() {
   return count++;
 }
+
 
 
 /* Task 2: inning() 
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-// function inning(){
-//   let runs = Math.floor(Math.random() * 3);
-//   return runs;
-// }
+function inning(){
+  let runs = Math.floor(Math.random() * 3);
+  return runs;
+}
 
 /* Task 3: finalScore()
 
@@ -78,24 +79,24 @@ finalScore(inning, 9) might return:
 
 */ 
 
-// function finalScore(callback, numInnings){
-//   let homeTeam = 0;
-//   let awayTeam = 0;
-//   for (let i = 0; i < numInnings; i++){
-//     const runsScored = callback();
-//     homeTeam = homeTeam + runsScored;
-//   }
-//   for (let i = 0; i < numInnings; i++){
-//     const runsScored = callback();
-//     awayTeam = awayTeam + runsScored;
-//   }
-//   var final = {
-//     Home: homeTeam,
-//     Away: awayTeam,
-//   };
-//   return final;
-// }
-// console.log(finalScore(inning, 9));
+function finalScore(callback, numInnings){
+  let homeTeam = 0;
+  let awayTeam = 0;
+  for (let i = 0; i < numInnings; i++){
+    const runsScored = callback();
+    homeTeam = homeTeam + runsScored;
+  }
+  for (let i = 0; i < numInnings; i++){
+    const runsScored = callback();
+    awayTeam = awayTeam + runsScored;
+  }
+  var final = {
+    Home: homeTeam,
+    Away: awayTeam,
+  };
+  return final;
+}
+console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
