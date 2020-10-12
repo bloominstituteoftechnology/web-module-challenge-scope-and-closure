@@ -121,32 +121,29 @@ function inning(){
   let runs = Math.floor(Math.random() * 3);
   return runs;
 }
-
-function getInningScore(theInning, away, home){
+function getInningScore(theInning, theAwayTeam, away, theHomeTeam, home){
   if (theInning == 1){
-    console.log(`${theInning}st inning: ${away} - ${home}`); /* CODE HERE */
+    console.log(`${theInning}st inning: ${theAwayTeam} ${away} - ${theHomeTeam} ${home}`);
   } else if (theInning == 2){
-    console.log(`${theInning}nd inning: ${away} - ${home}`); /* CODE HERE */
+    console.log(`${theInning}nd inning: ${theAwayTeam} ${away} - ${theHomeTeam} ${home}`); 
   } else if (theInning == 3){
-    console.log(`${theInning}rd inning: ${away} - ${home}`); /* CODE HERE */
+    console.log(`${theInning}rd inning: ${theAwayTeam} ${away} - ${theHomeTeam} ${home}`);
   } else {
-    console.log(`${theInning}th inning: ${away} - ${home}`); /* CODE HERE */
+    console.log(`${theInning}th inning: ${theAwayTeam} ${away} - ${theHomeTeam} ${home}`);
   }
 }
-
-function scoreboard(callback1, callback2, numInnings){
+function scoreboard(callback1, callback2, numInnings, theAwayTeam, theHomeTeam){
   let homeTeam = 0;
   let awayTeam = 0; 
-
   for (let inningNumber = 1; inningNumber <= numInnings; inningNumber++){
     var runsScored = callback1();
     homeTeam = homeTeam + runsScored;
     var runsScored = callback1();
     awayTeam = awayTeam + runsScored;
-    callback2(inningNumber, awayTeam, homeTeam);
+    callback2(inningNumber, theAwayTeam, awayTeam, theHomeTeam, homeTeam);
     }
-  return `Final Score: ${awayTeam} - ${homeTeam}`
+  return `Final Score: ${theAwayTeam} ${awayTeam} - ${theHomeTeam} ${homeTeam}`
 }
-console.log(scoreboard(inning, getInningScore, 9));
+console.log(scoreboard(inning, getInningScore, 9, 'Yankees', 'Red Sox'));
 
 
