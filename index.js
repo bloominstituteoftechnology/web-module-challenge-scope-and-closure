@@ -59,10 +59,10 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(){
-  let runs = Math.floor(Math.random() * 3);
-  return runs;
-}
+// function inning(){
+//   let runs = Math.floor(Math.random() * 3);
+//   return runs;
+// }
 
 /* Task 3: finalScore()
 
@@ -78,24 +78,24 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(callback, numInnings){
-  let homeTeam = 0;
-  let awayTeam = 0;
-  for (let i = 0; i < numInnings; i++){
-    const runsScored = callback();
-    homeTeam = homeTeam + runsScored;
-  }
-  for (let i = 0; i < numInnings; i++){
-    const runsScored = callback();
-    awayTeam = awayTeam + runsScored;
-  }
-  var final = {
-    Home: homeTeam,
-    Away: awayTeam,
-  };
-  return final;
-}
-console.log(finalScore(inning, 9));
+// function finalScore(callback, numInnings){
+//   let homeTeam = 0;
+//   let awayTeam = 0;
+//   for (let i = 0; i < numInnings; i++){
+//     const runsScored = callback();
+//     homeTeam = homeTeam + runsScored;
+//   }
+//   for (let i = 0; i < numInnings; i++){
+//     const runsScored = callback();
+//     awayTeam = awayTeam + runsScored;
+//   }
+//   var final = {
+//     Home: homeTeam,
+//     Away: awayTeam,
+//   };
+//   return final;
+// }
+// console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -117,9 +117,38 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
-
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function inning(){
+  let runs = Math.floor(Math.random() * 3);
+  return runs;
 }
+
+function getInningScore(theInning){
+  if (theInning == 1){
+    console.log(`${theInning}st inning: `); /* CODE HERE */
+  } else if (theInning == 2){
+    console.log(`${theInning}nd inning: `); /* CODE HERE */
+  } else if (theInning == 3){
+    console.log(`${theInning}rd inning: `); /* CODE HERE */
+  } else {
+    console.log(`${theInning}th inning: `); /* CODE HERE */
+  }
+}
+
+function scoreboard(callback1, callback2, numInnings){
+  let homeTeam = 0;
+  let awayTeam = 0; 
+
+  for (let inningNumber = 1; inningNumber <= numInnings; inningNumber++){
+    callback2(inningNumber);
+    var runsScored = callback1();
+    homeTeam = homeTeam + runsScored;
+    var runsScored = callback1();
+    awayTeam = awayTeam + runsScored;
+    console.log(homeTeam);
+    console.log(awayTeam);
+    }
+  return `Final Score: `
+}
+console.log(scoreboard(inning, getInningScore, 9));
 
 
