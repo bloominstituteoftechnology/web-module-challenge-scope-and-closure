@@ -122,15 +122,15 @@ function inning(){
   return runs;
 }
 
-function getInningScore(theInning){
+function getInningScore(theInning, away, home){
   if (theInning == 1){
-    console.log(`${theInning}st inning: `); /* CODE HERE */
+    console.log(`${theInning}st inning: ${away} - ${home}`); /* CODE HERE */
   } else if (theInning == 2){
-    console.log(`${theInning}nd inning: `); /* CODE HERE */
+    console.log(`${theInning}nd inning: ${away} - ${home}`); /* CODE HERE */
   } else if (theInning == 3){
-    console.log(`${theInning}rd inning: `); /* CODE HERE */
+    console.log(`${theInning}rd inning: ${away} - ${home}`); /* CODE HERE */
   } else {
-    console.log(`${theInning}th inning: `); /* CODE HERE */
+    console.log(`${theInning}th inning: ${away} - ${home}`); /* CODE HERE */
   }
 }
 
@@ -139,15 +139,13 @@ function scoreboard(callback1, callback2, numInnings){
   let awayTeam = 0; 
 
   for (let inningNumber = 1; inningNumber <= numInnings; inningNumber++){
-    callback2(inningNumber);
     var runsScored = callback1();
     homeTeam = homeTeam + runsScored;
     var runsScored = callback1();
     awayTeam = awayTeam + runsScored;
-    console.log(homeTeam);
-    console.log(awayTeam);
+    callback2(inningNumber, awayTeam, homeTeam);
     }
-  return `Final Score: `
+  return `Final Score: ${awayTeam} - ${homeTeam}`
 }
 console.log(scoreboard(inning, getInningScore, 9));
 
