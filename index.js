@@ -27,11 +27,13 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+ *    Counter 1 uses a closure because it fefines a function inside of itself, giving the inner function access to the outerfunction's variables. 
  * 
  * 2. Which of the two uses a closure? How can you tell?
+ * Counter1 uses a closure because it defines the function counter inside of itself, counterMaker. The function counter() has access to the outer function counterMaker, creating a closure. It has access to the variable count.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ *    Counter1's code would be preferable if there is already a variable defined as count because that would create conflict. You might accidentally override a variable in the global scope. counterMaker() creates a private variable but gives counter() access to it through a closure. 
 */
 
 // counter1 code
@@ -56,11 +58,10 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning() {
+    return Math.floor(Math.random() * 3)
 }
+console.log(inning())
 
 /* Task 3: finalScore()
 
@@ -72,15 +73,14 @@ finalScore(inning, 9) might return:
 {
   "Home": 11,
   "Away": 5,
+} */
+function finalScore(callback, innings){
+    return {
+        "Home": callback() * innings,
+        "Away": callback() * innings
+    }
 }
-
-*/ 
-
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
-}
+console.log(finalScore(inning, 9))
 
 /* Task 4: 
 
@@ -103,8 +103,8 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(cb1, cb2, innings) {
+  return 
 }
 
 
