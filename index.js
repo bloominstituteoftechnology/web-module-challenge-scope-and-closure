@@ -76,11 +76,31 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function inning(){
+  let score=Math.round(Math.random()*2);
 
-  /*Code Here*/
-
+  return score;
 }
+
+
+
+
+function finalScore(callback,inningsCount){
+  let scoreBoard={ 
+      home:0,
+      away:0, 
+  }
+
+  for(let i=1;i<=inningsCount;i++){
+      scoreBoard.home+=callback();
+      scoreBoard.away+=callback();
+  }console.log(scoreBoard);
+  return scoreBoard;
+}
+finalScore(inning,9)
+  
+
+
 
 /* Task 4: 
 
@@ -102,9 +122,19 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
+//function cycles through innings and returns the score for that inning in a string ex "6th inning: awayTeam [7]- homeTeam [11]"...
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+//getInningFunction gets the score
+
+// function getInningScore(team1,team2){
+//   returns ""
+// }
+
+
+function scoreBoard(finalScore, inning, numberOfInnings) {
+    
+  finalScore(inning,numberOfInnings)
+  return `${inning} inning: ${score.home}-${score.away}`
 }
 
-
+ console.log(scoreBoard(finalScore,9,9)) 
