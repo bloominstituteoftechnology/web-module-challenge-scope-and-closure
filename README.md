@@ -63,9 +63,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+  the closure is used inside the personalDice function.It returns a function that is tied to the value "name" when called.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+  the name on the roll will always be the same but the number gotten from the math.floor function will be different
 c. What is the lexical scope of `newRoll`? 
-
+  the scope of newRoll is inside the function returned from personalDice
 ### Task 2c - Exit Ticket
 
 Once you begin, you will have 15 minutes to answer the questions [here](https://app.codesignal.com/public-test/WjSzNh9gDrD8Xn8hw/enY3yPRP3nEm7E).
