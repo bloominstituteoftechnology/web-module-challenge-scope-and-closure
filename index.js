@@ -27,10 +27,11 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ *      counter2 will run the code over and over, while counter1 will incrament it 
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ *    counter 1 is clousure because it has function in a function 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ *     Closure is better to have for a small programs. 
  *
 */
 
@@ -56,11 +57,16 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+/*Code Here*/
 
-    /*Code Here*/
+    function inning(){
+       var runsScored = Math.floor(Math.random() * 3);
+       return(runsScored)
+     
+    }
+   inning();
 
-}
+
 
 /* Task 3: finalScore()
 
@@ -76,11 +82,20 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(callback,numInnings){
+  let home = 0;
+  let away = 0;
+  for ( var i=0; i<numInnings; i++){
+    home = home + callback();
+    away = away + callback()
 }
+return{
+  "home": home,
+  "Away": away,
+}
+}
+console.log (finalScore (inning, 5));
+
 
 /* Task 4: 
 
@@ -103,8 +118,18 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(score, inn, num){
+  let totalscore={
+   'home': 0, 
+    'away': 0,
+  }
+  let totalscore=[]
+  for(let i=1; i<=num; i++){
+    totalscore.home=inn()
+    totalscore.away=inn()
+    console.log(`${[i]} inning: ${totalscore.home} - ${totalscore.away}` )
+  }
+  return `finalScore=${totalscore.home}-${totalscore.away}`
 }
-
+console.log(scoreboard(finalScore,inning,9))
 
