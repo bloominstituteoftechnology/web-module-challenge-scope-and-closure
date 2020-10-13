@@ -63,8 +63,15 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+closure is used in the console.log variable for ${name}. Name isn't a parameter within that function, so it reaches out and finds the parameter in the other function.
+
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+Name is always going to be 'Dan', the number rolled on the dice can change.
+
+
 c. What is the lexical scope of `newRoll`? 
+whatever is in the funtion that gets returned for the personalDice function.
 
 ### Task 2c - Exit Ticket
 
