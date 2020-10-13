@@ -27,11 +27,11 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ * 1st example count is inside function. Closure. Maintains data. 2nd no closure, starts at 0 when initially called.
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ * 1st, function inside of function
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ * Counter one in a video game. // counter 2 for per day usage (ex. 20 jumping jacks a day, resets everday to 0)
 */
 
 // counter1 code
@@ -40,9 +40,9 @@ function counterMaker() {
   return function counter() {
    return count++;
   }
-}
 
-const counter1 = counterMaker();
+  const counter1 = counterMaker();
+
 
 // counter2 code
 let count = 0;
@@ -56,9 +56,16 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(runs){
+  for (let i = 1 ; i <= runs ; i++){
+    const chanceRun = math.floor(math.random() * 2);
+  }
 
-    /*Code Here*/
+   if (chanceRun => 1){
+     console.log(`You scored ${chanceRun} runs!`);
+   }else{
+     console.log("Shutout!");
+   }
 
 }
 
@@ -76,7 +83,13 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(runs){
+  let innings = 9;
+  let runs = 0;
+  for (let i = 0 ; i < runs; i++){
+    var chanceRun = Math.ceil(Math.random() * 3)
+  function runs() {
+    return count++;
 
   /*Code Here*/
 
@@ -103,8 +116,14 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(innings, chanceRun) {
+  let getInningScore = count;
+  let innings = 9--;
+  return function(){
+  return getInningScore;
+  return innings;
 }
+}
+
 
 
