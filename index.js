@@ -27,10 +27,16 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+ *  one function is using scope and the other has both scope    
+ *  and closure.
+ * 
  * 
  * 2. Which of the two uses a closure? How can you tell?
+ *  counter 1 uses closure. I can tell becuase it has a global 
+ *  varible  and we cannot access the varibles inside function
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
  *
 */
 
@@ -56,12 +62,15 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+const inen = Math.floor(Math.random()*3);
+function inning(){
+  return inen
+
 
     /*Code Here*/
 
 }
-
+  console.log(returInen());
 /* Task 3: finalScore()
 
 Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
@@ -76,9 +85,7 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
+function finalScore()
 
 }
 
