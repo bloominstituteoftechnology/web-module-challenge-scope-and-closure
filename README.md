@@ -41,7 +41,7 @@ Find the file `index.js` and complete the tasks.
 
 Edit the `ReadMe` file with your answers.
 
-1. In your own words, define closure (1-2 sentences).
+1. In your own words, define closure (1-2 sentences). a function within a function you can link to later
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -62,9 +62,10 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+a. Where is closure used in this code? How can you tell?personalDice function, because of the return function
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change? its random
 c. What is the lexical scope of `newRoll`? 
+put it within the function so you could console log with the ${} 
 
 ### Task 2c - Exit Ticket
 
