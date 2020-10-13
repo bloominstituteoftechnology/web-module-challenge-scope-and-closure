@@ -64,7 +64,7 @@ Write a function called `inning` that returns a random number of points that a t
 
 function inning(){
     /*Code Here*/
-    var score = Math.round(Math.random() * 3);
+    var score = Math.round(Math.random() * 2);
     return score;
 }
 
@@ -84,7 +84,6 @@ finalScore(inning, 9) might return:
 */ 
 
 function finalScore(callback, numInning){
-
   /*Code Here*/
 
 }
