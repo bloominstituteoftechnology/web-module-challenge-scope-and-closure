@@ -79,13 +79,14 @@ finalScore(inning, 9) might return:
 
 */
 
-function finalScore(inning, num) {
+function finalScore(cb, num) {
   return inning(num);
 }
 
+finalScore(inning(), 5);
 /* Task 4: 
 
-Create a function called `scoreboard` that accepts the following parameters: 
+Create a function called `scoreboar1d` that accepts the following parameters: 
 
 (1) Callback function `getInningScore`
 (2) Callback function `inning`
@@ -103,6 +104,6 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(cb, cb2, innings) {
+  return cb() + cb2() + innings();
 }
