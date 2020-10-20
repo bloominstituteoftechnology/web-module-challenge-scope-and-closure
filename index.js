@@ -159,8 +159,9 @@ function scoreboard(inning, innings) {
     homeScore += inning();
     awayScore += inning();
     console.log(`Inning ${i} | Home: ${homeScore} | Away: ${awayScore}`);
-    console.log(`Final Score | Home: ${homeScore} | Away: ${awayScore}`);
   }
+  console.log(`Final Score | Home: ${homeScore} | Away: ${awayScore}`);
 }
+
 
 scoreboard(inning, 9);
