@@ -4,13 +4,15 @@
  * This example shows how you might go about solving the rest of the tasks
  * 
  * Use the higher order function processFirstItem below to do the following:
- *  1. Receive an array of strings called `stringList`
- *  2. Receive a function that takes a string as its argument called `callback`
- *  3. Return the result of invoking `callback` with the FIRST element in `stringList`
+ *  1. Receive an array of strings in a parameter
+ *  2. Receive a callback function that takes a string as its argument in a parameter
+ *  3. Return the result of invoking the callback function and passing in the FIRST 
+ *     element in the array as the argument
  * 
- * For example: Invoking `processFirstItem` and passing `['foo', 'bar']` to stringList
- * and passing `function(str){return str+str})` to callback should return 'foofoo'.
+ * The following code is demonstrating a way of completing this task
+ * It returns the string `foofoo`
 */
+
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
@@ -21,15 +23,16 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
 ///// M V P ///////
 
-/* Task 1: counterMaker()
- * Study the code for counter1 and counter2. Answer the questions below.
- * 
- * 1. What is the difference between counter1 and counter2?
- * 
- * 2. Which of the two uses a closure? How can you tell?
- * 
- * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+/*Task 1: counterMaker()
+  
+  Study the code for counter1 and counter2, then answer the questions below.
+  
+  1. What is the difference between counter1 and counter2?
+  
+  2. Which of the two uses a closure? How can you tell?
+  
+  3. In what scenario would the counter1 code be preferable? In what scenario would 
+     counter2 be better?  
 */
 
 // counter1 code
