@@ -1,37 +1,38 @@
 // ⭐️ Example Challenge START ⭐️
 
-/**
- * ### Challenge `processFirstItem`
+/**Example Task : processFirstItem()
+ * This example shows how you might go about solving the rest of the tasks
  * 
- * @instructions
- * Implement a higher-order function called `processFirstItem`.
- * It takes two arguments:
- * @param stringList an array of strings.
- * @param callback function that takes a string as its argument.
- * @returns the result of invoking `callback` with the FIRST element in `stringList`.
+ * Use the higher order function processFirstItem below to do the following:
+ *  1. Receive an array of strings in a parameter
+ *  2. Receive a callback function that takes a string as its argument in a parameter
+ *  3. Return the result of invoking the callback function and passing in the FIRST 
+ *     element in the array as the argument
  * 
- * Example of usage of this higher-order function:
- * Invoking `processFirstItem` passing `['foo', 'bar']` and `(str) => str + str`,
- * should return 'foofoo'.
+ * The following code is demonstrating a way of completing this task
+ * It returns the string `foofoo`
 */
+
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
+console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
 // ⭐️ Example Challenge END ⭐️
 
 
 ///// M V P ///////
 
-/* Task 1: `counterMaker`
- * Study the code for counter1 and counter2. Answer the questions below.
- * 
- * 1. What is the difference between counter1 and counter2?
- * 
- * 2. Which of the two uses a closure? How can you tell?
- * 
- * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+/*Task 1: counterMaker()
+  
+  Study the code for counter1 and counter2, then answer the questions below.
+  
+  1. What is the difference between counter1 and counter2?
+  
+  2. Which of the two uses a closure? How can you tell?
+  
+  3. In what scenario would the counter1 code be preferable? In what scenario would 
+     counter2 be better?  
 */
 
 // counter1 code
@@ -54,7 +55,13 @@ function counter2() {
 
 /* Task 2: inning() 
 
-Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
+Use the inning function below to do the following:
+  1. Return a random whole number of points between 0 and 2 scored by one team in an inning
+  
+  NOTE: You will be using this function over and over again in the tasks below
+
+  For example: invoking inning() should return a numerical score value of 0, 1, or 2
+*/
 
 function inning(/*Code Here*/){
 
@@ -64,16 +71,18 @@ function inning(/*Code Here*/){
 
 /* Task 3: finalScore()
 
-Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
+Use the finalScore function below to do the following:
+  1. Receive the callback function `inning` that was created in Task 2 
+  2. Receive a number of innings to be played
+  3. After each inning, update the score of the home and away teams
+  4. After the last inning, return an object containing the final (total) score of the game
 
-For example, 
+For example: invoking finalScore(inning, 9) might return this object:
 
-finalScore(inning, 9) might return: 
 {
   "Home": 11,
-  "Away": 5,
+  "Away": 5
 }
-
 */ 
 
 function finalScore(/*code Here*/){
@@ -82,25 +91,54 @@ function finalScore(/*code Here*/){
 
 }
 
-/* Task 4: 
+/* Task 4: scoreboard()
 
-Create a function called `scoreboard` that accepts the following parameters: 
+Use the scoreboard function below to do the following:
+  1. Receive a callback function, that you create, called `getInningScore`
+  2. Receive the callback function `inning` from Task 2
+  3. Receive a number of innings to be played
+  4. Return an array where each of it's index values equals a string stating the
+  Home and Away team's scores for each inning (see example below)
+  5. If there's a tie, add this message with the score to the end of the array: 
+     "This game will require extra innings: Away 12 - Home 12"  (see tie example below)
 
-(1) Callback function `getInningScore`
-(2) Callback function `inning`
-(3) A number of innings
+     If there is no tie, add this message to the end of the array: 
+     "Final Score: Away 13 - Home 11"  (see no tie example below)
 
-and returns the score at each pont in the game, like so:
-1st inning: awayTeam - homeTeam
-2nd inning: awayTeam - homeTeam
-3rd inning: awayTeam - homeTeam
-4th inning: awayTeam - homeTeam
-5th inning: awayTeam - homeTeam
-6th inning: awayTeam - homeTeam
-7th inning: awayTeam - homeTeam
-8th inning: awayTeam - homeTeam
-9th inning: awayTeam - homeTeam
-Final Score: awayTeam - homeTeam */
+  HINT: `getInningScore` should be invoked by `scoreboard` and use `inning` to get and return the scores back to `scoreboard`
+  
+  For example: If there is no tie, invoking scoreboard(getInningScore,inning, 9) might return 
+  an array of strings like this:
+
+[
+  "Inning 1: Away 1 - Home 2", 
+  "Inning 2: Away 2 - Home 3",
+  "Inning 3: Away 4 - Home 4", 
+  "Inning 4: Away 5 - Home 5", 
+  "Inning 5: Away 7 - Home 7", 
+  "Inning 6: Away 9 - Home 8", 
+  "Inning 7: Away 10 - Home 8", 
+  "Inning 8: Away 12 - Home 9",
+  "Inning 9: Away 13 - Home 11", 
+  "Final Score: Away 13 - Home 11"  
+]  
+
+  If there is a tie, invoking scoreboard(getInningScore,inning, 9) might return 
+  an array of strings like this:
+
+[
+  "Inning 1: Away 1 - Home 2", 
+  "Inning 2: Away 2 - Home 3",
+  "Inning 3: Away 4 - Home 4", 
+  "Inning 4: Away 5 - Home 5", 
+  "Inning 5: Away 7 - Home 7", 
+  "Inning 6: Away 9 - Home 8", 
+  "Inning 7: Away 10 - Home 8", 
+  "Inning 8: Away 12 - Home 10",
+  "Inning 9: Away 12 - Home 12", 
+  "This game will require extra innings: Away 12 - Home 12"
+]  
+  */
 
 
 function scoreboard(/* CODE HERE */) {
