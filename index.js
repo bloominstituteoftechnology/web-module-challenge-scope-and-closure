@@ -27,12 +27,17 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   Study the code for counter1 and counter2, then answer the questions below.
   
-  1. What is the difference between counter1 and counter2?
+  1. What is the difference between counter1 and counter2. counter1 has let count inside of the function, there for 
+  it in the functional scope and is only going to be accesible inside the function.
+  Counter2 has let count = 0 before the function, therefore it is in the global scope making it availiable everywhere. 
   
   2. Which of the two uses a closure? How can you tell?
+  counter1 uses closure because it is a combinations of a function inside of a function that is then closed. 
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     counter1 would be preferd if the count was only needed inside of the function.
+     counter2 would be prefered if coint needed outside of the function. 
 */
 
 // counter1 code
@@ -61,11 +66,10 @@ Use the inning function below to do the following:
   For example: invoking inning() should return a numerical score value of 0, 1, or 2
 */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+    return Math.floor(Math.random() * Math.floor(2));
 }
+console.log(inning)
 
 /* Task 3: finalScore()
 Use the finalScore function below to do the following:
@@ -79,20 +83,22 @@ For example: invoking finalScore(inning, 9) might return this object:
   "Away": 5
 }
 */ 
-
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(inningcb){
+  return {
+    Home: inningcb(),
+    Away: inningcb()
+  }
 }
+
+console.log(finalScore);
 
 /* Task 4: 
 // create a function called getInningScore 
 // the function should take the inning function as an argument 
 // it should return an object with with a score for home and a score for away that that populates from invoking the inning callback. */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore() {
+  
 }
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
