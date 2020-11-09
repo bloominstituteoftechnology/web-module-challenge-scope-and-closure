@@ -37,7 +37,7 @@ Counter 1 uses a closure because it puts two functions together. It also lets us
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
 
-    //  Counter 2 would be better if you aren't trying to store memory of an increasing score and are only trying to see if a point was scored or not. I
+    It depends on what you would want to do. In scenario 1 if you want to protect count and only use it within the function. 
 */
 
 // counter1 code
@@ -87,7 +87,7 @@ function finalScore(inningCB, inningsPly){
   let score = { 
     Home: 0,
     Away: 0,
-  }
+  };
     for (let i=0; i<inningsPly; i++){
     score.Home = score.Home + inningCB();
     score.Away = score.Away + inningCB();
@@ -99,11 +99,17 @@ function finalScore(inningCB, inningsPly){
 /* Task 4: 
 // create a function called getInningScore 
 // the function should take the inning function as an argument 
-// it should return an object with with a score for home and a score for away that that populates from invoking the inning callback. */
+// it should return an object with with a score for home and a score for away that  populates from invoking the inning callback. */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore() {
+  const scoreHA = {
+    Home:0,
+    Away:0,
+  }
+  return scoreHA; 
 }
+console.log(getInningScore(inning()));
+
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
   1. Receive a callback function, that you create, called `getInningScore`
@@ -148,7 +154,7 @@ Use the scoreboard function below to do the following:
   */
 
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(inningCB) {
   /* CODE HERE */
 }
 
