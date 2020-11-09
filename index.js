@@ -36,7 +36,7 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str})); //an
 
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better? Counter 1 may be preferable when you want to use a counter within a function, and counter2 may be preferable when you want to use a counter
-     in a global scale. 
+     in a global scale. Codegrade 
 */
 
 // counter1 code
@@ -69,6 +69,8 @@ function inning(){
   return Math.floor(Math.random() * Math.floor(2));
 } 
 
+console.log(inning())
+
 /* Task 3: finalScore()
 Use the finalScore function below to do the following:
   1. Receive the callback function `inning` that was created in Task 2 
@@ -82,9 +84,18 @@ For example: invoking finalScore(inning, 9) might return this object:
 }
 */ 
 
-
-  function finalScore(){
-    // test another test 
+  function finalScore(inningCB, inningsPlayed){
+    const totalInningScore = {};
+    let Home = 0; 
+    let Away = 0; 
+    
+    for (let i = 0; i < inningsPlayed; i++){
+      const currentScore = getInningScore(inning); 
+      Home = Home + currentScore.Home
+      Away = Away + currentScore.Away
+      totalInningScore.Home= i, totalInningScore.Away= i
+    }
+    return totalInningScore
   }
 
 /* Task 4: 
@@ -92,10 +103,14 @@ For example: invoking finalScore(inning, 9) might return this object:
 // the function should take the inning function as an argument 
 // it should return an object with a score for home and a score for away that populates from invoking the inning callback. */
 
-function getInningScore() {
+function getInningScore(inning) {
+return {
+  Home: inning(), 
+  Away: inning()
+}
 }
 
-
+// ****** YOU WILL PASS GETINNINGSCORE IN TASK 5********** 
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
   1. Receive a callback function, that you create, called `getInningScore`
