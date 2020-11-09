@@ -28,11 +28,16 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+  In counter 1 everything is inside of the function scope. In counter 2 variables are established globally. 
   
   2. Which of the two uses a closure? How can you tell?
-  
+
+Counter 1 uses a closure because it puts two functions together. It also lets us access count from the parent level in teh child level scope even though it was terminated.
+
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+    //  Counter 2 would be better if you aren't trying to store memory of an increasing score and are only trying to see if a point was scored or not. I
 */
 
 // counter1 code
@@ -61,11 +66,9 @@ Use the inning function below to do the following:
   For example: invoking inning() should return a numerical score value of 0, 1, or 2
 */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
-}
+function inning(){
+return Math.floor(Math.random() * Math.floor(2));
+} console.log('Task 2', inning());
 
 /* Task 3: finalScore()
 Use the finalScore function below to do the following:
@@ -80,11 +83,18 @@ For example: invoking finalScore(inning, 9) might return this object:
 }
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
-}
+function finalScore(inningCB, inningsPly){
+  let score = { 
+    Home: 0,
+    Away: 0,
+  }
+    for (let i=0; i<inningsPly; i++){
+    score.Home = score.Home + inningCB();
+    score.Away = score.Away + inningCB();
+  }
+  return score;
+  }
+ console.log('Task3',finalScore(inning,9));
 
 /* Task 4: 
 // create a function called getInningScore 
