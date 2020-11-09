@@ -84,7 +84,7 @@ For example: invoking finalScore(inning, 9) might return this object:
 
 
   function finalScore(){
-    // test
+    // test another test 
   }
 
 /* Task 4: 
