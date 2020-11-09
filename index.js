@@ -83,10 +83,17 @@ For example: invoking finalScore(inning, 9) might return this object:
 */ 
 
 
+  function finalScore(){
+    // test
+  }
+
 /* Task 4: 
 // create a function called getInningScore 
 // the function should take the inning function as an argument 
 // it should return an object with a score for home and a score for away that populates from invoking the inning callback. */
+
+function getInningScore() {
+}
 
 
 /* Task 5: scoreboard()
