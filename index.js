@@ -28,9 +28,11 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  in counter one we save the count inside a variable in the function and in counter 2 it is saved in a global variable.
+
   2. Which of the two uses a closure? How can you tell?
-  
+  counter 1 because the funtion counter has closure over the count variable inside countermaker;
+
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
 */
@@ -63,7 +65,7 @@ Use the inning function below to do the following:
 
 function inning(/*Code Here*/){
 
-    /*Code Here*/
+  return Math.floor(Math.random() * Math.floor(2))
 
 }
 
@@ -80,9 +82,14 @@ For example: invoking finalScore(inning, 9) might return this object:
 }
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
+function finalScore(cb, innings){
+let game ={Home:0, Away: 0}
+  for( let i = 0; i < innings; i++){
+  
+      game.Home = game.Home + cb();
+      game.away = game.away + cb();
+  }
+  return game
 
 }
 
@@ -91,8 +98,11 @@ function finalScore(/*code Here*/){
 // the function should take the inning function as an argument 
 // it should return an object with with a score for home and a score for away that that populates from invoking the inning callback. */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inning) {
+  return {
+    Home: inning(),
+    Away:inning()
+  }
 }
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
@@ -138,11 +148,34 @@ Use the scoreboard function below to do the following:
   */
 
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(getInningScore, inningCB, numOfInnings) {
+  let gameArr =[];
+  let currentScore = {home:0 , away:0};
+
+  for( let i = 0; i < numOfInnings; i++){
+    let inning = getInningScore(inningCB)
+    currentScore= {
+      home: inning.Home + currentScore.home,
+      away: inning.Away + currentScore.away
+    }
+
+    gameArr.push(`Inning ${i + 1}: Away ${currentScore.away} - Home ${currentScore.home}`)
+
+    if(i + 1 === numOfInnings){
+      if(inning.Away === inning.Home) {
+        gameArr.push(`This game will require extra innings: Away ${currentScore.away } - Home ${currentScore.away}`)
+      } else {
+        gameArr.push(`Final Score: Away ${currentScore.away} - Home ${currentScore.home}`);
+      }
+    } 
+   
+  }
+  return gameArr
+  
   /* CODE HERE */
 }
 
-
+console.log(scoreboard(getInningScore,inning, 9))
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
