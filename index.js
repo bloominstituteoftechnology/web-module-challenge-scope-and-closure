@@ -93,8 +93,11 @@ function finalScore(inning){
 // the function should take the inning function as an argument 
 // it should return an object with with a score for home and a score for away that that populates from invoking the inning callback. */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inning) {
+  return {
+    Home: inning(),
+    Away: inning()
+  }
 }
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
