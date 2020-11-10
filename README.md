@@ -43,6 +43,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+Closure is in regards to the scope of a block of code. code blocks by default are within the global scope, and code that is within a code block is within the scope of that block and as such has closure. closure enables us to adjust variables within the block of code and not have it affect other pieces of code that may use that variable. it also lets us use system memory to keep the changed value of a variable within the scope of the block for later use. in a sense, closure is simply the enclosure of parameters within a nested function to keep it contained within a block. 
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,9 +65,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+within the return function. you can tell because it is nested in the curly braces 
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
 
+c. What is the lexical scope of `newRoll`? 
+it remains within the return function due to the closure of curly braces
 ### Task 2c - Exit Ticket
 
 Once you begin, you will have 15 minutes to answer the questions [here](https://app.codesignal.com/public-test/WjSzNh9gDrD8Xn8hw/enY3yPRP3nEm7E).
