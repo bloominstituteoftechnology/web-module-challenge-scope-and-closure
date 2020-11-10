@@ -68,27 +68,17 @@ Use the inning function below to do the following:
 function inning(){
   return Math.floor(Math.random() * Math.floor(2));
 } 
-
-console.log(inning())
-
 /* Task 3: finalScore()
 Use the finalScore function below to do the following:
   1. Receive the callback function `inning` that was created in Task 2 
   2. Receive a number of innings to be played
   3. After each inning, update the score of the home and away teams
   4. After the last inning, return an object containing the final (total) score of the game
-For example: invoking finalScore(inning, 9) might return this object:
-{
-  "Home": 11,
-  "Away": 5
-}
 */ 
-
-  function finalScore(inningCB, inningsPlayed){
+  function finalScore(inning, inningsPlayed){
     const totalInningScore = {};
     let Home = 0; 
     let Away = 0; 
-    
     for (let i = 0; i < inningsPlayed; i++){
       const currentScore = getInningScore(inning); 
       Home = Home + currentScore.Home
@@ -98,19 +88,17 @@ For example: invoking finalScore(inning, 9) might return this object:
     return totalInningScore
   }
 
+  console.log(finalScore(inning, 17))
 /* Task 4: 
 // create a function called getInningScore 
 // the function should take the inning function as an argument 
 // it should return an object with a score for home and a score for away that populates from invoking the inning callback. */
-
 function getInningScore(inning) {
 return {
   Home: inning(), 
   Away: inning()
 }
 }
-
-// ****** YOU WILL PASS GETINNINGSCORE IN TASK 5********** 
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
   1. Receive a callback function, that you create, called `getInningScore`
@@ -155,8 +143,9 @@ Use the scoreboard function below to do the following:
   */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScoreCB, inningCB, inningsPlayed) {
+   let inningResults = [];
+   
 }
 
 
