@@ -107,19 +107,7 @@ function getInningScore(inningCB){
 getInningScore(inning);
 
 
-// function getInningScore(inningCB,innsPlayed){
-//   const totalGame = [];
-//   let homeScore = 0;
-//   let awayScore = 0;
-//   for(let i = 0; i < 9; i++){
-//       const currentScore = innsPlayed(inningCB)
-//       homeScore = homeScore + currentScore.Home
-//       awayScore = awayScore + currentScore.Away
-//       totalGame.push(`Inning ${i + 1}: Away ${currentScore.Away} - Home ${currentScore.Home}`);
-//     }
-//     return totalGame;
-// }
-// console.log(getInningScore(inning,finalScore));
+
 
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
@@ -165,10 +153,25 @@ Use the scoreboard function below to do the following:
   */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+ function scoreboard(getInningScore, inningCB, numOfInns){
+  const totalGame = [];
+  let homeScore = 0;
+  let awayScore = 0;
+  
+  for(let i = 0; i < numOfInns; i++){
+      homeScore += getInningScore(inningCB).Home
+      awayScore += getInningScore(inningCB).Away
+      totalGame.push(`Inning ${i + 1}: Away ${awayScore} - Home ${homeScore}`);
+      }
+      if(homeScore === awayScore){
+      totalGame.push(`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`);
 
+    } else{
+      totalGame.push(`This game is final:Away ${awayScore} - Home ${homeScore}`);
+    }
+    return totalGame;
+}
+console.log(scoreboard(getInningScore, inning, 9));
 
 
 
