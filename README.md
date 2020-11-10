@@ -43,6 +43,8 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+Closure is when a function has a local variable that only it can use. A child function can call upon a variable defined in a parent function. 
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +66,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+Closure is used in 'return function()' because it is a function within a function.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+Dan's name stays the same but his roll could change.
+
 c. What is the lexical scope of `newRoll`? 
+The lexical scope of 'newRoll' is personalDice.
 
 ### Task 2c - Exit Ticket
 
