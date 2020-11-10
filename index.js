@@ -143,8 +143,19 @@ Use the scoreboard function below to do the following:
   */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inning) {
+  let totalGame=[];
+  let homeScore=0; //inning number?
+  let awayScore=0;
+
+  for(let i=0; i<3; i++){
+    let currentScore=inning(getInningScore) //1:49 on Monday video
+    homeScore=homeScore+currentScore.Home
+    awayScore=awayScore+currentScore.Away
+    totalGame.push(`Period ${i+1}: Away ${currentScore.Away} - Home ${currentScore.Home}`);
+  }
+
+  return totalGame;
 }
 
 
