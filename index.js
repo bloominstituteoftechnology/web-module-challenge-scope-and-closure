@@ -61,9 +61,9 @@ Use the inning function below to do the following:
   For example: invoking inning() should return a numerical score value of 0, 1, or 2
 */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
+    return Math.floor(Math.random() * Math.floor(3));
 
 }
 
@@ -80,9 +80,11 @@ For example: invoking finalScore(inning, 9) might return this object:
 }
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
+function finalScore(inning){
+  return {
+    Home: inning(),
+    Away: inning()
+  }
 
 }
 
@@ -146,17 +148,17 @@ function scoreboard(/* CODE HERE */) {
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
-// function foo(){
-//   console.log('its working');
-//   return 'bar';
-// }
-// export default{
-//   foo,
-//   processFirstItem,
-//   counter1,
-//   counter2,
-//   inning,
-//   finalScore,
-//   getInningScore,
-//   scoreboard,
-// }
+function foo(){
+  console.log('its working');
+  return 'bar';
+}
+export default{
+  foo,
+  processFirstItem,
+  counter1,
+  counter2,
+  inning,
+  finalScore,
+  getInningScore,
+  scoreboard,
+}
