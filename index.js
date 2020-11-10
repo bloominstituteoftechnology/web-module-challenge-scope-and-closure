@@ -28,11 +28,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  Counter1 uses closure. Counter2 does not.
   2. Which of the two uses a closure? How can you tell?
-  
+  Counter1 code uses a closure. I can tell because it has a second function that is a part of the first function.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+     counter2 be better?
+  Counter1 is good for running multiple counters for different variables at the same time. Counter2 is simpler code for if we were focusing on running one variable through.
 */
 
 // counter1 code
@@ -51,7 +52,6 @@ let count = 0;
 function counter2() {
   return count++;
 }
-
 
 /* Task 2: inning() 
 Use the inning function below to do the following:
@@ -146,17 +146,17 @@ function scoreboard(/* CODE HERE */) {
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
-function foo(){
-  console.log('its working');
-  return 'bar';
-}
-export default{
-  foo,
-  processFirstItem,
-  counter1,
-  counter2,
-  inning,
-  finalScore,
-  getInningScore,
-  scoreboard,
-}
+// function foo(){
+//   console.log('its working');
+//   return 'bar';
+// }
+// export default{
+//   foo,
+//   processFirstItem,
+//   counter1,
+//   counter2,
+//   inning,
+//   finalScore,
+//   getInningScore,
+//   scoreboard,
+// }
