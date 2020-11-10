@@ -28,11 +28,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+    - The difference is counter 2 uses a closure.
   2. Which of the two uses a closure? How can you tell?
-  
+    - You can tell counter 2 uses a closure becasue it is reaching out of the function to find the context for the variable
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+    - Counter 1 is useful when you need it to remember the info inside the function, counter two is searches for variable outside.
 */
 
 // counter1 code
@@ -61,9 +62,8 @@ Use the inning function below to do the following:
   For example: invoking inning() should return a numerical score value of 0, 1, or 2
 */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
+function inning(){
+  return Math.floor(Math.random() * 3)
 
 }
 
@@ -80,19 +80,34 @@ For example: invoking finalScore(inning, 9) might return this object:
 }
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
-}
-
+function finalScore(callback, number){
+  let home = 0;
+  let away = 0;
+  for (let i = 1; i <= number; i++){
+      home += callback();
+      away += callback();
+  }
+  return {
+    Home: home,
+    Away: away
+  }
+  }
+  finalScore(inning, 9);
+ 
 /* Task 4: 
 // create a function called getInningScore 
 // the function should take the inning function as an argument 
 // it should return an object with with a score for home and a score for away that that populates from invoking the inning callback. */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(homeScores, awayScores, numberOfInnings) {
+  let homeTotal = 0;
+  let awayTotal = 0;
+  for (let i = 0; i < numberOfInnings; i++) {
+    homeTotal = homeTotal + homeScores[i];
+    awayTotal = awayTotal + awayScores[i];
+    console.log(`Inning ${i + 1}: ${awayScores[i]} - ${homeScores[i]}`)
+  }
+  console.log(`Final Score: ${awayTotal} - ${homeTotal}`)
 }
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
