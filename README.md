@@ -8,8 +8,8 @@ The module challenge is the afternoon project or assignment that students work t
 
 ## Objectives
 
-- Explain function scope
-- Describe what closure is, how closure is created in a program and why it is important to understand closures in JavaScript  
+- Explain function scope <!-- Function scope is the reach functions have when trying to define a varible ---> 
+- Describe what closure is, how closure is created in a program and why it is important to understand closures in JavaScript  <!-- Closure is the code that can be passed down in a parent child relationship. --->
 
 ## Introduction
 
