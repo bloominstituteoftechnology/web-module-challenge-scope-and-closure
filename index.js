@@ -74,31 +74,36 @@ Use the finalScore function below to do the following:
   2. Receive a number of innings to be played
   3. After each inning, update the score of the home and away teams
   4. After the last inning, return an object containing the final (total) score of the game
+  For example: invoking finalScore(inning, 9) might return this object:
+{
+  "Home": 11,
+  "Away": 5
+}
 */ 
-  function finalScore(inning, inningsPlayed){
+  function finalScore(inningCB, getInningScoreCB){
     const totalInningScore = {};
-    let Home = 0; 
-    let Away = 0; 
-    for (let i = 0; i < inningsPlayed; i++){
+    let homeScore = 0; 
+    let awayScore = 0; 
+    for (let i = 0; i < 9; i++){
       const currentScore = getInningScore(inning); 
-      Home = Home + currentScore.Home
-      Away = Away + currentScore.Away
+      homeScore = homeScore + currentScore.Home
+      awayScore = awayScore + currentScore.Away
       totalInningScore.Home= i, totalInningScore.Away= i
     }
     return totalInningScore
   }
 
-  console.log(finalScore(inning, 17))
 /* Task 4: 
 // create a function called getInningScore 
 // the function should take the inning function as an argument 
 // it should return an object with a score for home and a score for away that populates from invoking the inning callback. */
-function getInningScore(inning) {
-return {
+function getInningScore() {
+  return {
   Home: inning(), 
   Away: inning()
 }
 }
+console.log(getInningScore(inning));
 /* Task 5: scoreboard()
 Use the scoreboard function below to do the following:
   1. Receive a callback function, that you create, called `getInningScore`
@@ -145,6 +150,7 @@ Use the scoreboard function below to do the following:
 
 function scoreboard(getInningScoreCB, inningCB, inningsPlayed) {
    let inningResults = [];
+
    
 }
 
