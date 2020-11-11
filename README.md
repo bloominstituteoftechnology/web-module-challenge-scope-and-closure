@@ -43,6 +43,8 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+Closures give us the ablity to put functions together.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,9 +66,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+the closure is outside the function, as const of dan and zoe
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
 
+c. What is the lexical scope of `newRoll`? 
+'new roll' belongs to the variable of personalDice of name
 ### Task 2c - Exit Ticket
 
 Once you begin, you will have 15 minutes to answer the questions [here](https://app.codesignal.com/public-test/WjSzNh9gDrD8Xn8hw/enY3yPRP3nEm7E).
