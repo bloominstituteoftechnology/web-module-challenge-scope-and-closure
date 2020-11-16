@@ -107,6 +107,4 @@ addSix(21); // returns 27
 
 ## Submission Format
 
-Follow these steps for completing your project.
-
-- [ ] Submit via code grade
+Please see Canvas for cohort specific submission instructions 
