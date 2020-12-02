@@ -62,9 +62,18 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+  let score = Math.random();
+  if (score <= .33){
+    console.log(0);
+  } else if (score <= .66) {
+    console.log(1);
+  } else {
+    console.log(2);
+  }
 }
+
+inning();
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
