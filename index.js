@@ -62,8 +62,9 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
+function inning(){
     /*Code Here*/
+    return Math.floor(Math.random()*3);
 }
 
 
@@ -81,8 +82,22 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(inning, inningsRemain){
   /*Code Here*/
+ 
+
+  const score = {home: 0, away: 0}
+ 
+  while(inningsRemain > 0){
+    score.home = score.home + inning();
+    score.away = score.away + inning();
+    inningsRemain --;
+    if(inningsRemain === 0 && score.home === score.away){
+      inningsRemain++;
+    }
+  }
+  return `Home: ${score.home}, Away: ${score.away}`
+
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -90,8 +105,10 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inning) {
+  return score;
+  
+
 }
 
 
