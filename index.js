@@ -18,6 +18,7 @@ function processFirstItem(stringList, callback) {
 }
 console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
+console.log(processFirstItem)
 // ⭐️ Example Challenge END ⭐️
 
 
@@ -27,12 +28,18 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   Study the code for counter1 and counter2, then answer the questions below.
   
-  1. What is the difference between counter1 and counter2?
+  1. What is the difference between counter1 and counter2? 
   
-  2. Which of the two uses a closure? How can you tell?
+    counter2 uses a few steps while       counter1 uses a callback function
   
+  2. Which of the two uses a closure? How can you tell? counter1
+
+    THE COUNTER1 have access to the parent Function (counterMaker())
+    after the parent function has been closed
+    
   3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+     counter2 be better? 
+     
 */
 
 // counter1 code
@@ -45,6 +52,7 @@ function counterMaker() {
 
 const counter1 = counterMaker();
 
+ 
 // counter2 code
 let count = 0;
 
@@ -62,10 +70,18 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+   let count = 0;
+  
+  return function () { 
+    return ++count; 
+  } // === (count = count + 1)
 }
 
+  const newInning = inning();
+for (let i = 0; i < 2; i++) {
+  console.log(newInning());
+}
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -80,19 +96,21 @@ Use the finalScore function below to do the following:
   "Away": 5
 }
 */ 
+const Away = finalScore()
+const Home = finalScore()
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
-}
+Home();
+Away();
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-}
+function getInningScore(score) {
+               (console.log(finalScore("newInning "," ${score}" ))
+
+               )
 
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
@@ -119,7 +137,6 @@ Use the scoreboard function below to do the following:
   "Inning 9: Away 1 - Home 0", 
   "Final Score: Away 11 - Home 12"  
 ]
-
   TIE example: invoking scoreboard(getInningScore,inning, 9) might return 
   an array of strings like this:
 [
@@ -136,8 +153,11 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore,inning, 9) {
+ 
+for (let inning = 0; inning <= 9; inning++) {
+  console.log("Inning (): Away () - Home ()", );
+}
 }
 
 
@@ -148,7 +168,7 @@ function foo(){
   //console.log('its working');
   return 'bar';
 }
-export default{
+//export default{
   foo,
   processFirstItem,
   counter1,
@@ -156,5 +176,6 @@ export default{
   inning,
   finalScore,
   getInningScore,
-  scoreboard,
+  scoreboard
+//
 }
