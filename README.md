@@ -9,7 +9,12 @@ The module challenge is the afternoon project or assignment that students work t
 ## Objectives
 
 - Explain function scope
+The scope is an important concept that manages the availability of variables. The scope is at the base closures, defines the idea of global and local variables.
+
 - Describe what closure is, how closure is created in a program and why it is important to understand closures in JavaScript  
+A closure is the combination of a function bundled together (enclosed) with references to it's surrounding state (the lexical environment). 
+B. closures are created every time a function is created, at function creation time. 
+C. Closures are important because they control what is and isn’t in scope in a particular function, along with which variables are shared between sibling functions in the same containing scope. Understanding how variables and functions relate to each other is critical to understanding what’s going on in your code, in both functional and object oriented programming styles.
 
 ## Introduction
 
@@ -43,6 +48,8 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+-It makes it possible for a function to have "private" variables.
+-A closure is a function having access to the parent scope.
 2. Study the following code, then answer the questions below.
 
 ```js
