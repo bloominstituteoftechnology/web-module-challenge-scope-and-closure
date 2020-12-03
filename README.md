@@ -43,6 +43,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+Closure is a function and all the information it has accents to.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +67,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+The returned function within personalDice uses closure because it's a function defined within a function.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+Dan's name is always the same, but the newRoll changes as it's a random number.
+
 c. What is the lexical scope of `newRoll`? 
+
+newRoll has no variables that it accesses, but is within the scope of the returned function and can access globally scoped objects.
 
 
 ### Task 3 - Stretch Goals
