@@ -93,7 +93,20 @@ addSix(10); // returns 16
 addSix(21); // returns 27
 ```
 
+function createBase(base) {
+    
+    return function (num) {
+        return num + base;
+    }
+}
+
+var addSix = createBase(6);
+console.log(addSix(10));
+
+
 2. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
+
+Functional programming always has the same output with set values. Values are not changed. Object Oriented means that use things like arrays, variables, and objects to represent data.
 
 ## Resources
 
