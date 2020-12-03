@@ -27,11 +27,11 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ * counter1 used closure
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ * counter1 used the parent variable nested in the function
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ *Counter1 would be better if you wanted to keep code DRY, counter2 would be better if you were writing a minimal amount of code, as a rule we should stay away from global varibles.
 */
 
 // counter1 code
@@ -56,11 +56,15 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
+    return
+    Math.floor(Math.random())
+    Math.floor(3);
 
 }
+
+console.log(inning())
 
 /* Task 3: finalScore()
 
@@ -76,12 +80,16 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(inning,num){
 
-  /*Code Here*/
+  return{
+    Home: inning() * num,
+    Away: inning() * num
+  }
 
 }
 
+console.log(finalScore(inning,9))
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
@@ -103,7 +111,7 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(getInningScore,inning,9) {
   /* CODE HERE */
 }
 
