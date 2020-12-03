@@ -42,10 +42,12 @@ Find the file `index.js` and complete the tasks.
 
 Edit the `ReadMe` file with your answers.
 
-1. In your own words, define closure (1-2 sentences).
-2. Study the following code, then answer the questions below.
+1 In your own words, define closure (1-2 sentences).
+      A closure is a function having access to the parent scope, even after the parent 
+      function has closed.
 
-```js
+2.  Study the following code, then answer the questions below.
+
 function personalDice(name){
   return function(){
       // generate random number between 1 and 6
@@ -53,36 +55,76 @@ function personalDice(name){
     console.log(`${name} rolled a ${newRoll}`)
   }
 }
-
+ 
 const dansRoll = personalDice("Dan");
-
+ 
 const zoesRoll = personalDice("Zoe");
-
-
+ 
+ 
 dansRoll();
 dansRoll();
-```
+ 
+a.    Where is closure used in this code? 
+      
+      dansRoll and zoesRoll are both closures
 
-a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+  How can you tell?
 
-
-### Task 3 - Stretch Goals
-
-After you have completed the requirements, **create** a new file called `stretch.js` and practice more with closures. There are no tests for these problems.
+      They share the same function body definition, but store different lexical environments. In dansRoll 's lexical environment, name is Dan, while in the lexical environment for zoesRoll, name is Zoe
+ 
+b.    Compare and contrast calling dansRoll the first and second time.
+      
+      It will return random numbers always
+ 
+      What is always the same?
+ 
+      What could change?
+ 
+c.     What is the lexical scope of newRoll? none
+ 
+Task 3 - Stretch Goals
+After you have completed the requirements, create a new file called stretch.js and practice more with closures. There are no tests for these problems.
 
 See if you can complete one or more of the following challenges:
 
-1. Write a function that would allow you to do this using a closure. (This is another interview question we've seen before - when you're ready for answers, view an explanation [here](https://www.coderbyte.com/algorithm/3-common-javascript-closure-questions)).
+1     Write a function that would allow you to do this using a closure. 
+      (This is another interview question we've seen before - when you're ready for answers, view an explanation here).
 
-```js
+
 var addSix = createBase(6);
 addSix(10); // returns 16
 addSix(21); // returns 27
-```
+ 
+ 
+                                            function  createBase(x) {
+                                              return function(y) {
+                                                    return x + y;
+                                               };
+                                            }
+ 
+                                            var addSix = createBase(6);
+ 
+                                            console.log(addSix(10));  // 16
+                                            console.log(addSix(21)); // 27
 
-2. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
+Research the differences between functional programming and object oriented programming.
+
+
+        object oriented programming are good when you have a fixed set of operations on things, and as your code evolves, you primarily add new things. This can be accomplished by adding new classes which implement existing methods, and the existing classes are left alone.
+
+          functional programming are good when you have a fixed set of things, and as your code evolves, you primarily add new operations on existing things. This can be accomplished by adding new functions which compute with existing data types, and the existing functions are left alone.
+
+b.         Then, describe the pros and cons of functional programming vs object-oriented 
+          programming. This is a common interview question and great practice!
+ 
+With the pro it is also possible to use both the programming styles according to our own need. As we have got languages like python, java, etc that supports both object oriented concept and are also functional by supporting various inbuilt functions.
+
+
+
+functional programming emphasizes on the use of functions where each function performs a specific task.  Fundamental elements used are variables and functions.The data in the functions are immutable(cannot be changed after creation).  Importance is not given to data but to functions.
+
+object-oriented programming  is based on object oriented concept. Classes are used where instance of objects are created.  Fundamental elements used are objects and methods and the data used here are mutable data. 
+
 
 ## Resources
 
