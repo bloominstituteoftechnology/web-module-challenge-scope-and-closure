@@ -1,4 +1,4 @@
-// ⭐️ Example Challenge START ⭐️
+// ⭐️ Example Challenge START test ⭐️
 //test
 /**Example Task : processFirstItem()
  * This example shows how you might go about solving the rest of the tasks
@@ -63,7 +63,9 @@ Use the inning function below to do the following:
 
 function inning(){
 
-    return Math.floor(Math.random() * Math.floor(3));
+    // return Math.floor(Math.random() * Math.floor(3));
+
+    return Math.floor(Math.random() * 3);
 
 }
 
@@ -143,36 +145,54 @@ Use the scoreboard function below to do the following:
   */
 
 
-function scoreboard(getInningScore, inning) {
-  let totalGame=[];
-  let homeScore=0; //inning number?
-  let awayScore=0;
+// function scoreboard(getInningScore, inning) {
+//   let totalGame=[];
+//   let homeScore=0; //inning number?
+//   let awayScore=0;
 
-  for(let i=0; i<3; i++){
-    let currentScore=inning(getInningScore) //1:49 on Monday video
-    homeScore=homeScore+currentScore.Home
-    awayScore=awayScore+currentScore.Away
-    totalGame.push(`Period ${i+1}: Away ${currentScore.Away} - Home ${currentScore.Home}`);
+//   for(let i=0; i<3; i++){
+//     let currentScore=inning(getInningScore) //1:49 on Monday video
+//     homeScore=homeScore+currentScore.Home
+//     awayScore=awayScore+currentScore.Away
+//     totalGame.push(`Period ${i+1}: Away ${currentScore.Away} - Home ${currentScore.Home}`);
+//   }
+
+//   return totalGame;
+//}
+
+const getInningScore2 = (homeS, awayS, inningNum) => {
+  console.log(`${inningNum}: ${awayS} = ${homeS}`);
+};
+
+const scoreboard = (scoreFunc, getScoreFunc, numInnings) => {
+  let homeScore = 0; 
+  let awayScore = 0; 
+  for (let i = 0; i < numInnings; i++) {
+    homeScore += scoreFunc();
+    awayScore += scoreFunc(); 
+    getScoreFunc(homeScore, awayScore, i+1);
   }
+  let finalScore = "Final Score: " + awayScore + " - " + homeScore;
+  return finalScore;
+};
 
-  return totalGame;
-}
 
+scoreboard(inning, getInningScore2, 9);
 
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
-function foo(){
-  console.log('its working');
-  return 'bar';
-}
-export default{
-  foo,
-  processFirstItem,
-  counter1,
-  counter2,
-  inning,
-  finalScore,
-  getInningScore,
-  scoreboard,
-}
+// function foo(){
+//   console.log('its working');
+//   return 'bar';
+// }
+// export default{
+//   foo,
+//   processFirstItem,
+//   counter1,
+//   counter2,
+//   inning,
+//   finalScore,
+//   getInningScore,
+//   scoreboard,
+// }
