@@ -67,20 +67,21 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(times){
-  for(let i=0;i<=times;i++)
-  let inningChance = Math.floor(Math.random()*3);
-  if (inningChance >=1){
-    console.log(`SAFE!!!`)
-    if else {
-      console.log(`You're OUT!!!`)
-    }
-  }
+// function inning(times){
+//   for(let i=0;i<=times;i++)
+//   let inningChance = Math.floor(Math.random()*3);
+//   if (inningChance >=1){
+//     console.log(`SAFE!!!`)
+//     if else {
+//       console.log(`You're OUT!!!`)
+//     }
+//   }
+// }
+
+function inning(){
+  return Math.floor(Math.random()*3);
+  console.log(inning())
 }
-
-
-
-
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -96,9 +97,18 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, total){
+  inning
+  return function (){
+    return ++inning;
+  }
 }
+
+console.log()
+console.log()
+console.log()
+console.log()
+console.log()
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
