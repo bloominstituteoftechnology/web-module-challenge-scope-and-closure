@@ -29,8 +29,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   1. What is the difference between counter1 and counter2?
   
+  Counter 1 is being protected from changes because it's within the anonymous function, therefore the only way to make changes to it, it by calling the counterMaker.
+
   2. Which of the two uses a closure? How can you tell?
   
+  Counter 1 is using a closure, you can tell it is, because the variable is outside the function.
+
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
 */
@@ -42,6 +46,7 @@ function counterMaker() {
    return count++;
   }
 }
+
 
 const counter1 = counterMaker();
 
@@ -62,9 +67,19 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(times){
+  for(let i=0;i<=times;i++)
+  let inningChance = Math.floor(Math.random()*3);
+  if (inningChance >=1){
+    console.log(`SAFE!!!`)
+    if else {
+      console.log(`You're OUT!!!`)
+    }
+  }
 }
+
+
+
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
