@@ -28,12 +28,19 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  In counter1 the counter variable function is declared in functions scope (using closure) and returns the value  while the counter variable in counter2 has its counter variable decalred outside of function scope. 
+  In counter1 the counter variable function is declared in the functions scope (using closure) and returns the value  while the counter variable in counter2 has its counter variable declared outside of function scope. 
   
   2. Which of the two uses a closure? How can you tell?
+  Counter 1 uses closure. An easy way to tell is that it is a function inside of a function. So the child function has access to everything it's parent function has access too but the parent can't reach within in the inner function. 
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+     counter1 would be preferable in a scenario where you are working on a large project so you can protect the variable. It's easy to forgot what variables are named in large projects so you want to protect them in your code so you don't run into problems.
+
+     counter2 can be used in smaller projects where you don't need to protect your code. 
+
+
 */
 
 // counter1 code
