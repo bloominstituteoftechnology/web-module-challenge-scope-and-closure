@@ -28,11 +28,11 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  counter2 has the variable hoisted
   2. Which of the two uses a closure? How can you tell?
-  
+  counter1, bc the func is returning another func
   3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+     counter2 be better?  counter1 would be better for games that need to retain info for scores, counter 2 
 */
 
 // counter1 code
@@ -68,7 +68,7 @@ function inning(){
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
-  1. Receive the callback function `inning` that was created in Task 2 
+  1. Receive the callback function `inning` that was created in Task 2
   2. Receive a number of innings to be played
   3. After each inning, update the score of the home and away teams
   4. After the last inning, return an object containing the final (total) score of the innings played
@@ -80,19 +80,30 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, innsPlayed){ // has CB of inning and innsPlayed
+  let overallScore = {Home: 0, Away:0}; // set the variable to equal home/away score values
+  for(let i = 0; i< innsPlayed; i++){ // a for loop for the innings played
+    const currentScore = inning;
+    overallScore.Home =+ currentScore();  // this is the same as overallScore.Home = overallScore.Home + currentScore(); 
+    overallScore.Away =+ currentScore();
+    console.log(`The final score is - Home:${overallScore.Home}, Away${overallScore.Away}`)
+  }
+  return overallScore;
 }
+finalScore(inning,9);
+
+
+
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inning) {
+  return {Home:inning(), Away: inning()};
 }
-
+getInningScore(inning);
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
@@ -135,7 +146,7 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(getInningScore, inning, innsPlayed) {
   /* CODE HERE */
 }
 
