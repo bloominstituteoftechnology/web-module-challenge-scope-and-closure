@@ -43,6 +43,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+closure gives you access to an outer function’s scope from an inner function.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -60,12 +63,17 @@ const zoesRoll = personalDice("Zoe");
 
 
 dansRoll();
-dansRoll();
+dansRoll(); 
 ```
 
 a. Where is closure used in this code? How can you tell?
+-the  closure is being used within the Parent function in line 53
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+-the random number generator created will always be the same. it just gives different values every time it is ran.
+
 c. What is the lexical scope of `newRoll`? 
+-a variable defined outside a function can be accessible inside another function defined after the variable declaration.
 
 ### Task 2c - Exit Ticket
 
