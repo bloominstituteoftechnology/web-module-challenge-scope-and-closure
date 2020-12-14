@@ -113,8 +113,8 @@ Use the getInningScore() function below to do the following:
 
 function getInningScore(inningScore)
 {
- let home = inning();
- let away = inning();
+ let home = inningScore();
+ let away = inningScore();
  return {Home: home, Away: away}
 }
 
