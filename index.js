@@ -28,6 +28,7 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+  In counter1 the counter variable function is declared in functions scope (using closure) and returns the value  while the counter variable in counter2 has its counter variable decalred outside of function scope. 
   
   2. Which of the two uses a closure? How can you tell?
   
