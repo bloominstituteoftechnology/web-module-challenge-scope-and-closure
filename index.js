@@ -64,7 +64,7 @@ NOTE: This will be a callback function for the tasks below
 
 function inning(){
   return Math.floor(Math.random()* Math.floor(3));
-  }
+}
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -82,11 +82,11 @@ Use the finalScore function below to do the following:
 
 function finalScore(inning, innsPlayed){ // has CB of inning and innsPlayed
   let overallScore = {Home: 0, Away:0}; // set the variable to equal home/away score values
-  for(let i = 0; i< innsPlayed; i++){ // a for loop for the innings played
+  for(let i = 0; i< innsPlayed; i++){ // a for loop for the innings played along with home/away score
     const currentScore = inning;
     overallScore.Home =+ currentScore();  // this is the same as overallScore.Home = overallScore.Home + currentScore(); 
     overallScore.Away =+ currentScore();
-    console.log(`The final score is - Home:${overallScore.Home}, Away${overallScore.Away}`)
+    console.log(`The final score is - Home:${overallScore.Home}, Away${overallScore.Away}`);
   }
   return overallScore;
 }
@@ -101,7 +101,7 @@ Use the getInningScore() function below to do the following:
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
 function getInningScore(inning) {
-  return {Home:inning(), Away: inning()};
+  return {Home:inning(), Away: inning()}
 }
 getInningScore(inning);
 
@@ -146,12 +146,26 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(getInningScore, inning, innsPlayed) {
-  /* CODE HERE */
+function scoreboard(getInningScoreCB, inningCB, innsPlayedCB) {
+  
+  const arrArr = [];
+  let homeScore = 0;
+  let awayScore = 0;
+
+  for(let i = 0; i < inningCB; i++) {
+      const currentScore = getInningScoreCB(innsPlayedCB);
+      homeScore += currentScore.home;
+      awayScore += currentScore.away;
+      totalGame.push(`Inning ${inningCB + 1}: Away ${currentScore.away} - Home ${currentScore.home}`);
+  }
+  if(homeScore === awayScore){
+      return `This game will require extra innings: Away ${currentScore.away} - Home ${currentScore.home}`;
+  }else{
+      return `Final Score: Away ${currentScore.away} - Home ${currentScore.home}`;
+  }
+    
+    
 }
-
-
-
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo(){
