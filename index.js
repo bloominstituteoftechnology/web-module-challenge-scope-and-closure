@@ -16,7 +16,7 @@
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
-console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
+// console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
 // ⭐️ Example Challenge END ⭐️
 
@@ -83,10 +83,9 @@ Use the finalScore function below to do the following:
 function finalScore(inning, innsPlayed){ // has CB of inning and innsPlayed
   let overallScore = {Home: 0, Away:0}; // set the variable to equal home/away score values
   for(let i = 0; i< innsPlayed; i++){ // a for loop for the innings played along with home/away score
-    const currentScore = inning;
-    overallScore.Home =+ currentScore();  // this is the same as overallScore.Home = overallScore.Home + currentScore(); 
-    overallScore.Away =+ currentScore();
-    console.log(`The final score is - Home:${overallScore.Home}, Away${overallScore.Away}`);
+    overallScore.Home =+ inning();  // this is the same as overallScore.Home = overallScore.Home + currentScore(); 
+    overallScore.Away =+ inning();
+    // console.log(`The final score is - Home:${overallScore.Home}, Away${overallScore.Away}`);
   }
   return overallScore;
 }
@@ -146,24 +145,26 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(getInningScoreCB, inningCB, innsPlayedCB) {
-  
+function scoreboard(getInningScoreCB, inningCB, inningPlayed) { // innningsCB = the score, innsPlayed = number of innings
+
   const arrArr = [];
   let homeScore = 0;
   let awayScore = 0;
 
-  for(let i = 0; i < inningCB; i++) {
-      const currentScore = getInningScoreCB(innsPlayedCB);
+  for(let i = 0; i < inningPlayed; i++) {
+      const currentScore = getInningScoreCB(inningCB); // this is invoking is giving back an object
       homeScore += currentScore.home;
       awayScore += currentScore.away;
-      totalGame.push(`Inning ${inningCB + 1}: Away ${currentScore.away} - Home ${currentScore.home}`);
+      // score +=current.Score// another way
+      console.log(inningPlayed); // CONSOLE.LOG YOUR FUCKING PARAMS! 
+      arrArr.push(`Inning ${i+1}: Away ${currentScore.away} - Home ${currentScore.home}`); 
   }
+
   if(homeScore === awayScore){
-      return `This game will require extra innings: Away ${currentScore.away} - Home ${currentScore.home}`;
+      return `This game will require extra innings: Away ${awayScore} - Home ${homeScore}`;
   }else{
-      return `Final Score: Away ${currentScore.away} - Home ${currentScore.home}`;
+      return `Final Score: Away ${awayScore} - Home ${homeScore}`;
   }
-    
     
 }
 
