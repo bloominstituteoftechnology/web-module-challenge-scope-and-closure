@@ -28,11 +28,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  - Counter 1 uses a function inside of a function, and counter 2 sets a global variable, and includes it in the function.
   2. Which of the two uses a closure? How can you tell?
-  
+  - Counter 1 uses closure, and you can tell because the function tries to reach outside and grab let.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     -Counter One would be better when it comes to constructing a game, counter 2 would be better, when it comes to keeping score.
 */
 
 // counter1 code
@@ -61,10 +62,8 @@ Use the inning function below to do the following:
   For example: invoking inning() should return a numerical score value of 0, 1, or 2
 */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(number){
+let score = math.round(math.random(2));
 }
 
 /* Task 3: finalScore()
@@ -80,10 +79,9 @@ For example: invoking finalScore(inning, 9) might return this object:
 }
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(inning, number){
+number = 0;
+if (i=0;i<=9)
 }
 
 /* Task 4: 
