@@ -30,7 +30,7 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  Counter1 uses 
   2. Which of the two uses a closure? How can you tell?
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
@@ -65,9 +65,11 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning(){
+    return Math.floor(Math.random()*3);
+    }
     
-}
-
+console.log(inning()+1)
+console.log(inning()+5)
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -83,8 +85,42 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(callBack, numInnings){
+  let homeScore=0;
+  let awayScore=0;
+  for (let i=0;i<numInnings;i++){
+    homeScore = homeScore + callBack();
+    awayScore = awayScore + callBack();
+  }
+    let scoreBoard = { //creation of object
+      Home: homeScore,
+      Away: awayScore
+    }
+    return scoreBoard;
+
+  
+  /* attempt2
+  let homeScore=0; //setting up home score to be added to and later returned in object
+  let awayScore=0; //setting up away score to be added to and later returned in object
+  for (let i=0;i<numInnings;i++){ //doing a for loop for the number of innings to be inputted.
+    return inning(){ //I want to run inning() for each iteration of the loop
+    //I want to add a score for homeScore and awayScore
+    
+  } */
+    
+
+
+  /* attempt1 
+  let homeScore=0;
+  let awayScore=0;
+  for (let i=0;i<numInnings;i++){
+    let scoreBoard={
+      Home: homeScore,
+      Away: awayScore
+    }
+    inning()
+    return scoreBoard
+  } */
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
