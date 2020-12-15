@@ -98,17 +98,10 @@ Use the finalScore function below to do the following:
 */ 
 
 function finalScore(inning, total){
-  inning
-  return function (){
-    return ++inning;
-  }
+  for(let i=inning; )
 }
 
-console.log()
-console.log()
-console.log()
-console.log()
-console.log()
+  
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
