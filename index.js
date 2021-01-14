@@ -63,7 +63,20 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(inning1){
+const innings = {
+
+  inning1: "Away 1 - Home 2", 
+  inning2: "Away 2 - Home 1",
+  inning3: "Away 0 - Home 2", 
+  inning4: "Away 2 - Home 2", 
+  inning5:"Away 2 - Home 0", 
+  inning6: "Away 1 - Home 1", 
+  inning7: "Away 0 - Home 2", 
+  inning8: "Away 2 - Home 2",
+  inning9: "Away 1 - Home 0", 
+  finalScore: "Away 11 - Home 12"  
+}
+/*function inning(inning1){
     console.log("It is the,", inning1)
 
     function secondInning(inning2){
@@ -97,12 +110,10 @@ Use the finalScore function below to do the following:
   "Away": 5
 }
 */ 
-let newInning = inning()
-array.innings[]
+let newInnings = innings(finalScore);
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
-}
+
+console.log(newInnings);
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
@@ -155,8 +166,8 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(innings) {
+  console.log(innings(0,9));
 }
 
 
