@@ -122,4 +122,3 @@ function scoreboard(getInningScore, inning, numInnnings) {
   return board;
 }
 console.log(scoreBoard(getInningScore, inning, 9));
-
