@@ -28,11 +28,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  counter1's count variable is block scoped as counter2's is not.
   2. Which of the two uses a closure? How can you tell?
-  
+  counter2 does due it the inside of the function reaching out.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+  counter1 would be great for multi-purpose counters on any type of site, as counter2 would be used more for a stopwatch and single use type method, obviously could duplicate but would have to come up with different "count" variables. ("count2", "count3")
 */
 
 // counter1 code
@@ -62,9 +63,25 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(inning1){
+    console.log("It is the,", inning1)
+
+    function secondInning(inning2){
+      console.log("It is the,", inning2)
+
+      function thirdInning(inning3){
+        console.log("It is the,", inning3)
+      }
+    
+    thirdInning("Third inning.")
+    }
+
+    secondInning("Second inning.")
 }
+
+inning("First inning.")
+
+inning();
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -80,6 +97,8 @@ Use the finalScore function below to do the following:
   "Away": 5
 }
 */ 
+let newInning = inning()
+array.innings[]
 
 function finalScore(/*code Here*/){
   /*Code Here*/
