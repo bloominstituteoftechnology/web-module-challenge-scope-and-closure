@@ -28,11 +28,15 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+  Counter one has a closure
   
   2. Which of the two uses a closure? How can you tell?
-  
+  There's a self contained {} in the code
+
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+     If you want to access the code outside of the closure then option 2 is better. Most instances I would use option 1
 */
 
 // counter1 code
@@ -62,8 +66,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(int){
+    return (Math.random() % 3);
 }
 
 
@@ -80,10 +84,22 @@ Use the finalScore function below to do the following:
   "Away": 5
 }
 */ 
+let homeScore = 0;
+let awayScore = 0;
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, nInnings){
+  for(let i = 0; i < nInnings; i++){
+    homeScore += inning();
+    awayScore += inning();
+
+    if(i === (nInnings - 1)){
+      console.log(homeScore, awayScore);
+    }
+ }
+    
+ 
 }
+
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
