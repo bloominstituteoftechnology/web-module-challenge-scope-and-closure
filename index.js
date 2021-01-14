@@ -14,9 +14,10 @@
 */
 
 function processFirstItem(stringList, callback) {
-  return callback(stringList[0])
+  return callback(stringList[0]);
 }
-console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
+
+console.log(processFirstItem(['foo', 'bar'], function(str) {return str + str;}));
 
 // ⭐️ Example Challenge END ⭐️
 
@@ -28,19 +29,23 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
 
   1. What is the difference between counter1 and counter2?
-
+// counter1 code will create a variable for it to use while it executes its code, the variable will not be accessible outside of the functions scope
+//counter 2 will update the variable count each time it's invoked, might be good for adding 1 each time an action is made
+//i.e pressing a button
   2. Which of the two uses a closure? How can you tell?
-
+counter1 uses closure, it's used when "counter()" reaches out to use the "count" variable in its parent function
   3. In what scenario would the counter1 code be preferable? In what scenario would
      counter2 be better?
+// counter1 would be useful if you need to output the same thing each time the function is called
+// counter 2 would be useful if you needed to run the command each time an action is taken
 */
 
 // counter1 code
 function counterMaker() {
   let count = 0;
   return function counter() {
-   return count++;
-  }
+    return count++;
+  };
 }
 
 const counter1 = counterMaker();
@@ -52,7 +57,6 @@ function counter2() {
   return count++;
 }
 
-
 /* ⚾️⚾️⚾️ Task 2: inning() ⚾️⚾️⚾️
 Use the inning function below to do the following:
   1. Return a random whole number of points between 0 and 2 scored by one team in an inning
@@ -61,10 +65,9 @@ Use the inning function below to do the following:
 
 NOTE: This will be a callback function for the tasks below*/
 
-function inning(){
-  return Math.floor(Math.random()*3)
+function inning() {
+  return Math.floor(Math.random() * 3);
 }
-
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -80,12 +83,12 @@ Use the finalScore function below to do the following:
 }
 */
 
-function finalScore(inning, num) {
+function finalScore(num) {
   let finalScore = {
     Home: 0,
     Away: 0,
   };
-  for (var i = 0; i <= num; i++) {
+  for (var i = 0; i < num; i++) {
     finalScore = {
       Home: inning() + finalScore.Home,
       Away: inning() + finalScore.Away,
@@ -95,13 +98,12 @@ function finalScore(inning, num) {
   return finalScore;
 }
 
+// ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
+//Use the getInningScore() function below to do the following:
+//1. Receive a callback function - you will pass in the inning function from task 2 as your argument
+//2. Return an object with a score for home and a score for away that populates from invoking the inning callback function
 
-/* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
-Use the getInningScore() function below to do the following:
-  1. Receive a callback function - you will pass in the inning function from task 2 as your argument
-  2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
-
-function getInningScore(inning) {
+function getInningScore(inning, num) {
   let finalScore =
     {
       Home: inning(),
@@ -110,8 +112,6 @@ function getInningScore(inning) {
 
   return finalScore;
 }
-
-
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
@@ -154,12 +154,20 @@ Use the scoreboard function below to do the following:
 ]
   */
 
-function scoreboard(inning, getInningScore, num) {
-  let newArray
+function scoreboard(num) {
+  let score = [];
+  let finalScore = {
+  };
+
+  for (var i = 1; i <= num; i++) {
+    score.push(getInningScore());
+  }
+
+  // Object.entries(score).forEach(([key, value]) => {
+  //   console.log(value)
+  // })
+  return score;
 }
-
-
-
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo(){
