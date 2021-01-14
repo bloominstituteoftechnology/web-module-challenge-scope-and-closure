@@ -155,18 +155,16 @@ Use the scoreboard function below to do the following:
   */
 
 function scoreboard(num) {
-  let score = [];
-  let finalScore = {
-  };
-
-  for (var i = 1; i <= num; i++) {
-    score.push(getInningScore());
+  const homeScore = [];
+  let awayScore = [];
+  for (var i = 0; i < num; i++) {
+    homeScore.push(inning());
+    awayScore.push(inning());
+    console.log(`Inning ${i+1}: Home: ${homeScore[i]} - Away: ${awayScore[i]}`);
   }
 
-  // Object.entries(score).forEach(([key, value]) => {
-  //   console.log(value)
-  // })
-  return score;
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  return `Final Score: Home: ${homeScore.reduce(reducer)} - Away: ${awayScore.reduce(reducer)}`;
 }
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
