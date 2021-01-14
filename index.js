@@ -28,6 +28,8 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+  counter2 is a callback
+  counter1 is hof
   
   2. Which of the two uses a closure? How can you tell?
   
