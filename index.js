@@ -170,7 +170,7 @@ function scoreboard(innings) {
   console.log(innings(0,9));
 }
 
-//thats all folks
+
 
 
 
