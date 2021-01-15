@@ -28,11 +28,16 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+    a. count is initialized inside the function in counter 1, and outside the function in counter 2.   
+
   2. Which of the two uses a closure? How can you tell?
-  
+    a. i believe counter1 uses a closure because you can call counterMaker() at any time and it will return a number remembering the previous number
+
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+    a. counter1 would be preferable if the number in count would change. counter2 would be used if the function does not need to change? 
+
+
 */
 
 // counter1 code
@@ -62,9 +67,11 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    let score = Math.floor(Math.random()* 3);
+    return score
 }
+
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -81,18 +88,33 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
-}
+function finalScore (inning, numOfInnings){
+  
+  for (let i = 0; i < inning; i++){
+    score.Home = numOfInnings;
+    score.Away = numOfInnings;
+  }
+  let score = {
+    "Home" : 0,
+    "Away" : 0
+  };
+return score;
+} 
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-}
+function getInningScore(inning) {
+  let score = {
+    "Home" : 0,
+    "Away" : 0
+  };return score
+} 
+getInningScore();
+
+
 
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
