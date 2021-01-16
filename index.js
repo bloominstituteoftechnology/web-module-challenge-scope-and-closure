@@ -158,8 +158,11 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(inning, getInningScore, num) {
+  let score = {
+    "Home" : 0,
+    "Away" : 0
+  };return score
 }
 
 
