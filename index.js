@@ -27,7 +27,7 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   Study the code for counter1 and counter2, then answer the questions below.
   
-  1. What is the difference between counter1 and counter2? counter1 resets the count every time it is called
+  1. What is the difference between counter1 and counter2? counter1 needs an outside variable to work
   
   2. Which of the two uses a closure? How can you tell? counter1 uses a closure. It has a function within the function that can be used when counterMaker is called.
   

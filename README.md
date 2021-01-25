@@ -76,7 +76,7 @@ The console will always show "Dan rolled a" and the number changes based on the 
 
 c. What is the lexical scope of `newRoll`? 
 
-name
+the anonymous function
 
 
 ### Task 3 - Stretch Goals
