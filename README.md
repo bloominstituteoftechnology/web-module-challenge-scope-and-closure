@@ -43,6 +43,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+A closure is a part of the code that is enclosed - it can pull resources from itself and those in the outer scope of itself, but not within another closure inside.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +67,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+The function return inside personalDice; the curly brackets within the function's brackets make it a closure.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+The console will always show "Dan rolled a" and the number changes based on the random generator.
+
 c. What is the lexical scope of `newRoll`? 
+
+name
 
 
 ### Task 3 - Stretch Goals
