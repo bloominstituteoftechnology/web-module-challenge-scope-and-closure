@@ -42,7 +42,9 @@ Find the file `index.js` and complete the tasks.
 
 Edit the `ReadMe` file with your answers.
 
-1. In your own words, define closure (1-2 sentences).
+1. In your own words, define closure (1-2 sentences). 
+A closure is when a finction can reach outside of it's own scope to access a variable. 
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,10 +65,15 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+a. Where is closure used in this code? How can you tell? 
+Closure would be at the end of the variable personalDice.
 
+
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+The variable 'dansRoll' with have his name 'Dan' on both runs throught the function 'personalDice', but each time it will return a random number between 0-6.
+
+c. What is the lexical scope of `newRoll`? 
+It is a variable inside of a function, so it can not be accessed outside of the function. 
 
 ### Task 3 - Stretch Goals
 
