@@ -65,6 +65,7 @@ dansRoll();
 
 a. Where is closure used in this code? How can you tell?
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+- it calls the function inside. The name remains the same but the roll could be different
 c. What is the lexical scope of `newRoll`? 
 
 
