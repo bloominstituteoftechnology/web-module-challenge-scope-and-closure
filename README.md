@@ -42,7 +42,7 @@ Find the file `index.js` and complete the tasks.
 
 Edit the `ReadMe` file with your answers.
 
-1. In your own words, define closure (1-2 sentences).
+1. In your own words, define closure (1-2 sentences).  Closure is kind of like rooms of a house.  The whole house is all of the code and maybe each floor is a page/file of the code.  Closure creates "rooms" of code that can have their own private rules or variables or elements.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +64,10 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+The closure is after the curly brackets, and you can tell because those closing backets that face left are the closing brackets that end the function's definition.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+"Dan rolla a" will always be logged to the console and the roll itself (newRoll) will change.
+c. What is the lexical scope of `newRoll`? 'newRoll' is a const variable which means it is block-scoped which means the lexical scope of it pertains only in the function it was created, the 'personalDice' function.
 
 
 ### Task 3 - Stretch Goals

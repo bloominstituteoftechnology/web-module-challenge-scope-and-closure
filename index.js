@@ -28,11 +28,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  counter1 is object-oriented code while counter2 is function oriented code
   2. Which of the two uses a closure? How can you tell?
-  
+  counter1 uses a closure, you can tell because it is object-oriented code and it also has curly brackets encompassing the whole of the code
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     counter1 code would be preferable when using this code to deal with a smaller problem while counter2 would be better suited to encompass more of the code.
 */
 
 // counter1 code
@@ -64,6 +65,7 @@ NOTE: This will be a callback function for the tasks below
 
 function inning(/*Code Here*/){
     /*Code Here*/
+    return Math.floor(Math.random(2));
 }
 
 
@@ -81,8 +83,18 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(inning, inningNum){
   /*Code Here*/
+  let score = {
+    "Home": 0,
+    "Away": 0
+  }
+
+  for (let i = 1; i <=inningNum; i++){
+    score.home = inning() + inningNum;
+    score.away = inning() + inningNum;
+  }
+  return score;
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -90,8 +102,13 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
+function getInningScore(inning) {
   /*Your Code Here */
+  let score = {
+    Home: inning(),
+    Away: inning()
+  };
+  return score;
 }
 
 
@@ -136,8 +153,29 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(getInningScore, inning, inningNum) {
   /* CODE HERE */
+  let scoreboard = [];
+  let awayArray = 0;
+  let homeArray = 0;
+
+  for(let i = 0; i < inningNum; i++){
+    let currentScore = getInningScore(inning);
+    awayArray = awayTotal + currentScore.Away;
+    homeArray = homeTotal + currentScore.Home;
+
+    let score = `Inning ${i + 1}: Away ${currentScore.Away} - Home ${currentScore.Home}`;
+    scoreboard.push(score);
+  }
+
+
+  let finalScore = `Final Score: Away ${awayTotal} - Home ${homeTotal}`;
+  if(awayTotal === homeTotal) {
+    finalScore = `This game will require extra innings: Away ${awayTotal} - Home ${homeTotal}`;
+  }
+  scoreboard.push(finalScore);
+
+  return scoreboard;
 }
 
 
