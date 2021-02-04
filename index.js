@@ -153,9 +153,33 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(inningScore, inning, num) {
+  let homeScore = 0;
+  let awayScore = 0;
+  let scoreboard = [];
+  let result;
+  for (let i = 0; i < num; i++) {
+    result = inningScore(inning);
+    scoreboard.push(
+      "Inning " + num + ": Away " + result.Away + " - Home " + result.Home
+    );
+    homeScore += result.Home;
+    awayScore += result.Away;
+  }
+  if (awayScore === homeScore) {
+    scoreboard.push(
+      "This game will require extra innings: Away " +
+        awayScore +
+        " - Home " +
+        homeScore
+    );
+  } else if (awayScore != homeScore) {
+    scoreboard.push("Final Score: Away " + awayScore + " - Home " + homeScore);
+  }
+  return scoreboard;
 }
+
+console.log(scoreboard(getInningScore, inning, 7));
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo() {
@@ -170,5 +194,5 @@ export default {
   inning,
   finalScore,
   getInningScore,
-  scoreboard,
+  // scoreboard,
 };
