@@ -64,8 +64,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+the console.log within the funtion that is returned uses closure. It looks oustide of its function scope to retrieve the name parameter
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+The name is always the same as set on the variable 'dans roll' The dice number is the thing that always changes 
 c. What is the lexical scope of `newRoll`? 
+the lexical scope lies withing the function that was returned. 
 
 
 ### Task 3 - Stretch Goals
