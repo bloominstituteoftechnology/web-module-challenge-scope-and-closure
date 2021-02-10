@@ -43,6 +43,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+    A closure is a function having access to the parent scope, even after the parent function has closed. 
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,9 +67,21 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+    They share the same function body, but store in different lexical environments. In dansRoll's lexical environment, the name is Dan, while in the lexical environment for zoesRoll, the name is Zoe
+
+b. Compare and contrast calling `dansRoll` the first and second time. 
+    
+    It will return random numbers always
+
+    What is always the same? The  personalDice function
+
+
+    What could change?  The return function
+
 c. What is the lexical scope of `newRoll`? 
 
+    it can only be use within the 'return function' not outside it
 
 ### Task 3 - Stretch Goals
 
@@ -82,7 +97,53 @@ addSix(10); // returns 16
 addSix(21); // returns 27
 ```
 
-2. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
+2. Research the differences between functional programming and object oriented programming. 
+
+
+object oriented programming are good when you have a fixed set of operations on things, and as your code evolves, you primarily add new things. This can be accomplished by adding new classes which implement existing methods, and the existing classes are left alone.
+
+functional programming are good when you have a fixed set of things, and as your code evolves, you primarily add new operations on existing things. This can be accomplished by adding new functions which compute with existing data types, and the existing functions are left alone.
+
+
+Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
+
+function programming
+
+PROS
+
+This programming paradigm emphasizes on the use of functions where each function performs a specific task.	Fundamental elements used are variables and functions.The data in the functions are immutable(cannot be changed after creation).
+Importance is not given to data but to functions.  It follows declarative programming model. It uses recursion for iteration.  It is parallel programming supported. 
+
+
+CONS
+
+The statements in this programming paradigm does not need to follow a particular order while execution.	 Does not have any access specifier.	To add new data and functions is not so easy.  No data hiding is possible. Hence, Security is not possible.
+
+
+Object Oriented 
+
+PRO
+
+This programming paradigm is based on object oriented concept. Classes are used where instance of objects are created.  Fundamental elements used are objects and methods and the data used here are mutable data.
+
+Importance is given to data rather than procedures.
+
+It follows imperative programming model.
+
+It uses loops for iteration.
+
+CONS
+
+It does not support parallel programming.
+
+The statements in this programming paradigm need to follow a order i.e., bottom up approach while execution.
+Has three access specifiers namely, Public, Private and Protected.
+
+Provides and easy way to add new data and functions.
+Provides data hiding. Hense, secured programs are possible.
+
+
+
 
 ## Resources
 
