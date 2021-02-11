@@ -43,6 +43,8 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+    Closure give us the ability to put functions together. 
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,9 +66,12 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+  The closure is return function inside the personalDice.
 
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+No, is not the same. It will generate a random number between 0~6
+c. What is the lexical scope of `newRoll`? 
+Only inside the function.
 
 ### Task 3 - Stretch Goals
 
