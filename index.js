@@ -29,12 +29,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   1. What is the difference between counter1 and counter2?
   
-     counter1 would remember the count and continue to add 1 while counter2 would reset itself without continuing to add.
+     (counter1 would remember the count and continue to add 1 while counter2 would reset itself without continuing to add.)
 
   2. Which of the two uses a closure? How can you tell?
-       counter1 has a closure
+       (counter1 has a closure)
   3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?  
-        counter1 would be preferable if you need the function to add to what has already been added to it.
+        (counter1 would be preferable if you need the function to add to what has already been added to it.)
 */
 
 // counter1 code
