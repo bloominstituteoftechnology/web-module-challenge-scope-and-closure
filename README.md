@@ -43,6 +43,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+  Closure is a nested function and references to its lexical environment, ie: the outer function. A closure would be created when an inner function references the enclosing function's variables.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,9 +65,15 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+  + In the console.log() call in the returned function, because `name` is in the `personalDice()` function's scope
 
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+  + The result is different each time `dansRoll` is called
+  + The input (argument) for `personalDice` will always be the same as it is store in the `dansRoll` variable
+  + The returned value can change each time `dansRoll` is called as it is assigned a value inside the scope of the `personalDice` function.
+
+c. What is the lexical scope of `newRoll`? 
+  + The scope of the anonymous `return` function, the scope of `personalDice`, and global variables.
 
 ### Task 3 - Stretch Goals
 
