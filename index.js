@@ -127,7 +127,7 @@ function getInningScore(score) {
   return final
 }
 
-console.log(getInningScore(inning, final));
+console.log(getInningScore(final,inning));
 
 
 
@@ -181,7 +181,7 @@ function scoreboard(num) {
     console.log(`Inning ${i+1}: Home: ${homeScore[i]} - Away: ${awayScore[i]}`);
   }
 }
-console.log(scoreboard);
+console.log(scoreboard(getInningScore,inning,num));
 
 
 
