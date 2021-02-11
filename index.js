@@ -155,8 +155,23 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard( /* CODE HERE */ ) {
-    /* CODE HERE */
+function scoreboard(getInningScore, inning, numberOfInnings) {
+    const inningScores = [];
+    for (i = 0; i < numberOfInnings; i++) {
+        inningScores.push(getInningScore(inning));
+    }
+    const scoreText = [];
+    const scoreTotals = {
+        home: 0,
+        away: 0
+    };
+    const makeScoreText = inningScores.map((inningScore, index) => {
+        scoreText.push(`Inning ${index + 1}: Away ${inningScore.Away} - Home ${inningScore.Home}`)
+        scoreTotals.home += inningScore.Home;
+        scoreTotals.away += inningScore.Away
+    })
+    const final = scoreTotals.home === scoreTotals.away ? `This game will require extra innings: Away ${scoreTotals.away} - Home ${scoreTotals.home}` : `Final Score: Away ${scoreTotals.away} - Home ${scoreTotals.home}`;
+    return [...scoreText, final];
 }
 
 
