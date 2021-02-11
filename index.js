@@ -86,8 +86,16 @@ Use the finalScore function below to do the following:
 }
 */
 
-function finalScore( /*code Here*/ ) {
-    /*Code Here*/
+function finalScore(callback, numberOfInnings) {
+    const score = {
+        "Home": 0,
+        "Away": 0
+    };
+    for (let i = 0; i < numberOfInnings; i++) {
+        score["Home"] = score["Home"] + callback();
+        score["Away"] = score["Away"] + callback();
+    };
+    return score;
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
