@@ -28,11 +28,14 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+  > Counter one has variable inside the outer function and is being referred to by the inner function. The second function has the variable outside the function and does not have an inner function.
   
   2. Which of the two uses a closure? How can you tell?
+  > The first counter uses closure because it has an inner function.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+  > If you have a variable/information that are sensitive, you use the closure function because it is only accessible within its lexical environment. If you have global variables that you want to use for multiple functions, counter 2 is better.
 */
 
 // counter1 code
@@ -62,8 +65,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+  return Math.floor(Math.random() * 3) ;
 }
 
 
@@ -81,8 +84,14 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, numberOfInnings){
+  let totalScore = {Home : 0, Away : 0}
+  for (let i=0 ; i < numberOfInnings; i++){
+    totalScore.Home += inning();
+    totalScore.Away += inning();
+  }
+  return totalScore ;
+
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -90,9 +99,13 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-}
+  function getInningScore(inning) {
+    let homeScore = inning;
+    let awayScore = inning;
+    let scores = {Home: homeScore(), Away: awayScore()}
+    return scores
+    
+  }
 
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
@@ -101,7 +114,7 @@ Use the scoreboard function below to do the following:
   2. Receive the callback function `inning` from Task 2
   3. Receive a number of innings to be played
   4. Return an array where each of it's index values equals a string stating the
-  Home and Away team's scores for each inning.  Not the cummulative score.
+  Home and Away team's scores for each inning.  Not the cumulative score.
   5. If there's a tie at the end of the innings, add this message containing the score to the end of the array:  "This game will require extra innings: Away 12 - Home 12"  (see tie example below)
      If there isn't a tie, add this message to the end of the array: "Final Score: Away 13 - Home 11"  (see no tie example below)
   
@@ -136,9 +149,22 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+ function scoreboard(getInningScore, inning, numberOfInnings) {
+  let announcement = []
+  for (let i=0; i<numberOfInnings; i++){
+  announcement.push(`Inning ${i+1}: Away ${getInningScore(inning).Away} - Home ${getInningScore(inning).Home}`)
+  }
+  if (finalScore(inning,numberOfInnings).Home == finalScore(inning,numberOfInnings).Away) {
+  announcement[numberOfInnings] = `This game will require extra innings: Away ${finalScore(inning,numberOfInnings).Away} - Home ${finalScore(inning,numberOfInnings).Home}`
+  }
+  else {
+  announcement[numberOfInnings] = `Final Score: Away ${finalScore(inning, numberOfInnings).Away} - Home ${finalScore(inning, numberOfInnings).Home}`
+  }
+  return announcement;
+
 }
+
+//The final score does not coincide with the total of all scores, but I can't figure out why.
 
 
 
