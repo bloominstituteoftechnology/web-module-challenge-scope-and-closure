@@ -43,6 +43,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+A closure gives you access to an outer functions scope from an inner scope. closures are created every time a function is created. it also means that a function has access to all the data it needs
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +65,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+Because its variable is already declared and than it declares a new const with newRoll. Console.log is also twice to call both declared function/variable.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+It will always be a number between one and 6, but it will never be the same number it will never be more than 6 or less than 1
 c. What is the lexical scope of `newRoll`? 
+That it is outside the functions and can be accessible to another function after the variable declaration.
 
 
 ### Task 3 - Stretch Goals
