@@ -63,7 +63,9 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning(/*Code Here*/){
-    /*Code Here*/
+    /*Code Here*/  points = Math.floor(Math.random() * 3);
+  return points;
+}
 }
 
 
@@ -90,8 +92,17 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(/*Your Code Here */) {function finalScore(inning, numInnings){
+  let score = {
+    Home: 0,
+    Away: 0
+  }
+  for (i = 0; i < numInnings; i++) {
+    score.Home += inning();
+    score.Away += inning();
+    console.log(inning());
+  }
+  return score;
 }
 
 
@@ -136,7 +147,36 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(/* CODE HERE */) {function scoreboard(/* CODE HERE */) {
+  /* CODE HERE */
+}
+function scoreboard(inning, numberInnings) {
+  let score = {
+    'Home': 0,
+    'Away': 0,
+  }
+  for (let i=0; i<numberInnings; i++){
+    score.Home += inning();
+    score.Away += inning();
+
+    function numberSuffix(){
+      if(i+1 === 1){
+        return 'st'
+      }else if (i+1 === 2){
+        return 'nd'
+      }else if (i+1 === 3){
+        return 'rd'
+      } else {
+        return 'th'
+      }
+    }
+
+  console.log(`${i+1}${numberSuffix()} inning: ${score.Home} - ${score.Away}`);
+  }
+  console.log(`Final Score : ${score.Home} - ${score.Away}`);
+}
+
+(scoreboard(inning, 9));
   /* CODE HERE */
 }
 
