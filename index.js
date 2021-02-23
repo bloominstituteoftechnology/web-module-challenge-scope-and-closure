@@ -16,7 +16,9 @@
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
-console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
+console.log(processFirstItem(['foo','bar'],
+function(str){
+  return str+str}));
 
 // ⭐️ Example Challenge END ⭐️
 
@@ -62,10 +64,10 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.floor(Math.random()*3);
 }
-
+console.log(inning())
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -81,8 +83,14 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inningcb, number){
+  let Home = 0;
+  let Away = 0;
+  for(let i=0; i <= number; i++){
+    Home = Home + inningcb();
+    Away = Away + inningcb();
+  }
+  return {Home, Away};
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -90,8 +98,10 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(callback) {
+  let Home = callback();
+  let Away = callback();
+  return{Away, Home};
 }
 
 
@@ -136,11 +146,27 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore,inning, number) {
+   const array =[];
+let countHome = 0;
+let countAway = 0;
+  for(let i=0; i < number; i++){
+    var currentScore = getInningScore(inning);
+    countHome = countHome + currentScore.Home;
+    countAway = countAway + currentScore.Away;
+    array.push (`Inning ${i+1}: Away ${currentScore.Away} - Home ${currentScore.Home}`);
+  }
+  if(countHome === countAway){
+    array.push(`This game will require extra innings: Away ${countHome} - Home ${countAway}`);
+  }
+  else{
+    array.push(`Final Score: Away ${countHome} - Home ${countAway}`)
+  }
+
+  return array
 }
 
-
+console.log(scoreboard(getInningScore,inning,9));
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
@@ -158,3 +184,4 @@ export default{
   getInningScore,
   scoreboard,
 }
+
