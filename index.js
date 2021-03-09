@@ -28,11 +28,17 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+
+  counter1 is using a lexical scope function to allow the count to be stored. 
   
   2. Which of the two uses a closure? How can you tell?
+
+  counter1 is using closure because it is being invoked outside the scope.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+     when storing the memory of counter1 would be prefered. Like counting for the number of people allowed on a site at once. While counter2 resets every time invoked.
 */
 
 // counter1 code
@@ -62,8 +68,9 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
+function inning(score){
     /*Code Here*/
+  
 }
 
 
