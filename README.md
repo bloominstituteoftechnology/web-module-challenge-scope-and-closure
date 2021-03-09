@@ -43,6 +43,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+A way to store data and have it stored in the memory so it can be refereneced later. Basically, closing the function instead of function allowing it to be accessed outside the function onces it's returned.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +67,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+const dansRoll and zoesRoll. It is allowing the data to be accessed outside of the function. 
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+The output would be the only thing that changes. It would be any number 1 through 6
+
 c. What is the lexical scope of `newRoll`? 
+
+Lexical scope is the child function inside of the parent function.
 
 
 ### Task 3 - Stretch Goals
