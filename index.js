@@ -68,11 +68,15 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(score){
-    /*Code Here*/
-  
+function inning(){
+  /*Code Here*/
+  let score = 0;
+  let newScore = Math.floor(Math.random() * 3);
+  return score + newScore
 }
 
+inning();
+// console.log(inning());
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
