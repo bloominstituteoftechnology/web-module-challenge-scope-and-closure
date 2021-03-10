@@ -179,12 +179,12 @@ scoreboard(getInningScore,inning, 9)
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo(){
-  //console.log('its working');
+  console.log('its working');
   return 'bar';
 }
 export default{
   foo,
-  processFirstItem,
+  //processFirstItem,
   counter1,
   counter2,
   inning,
