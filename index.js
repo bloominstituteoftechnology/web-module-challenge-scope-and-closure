@@ -69,7 +69,7 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(Scoring){
+function inning(){
     const points = Math.floor(Math.random() * 3)
     return points;
   }
@@ -88,8 +88,14 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, numOfInnings){
+  const teams = {
+    'Home' : inning(numOfInnings),
+    'Away' : inning(numOfInnings)
+  }
+  if (numOfInnings > 8){
+    return teams
+  }
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
