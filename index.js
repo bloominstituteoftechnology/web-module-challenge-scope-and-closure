@@ -117,18 +117,23 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(cb) {
+function getInningScore(cb, number) {
   /*Your Code Here */
 let home = 0;
 let away = 0;
 
+
+for (let i = 0; i <= number; i++) {
+  home = home + cb();
+  away = away + cb();
+}
   return {
     Home: home,
     Away: away
   }
 }
 
-getInningScore(inning());
+getInningScore(inning, 1);
 
 // [
 //   "Inning 1: Away 1 - Home 2", 
