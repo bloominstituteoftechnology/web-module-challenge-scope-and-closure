@@ -43,6 +43,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+Closure is a function that creates a scope chain from an inner function to a variable stated in the outer function, and sometimes global variables.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +67,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+Using "name" in the inner function, calls to the dansRoll and zoesRoll further down
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+
+You are rolling Dans dice both times, but the number he rolls will change
+
+c. What is the lexical scope of `newRoll`?
+
+It's calling the variable inside the same function.
 
 
 ### Task 3 - Stretch Goals
