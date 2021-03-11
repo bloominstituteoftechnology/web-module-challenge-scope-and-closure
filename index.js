@@ -28,11 +28,18 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+
+    The difference between 'counter 1' and 'counter 2' is that the 'count' variable on 'counter 1' is inside the lexical scope of the funciton 'counterMarker', while 'counter 2' has its 'count' on the oustide of the function putting it in the Global Scope.
   
   2. Which of the two uses a closure? How can you tell?
+
+    'counter 1' utilizes a closure because as well as the function be declared as a variable ('counter1') in the global scope, the functionality of 'counterMaker()' is completely within the the lexical scope of said funciton,
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+    'counter 1' would be preferable to being able to recall the function within a tigher scope, while 'counter 2' would be better used in recalling in the context of a broader scope.
+
 */
 
 // counter1 code
@@ -62,10 +69,10 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
-}
-
+function inning(Scoring){
+    const points = Math.floor(Math.random() * 3)
+    return points;
+  }
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
