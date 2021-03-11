@@ -43,6 +43,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+  Closure would be the coding language seeking context within the limits of a Global and Local Scope. With functins inside fucntions, it would begin seraching for closure inside the nested function, if it does not find anything, it will search outside the nested function to be able to declare that funciton.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +67,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+  The closure of this code would be the console log inside the personalDice fucntion, becuase it begins with the declaration of the arugument (dansRoll()), and ends with the console.log within the function.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+  In calling 'dansRoll', what will always remain the same would be the string declared in the argument it's eqauted to. What could change is the is the 'newRoll' varuable that is stated inside the fucntion, becuase it will always generate a random random number between 1 and 6.
+
 c. What is the lexical scope of `newRoll`? 
+
+  The lexical scope of 'newRoll' will always remain inside the function that it is nested in.
 
 
 ### Task 3 - Stretch Goals
