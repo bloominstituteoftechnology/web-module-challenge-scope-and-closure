@@ -130,7 +130,33 @@ let away = 0;
 
 getInningScore(inning());
 
+// [
+//   "Inning 1: Away 1 - Home 2", 
+//   "Inning 2: Away 2 - Home 1",
+//   "Inning 3: Away 0 - Home 2", 
+//   "Inning 4: Away 2 - Home 2", 
+//   "Inning 5: Away 2 - Home 0", 
+//   "Inning 6: Away 1 - Home 1", 
+//   "Inning 7: Away 0 - Home 2", 
+//   "Inning 8: Away 2 - Home 2",
+//   "Inning 9: Away 1 - Home 0", 
+//   "Final Score: Away 11 - Home 12"  
+// ]
 
+//   TIE example: invoking scoreboard(getInningScore,inning, 9) might return 
+//   an array of strings like this:
+// [
+//   "Inning 1: Away 1 - Home 1", 
+//   "Inning 2: Away 2 - Home 2",
+//   "Inning 3: Away 1 - Home 0", 
+//   "Inning 4: Away 1 - Home 2", 
+//   "Inning 5: Away 0 - Home 0", 
+//   "Inning 6: Away 2 - Home 1", 
+//   "Inning 7: Away 0 - Home 2", 
+//   "Inning 8: Away 2 - Home 1",
+//   "Inning 9: Away 1 - Home 1", 
+//   "This game will require extra innings: Away 10 - Home 10"
+// ]  
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
   1. Receive the callback function `getInningScore` from Task 4
@@ -143,37 +169,22 @@ Use the scoreboard function below to do the following:
   
   NO TIE example: invoking scoreboard(getInningScore,inning, 9) might return 
   an array of strings like this:
-[
-  "Inning 1: Away 1 - Home 2", 
-  "Inning 2: Away 2 - Home 1",
-  "Inning 3: Away 0 - Home 2", 
-  "Inning 4: Away 2 - Home 2", 
-  "Inning 5: Away 2 - Home 0", 
-  "Inning 6: Away 1 - Home 1", 
-  "Inning 7: Away 0 - Home 2", 
-  "Inning 8: Away 2 - Home 2",
-  "Inning 9: Away 1 - Home 0", 
-  "Final Score: Away 11 - Home 12"  
-]
 
-  TIE example: invoking scoreboard(getInningScore,inning, 9) might return 
-  an array of strings like this:
-[
-  "Inning 1: Away 1 - Home 1", 
-  "Inning 2: Away 2 - Home 2",
-  "Inning 3: Away 1 - Home 0", 
-  "Inning 4: Away 1 - Home 2", 
-  "Inning 5: Away 0 - Home 0", 
-  "Inning 6: Away 2 - Home 1", 
-  "Inning 7: Away 0 - Home 2", 
-  "Inning 8: Away 2 - Home 1",
-  "Inning 9: Away 1 - Home 1", 
-  "This game will require extra innings: Away 10 - Home 10"
-]  
   */
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(cb, cbTwo, number) {
   /* CODE HERE */
+let home = 0;
+let away = 0;
+
+for (let i = 0; i <= number; i++) {
+  home = home + cb();
+  away = away + cb();
+}
+
+return [
+  cbTwo
+]
 }
 
 
