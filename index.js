@@ -28,11 +28,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+      counter1 works with function scope while is working on a global scope
   
   2. Which of the two uses a closure? How can you tell?
-  
+    counter 1, nested functions and references to variables outside the function scope
   3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+     counter2 be better?  multiple function calls would make 1 preferable, im not sure off the top of my head why 2 would be better. 
 */
 
 // counter1 code
@@ -62,9 +63,11 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
-}
+// function inning(/*Code Here*/){
+//     /*Code Here*/
+// } 
+
+let inning = () => Math.floor(Math.random()*3);
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -81,8 +84,20 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+// function finalScore(/*code Here*/){
+//   /*Code Here*/
+// }
+
+let finalScore = (inning, number) => {
+  const score = {
+    Home: 0,
+    Away: 0
+  };
+  for (let round in number); {
+    score.Home += inning();
+    score.Away += inning();
+  }
+  return score;
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -90,8 +105,16 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+// function getInningScore(/*Your Code Here */) {
+//   /*Your Code Here */
+// }
+
+let getInningScore = (callback) => {
+  const score = {
+    Home: callback(),
+    Away: callback()
+  };
+  return score;
 }
 
 
@@ -136,10 +159,23 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+// function scoreboard(/* CODE HERE */) {
+//   /* CODE HERE */
+// }
 
+let scoreboard = (inning, getInningScore) => {
+  const arrToReturn = [];
+  let home = 0;
+  let away = 0;
+
+  for (let i = 0; i < 9; i++){
+    const currentScore = getInningScore(inning);
+    home += currentScore.Home
+    away += currentScore.Away
+    arrToReturn.push(`Inning ${i + 1}: Away: ${currentScore.Away} - Home: ${currentScore.Home}`);
+  }
+  return arrToReturn;
+}
 
 
 
