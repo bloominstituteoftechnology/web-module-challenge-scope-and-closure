@@ -10,7 +10,7 @@
  *     element in the array as the argument
  * 
  * The following code is demonstrating a way of completing this task
- * It returns the string `foofoo`
+ * It returns the string `foofoo` //
 */
 
 function processFirstItem(stringList, callback) {
