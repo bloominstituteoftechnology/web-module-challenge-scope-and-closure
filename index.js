@@ -33,12 +33,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   2. Which of the two uses a closure? How can you tell?
 
-    'counter 1' utilizes a closure because as well as the function be declared as a variable ('counter1') in the global scope, the functionality of 'counterMaker()' is completely within the the lexical scope of said funciton,
+    'counter 1' utilizes a closure because the data of the funciton is stored within the const variable as 'counter1'
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
 
-    'counter 1' would be preferable to being able to recall the function within a tigher scope, while 'counter 2' would be better used in recalling in the context of a broader scope.
+    'counter 1' would be preferable to being able to recall the function that requires to hold data, while 'counter 2' would be better used in recalling in the context of changing values
 
 */
 
