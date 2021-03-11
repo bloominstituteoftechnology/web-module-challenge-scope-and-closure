@@ -20,6 +20,7 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
 // ⭐️ Example Challenge END ⭐️
 
+WORKING ON IT!!!!!!!!!
 
 ///// M V P ///////
 
