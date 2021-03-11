@@ -44,7 +44,7 @@ Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
 
-A way to store data and have it stored in the memory so it can be refereneced later. Basically, closing the function instead of function allowing it to be accessed outside the function onces it's returned.
+A way to store data and have it stored in the memory so it can be refereneced later. Basically, closing the function and allowing variables to be accessed throughout the function.
 
 2. Study the following code, then answer the questions below.
 

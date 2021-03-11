@@ -70,9 +70,8 @@ NOTE: This will be a callback function for the tasks below
 
 function inning(){
   /*Code Here*/
-  let score = 0;
-  let newScore = Math.floor(Math.random() * 3);
-  return score + newScore
+  let score = Math.floor(Math.random() * 3);
+  return score
 }
 
 inning();
@@ -92,9 +91,26 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(cb, number){
   /*Code Here*/
+let home = 0;
+let away = 0;
+
+for (let i = 0; i <= number; i++) {
+  home = home + cb();
+  away = away + cb();
 }
+
+return {
+  Home: home,
+  Away: away
+}
+
+
+}
+
+finalScore(inning, 9)
+
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
