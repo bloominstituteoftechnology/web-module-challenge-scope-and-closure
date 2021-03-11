@@ -68,7 +68,7 @@ dansRoll();
 
 a. Where is closure used in this code? How can you tell?
 
-  The closure of this code would be the console log inside the personalDice fucntion, becuase it begins with the declaration of the arugument (dansRoll()), and ends with the console.log within the function.
+  The closer is the declaration of 'dansRoll' and 'zoesRoll'. You can tell because these variables are equating to functions
 
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
 
