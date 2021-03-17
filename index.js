@@ -166,12 +166,33 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard() {
-  
+ function scoreboard(func, func2, number){
+  const finalMessage = [];
+  const scoreTotal = {
+    Home: 0, 
+    Away: 0,
+  };
+
+  for (let i = 1; i <= number; i++){
+    const inningScore = func(func2);
+    
+    scoreTotal.Home += inningScore.Home;
+    scoreTotal.Away += inningScore.Away;
+    finalMessage.push(`Inning ${i}: Away ${inningScore.Away} - Home ${inningScore.Home}`);
+  }
+
+  if (scoreTotal.Home !== scoreTotal.Away){
+    finalMessage.push(`Final Score: Away ${scoreTotal.Away} - Home ${scoreTotal.Home}`);
+  } else {
+    finalMessage.push(`This game will require extra innings: Away ${scoreTotal.Away} - Home ${scoreTotal.Home}`);
+    }
+
+  return finalMessage;
 }
 
+scoreboard(getInningScore,inning,9);
 
-
+console.log(scoreboard(getInningScore, inning, 9));
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo(){
