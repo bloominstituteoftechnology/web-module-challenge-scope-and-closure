@@ -28,11 +28,18 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+
+    The difference is that counter1 has a parent function (counterMaker()) nesting the same process, which allows for invokation anywhere in the code.
   
   2. Which of the two uses a closure? How can you tell?
+
+    counter1 because when counter1() is invoked, it has to search through the counterMaker() function until it reaches count++. At that point, it has to go back up the chain to find the count variable.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+    counter1 is preferable when the memory of the counter is needed, counter2 is preferable when the memory needs to be reset or the counter reused.
+
 */
 
 // counter1 code

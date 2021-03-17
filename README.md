@@ -68,7 +68,7 @@ dansRoll();
 
 a. Where is closure used in this code? How can you tell?
 
-  The closure is dansRoll() as it's calling what is inside of the function's scope.
+  The closure is dansRoll() as it's invoking a function with variable that are not defined in it's scope.
 
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
 
