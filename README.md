@@ -43,6 +43,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+  A closure is a function that is able to remember variables wherever they are defined regardless of whether or not they are being executed at that time.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +67,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+  The closure is dansRoll() as it's calling what is inside of the function's scope.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+  The function would always run the same; the difference would be the output, which is a random number between 1 and 6.
+
 c. What is the lexical scope of `newRoll`? 
+
+  The lexical scope of 'newRoll' consists of function() and personalDice(), as well as global scope.
 
 
 ### Task 3 - Stretch Goals
