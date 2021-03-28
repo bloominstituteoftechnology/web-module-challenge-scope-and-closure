@@ -30,10 +30,17 @@ WORKING ON IT!!!!!!!!!
   
   1. What is the difference between counter1 and counter2?
   
+  *--1 count is in the counterMaker function and 2 it is outside the function
+  
   2. Which of the two uses a closure? How can you tell?
   
+  *--count 1 because it puts closure over eveything
+  
   3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+     
+  counter2 be better?  
+  
+  *--1 would be best if you only need your function to access count 2 would be best if more need to access it.
 */
 
 // counter1 code
@@ -63,9 +70,13 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
-}
+function inning() {
+  let num1 = Math.random() * (2 - 0) + 0;
+  let score = Math.round(num1);
+  return(score)
+};
+
+inning()
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -82,10 +93,31 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
-}
+function inning() {
+  let num1 = Math.random() * (2 - 0) + 0;
+  let score = Math.round(num1);
+  return(score)
+};
 
+let home = [];
+let away = [];
+
+function finalscore(numInns) {
+  for(let i = 1; i <= numInns; i++ ) {   
+    let score = inning();
+    home.push(score);
+    let score2 = inning();
+    away.push(score2)
+    if(numInns === i) {
+    console.log(`Innings: ${i} Home: ${home} Away: ${away}`);
+      let finalH = home[0] + home[1] + home[2] + home[3] + home[4] + home[5] + home[6] + home[7] + home[8];
+      let finalA = away[0] + away[1] + away[2] + away[3] + away[4] + away[5] + away[6] + away[7] + away[8];
+      console.log(`Final Score is: Home ${finalH}  Away ${finalA}`);
+    };
+  }
+};
+
+finalscore(9)
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
