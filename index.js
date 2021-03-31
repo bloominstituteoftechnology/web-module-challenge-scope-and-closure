@@ -102,12 +102,12 @@ function inning() {
 let home = [];
 let away = [];
 
-function finalscore(numInns) {
+function finalscore(numInns, cb) {
   for(let i = 1; i <= numInns; i++ ) {   
-    let score = inning();
+    let score = cb();
     home.push(score);
-    let score2 = inning();
-    away.push(score2)
+    let score2 = cb();
+    away.push(score2);
     if(numInns === i) {
     console.log(`Innings: ${i} Home: ${home} Away: ${away}`);
       let finalH = home[0] + home[1] + home[2] + home[3] + home[4] + home[5] + home[6] + home[7] + home[8];
@@ -117,7 +117,8 @@ function finalscore(numInns) {
   }
 };
 
-finalscore(9)
+finalscore(9, inning)
+
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
