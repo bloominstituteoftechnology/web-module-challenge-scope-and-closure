@@ -168,7 +168,7 @@ function scoreboard(inningScoreCB, inningCB, numInnings) {
    scoreAllInnings.push(`Inning ${numInnings + 1}: Away ${currentScore.Away} - Home ${currentScore.Home}`); // this is going to push all the innings and the points that were earning in each inning.
    }
   homeScore = homeScore + inningCB();  //this will add the scores in each inning and accumulate for home.
-  awayScore = awayScore + inningCB();  //this will add the scores in each inning and accumulate for home.
+  awayScore = awayScore + inningCB();  //this will add the scores in each inning and accumulate for away.
     
   if (numInnings === 9 && awayScore === homeScore){     //setiing the conditions to push an item to the array. I am only calling for inning 9 and if the accumulated scores are equal to push this string into the array
       scoreAllInnings.push (`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`); 
