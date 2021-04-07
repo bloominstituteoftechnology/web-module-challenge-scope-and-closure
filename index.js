@@ -156,27 +156,28 @@ Use the scoreboard function below to do the following:
   */
 
 function scoreboard(inningScoreCB, inningCB, numInnings) {
-  const scoreAllInnings = [];
+  const scoreAllInnings = [];           // opening a new array to push the final array into.
 
-  let homeScore = 0;
+  let homeScore = 0;                // intializing the score by opening two variables. Can also be an object.
   let awayScore = 0;
-  for (let i = 0; i < numInnings; i++){
-   const currentScore = inningScoreCB(inningCB);
-   homeScore = homeScore + currentScore.Home;
-   awayScore = awayScore + currentScore.Away;  
-   scoreAllInnings.push(`Inning ${numInnings + 1}: Away ${currentScore.Away} - Home ${currentScore.Home}`);
+
+  for (let i = 0; i < numInnings; i++){   // this will loop through the number of innings set in the argument in the console log.
+   const currentScore = inningScoreCB(inningCB);  // This will return the points that were earned in each inning(NOT THE TOTAL POINTS, NOT CUMMULATIVE!)
+   homeScore = homeScore + currentScore.Home;   // currentScore is inheriting the object in the getInningScore 
+   awayScore = awayScore + currentScore.Away;   // so the current score is being invoked by object format.
+   scoreAllInnings.push(`Inning ${numInnings + 1}: Away ${currentScore.Away} - Home ${currentScore.Home}`); // this is going to push all the innings and the points that were earning in each inning.
    }
-  homeScore = homeScore + inningCB();
-  awayScore = awayScore + inningCB();
+  homeScore = homeScore + inningCB();  //this will add the scores in each inning and accumulate for home.
+  awayScore = awayScore + inningCB();  //this will add the scores in each inning and accumulate for home.
     
-      if (numInnings === 9 && awayScore === homeScore){
-         scoreAllInnings.push (`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`); 
-      } else if (numInnings === 9){
-         scoreAllInnings.push (`Final Score: Away ${awayScore} - Home ${homeScore}`)
-      }
-  return scoreAllInnings; 
+  if (numInnings === 9 && awayScore === homeScore){     //setiing the conditions to push an item to the array. I am only calling for inning 9 and if the accumulated scores are equal to push this string into the array
+      scoreAllInnings.push (`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`); 
+  } else if (numInnings === 9){     //if the accumulated scores are different, then this will be pushed into the array instead.
+      scoreAllInnings.push (`Final Score: Away ${awayScore} - Home ${homeScore}`)
+  }
+  return scoreAllInnings;   // ending the function with a return of the array that we opened in the beginning of the function.
 }
-console.log(scoreboard(getInningScore, inning, 9));
+console.log(scoreboard(getInningScore, inning, 9)); // calling the function with arguments that match the parameters.
 
 
 
