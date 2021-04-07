@@ -43,6 +43,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+  A: Closure is when a function is nested inside of another function and inherits variables and values from the parent function.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +65,9 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+  A: The anonymous function inside is a closure function because it inherits the name parameter from its parent function personDice.
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change? Dan's roll could be a different number if the Math.random function generates different results. Dan's name and the string called will always be the same.
+c. What is the lexical scope of `newRoll`? 'newRoll' lexical scope is from the anonymous function declared in a variable.
 
 
 ### Task 3 - Stretch Goals
