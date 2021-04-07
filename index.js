@@ -63,8 +63,20 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    let score = 0;
+    function inner () {
+      let random = Math.random();
+      if (random >= .01 && random <= .33){
+        score = 0;
+      } else if (random > .33 && random <= .66){
+        score = 1;
+      } else if (random > .66 && random < 1){
+        score = 2;
+      }
+      return score;
+    }
+    return inner();
 }
 
 
