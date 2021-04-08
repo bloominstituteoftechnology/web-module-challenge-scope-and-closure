@@ -43,6 +43,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+	When an inner function has access to the outer functions variables.  
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,7 +67,14 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+	The inner function calls on the the variable "name" which is in the outer function called personalDice. "Name" is no where 
+	defined in the inner function as a variable. 
+	
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+	The function called on is always the same and the arguments passed into the function are different in each case. 
+	
 c. What is the lexical scope of `newRoll`? 
 
 
