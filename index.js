@@ -94,8 +94,43 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(callback, inningsPlayed){
+  let allInningsHome = []
+  let allInningsAway = []
+
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+    function homeScore() {
+      let inningCounter = 0;
+      while (inningCounter < inningsPlayed) {
+        let inningScore = inning();
+        allInningsHome.push(inningScore)
+        inningCounter++
+    }
+
+      let totalHomeTeamScore = allInningsHome.reduce(reducer);
+      console.log(totalHomeTeamScore);
+      return totalHomeTeamScore;
+  }
+
+  function awayScore() {
+      let inningCounter = 0;
+      while (inningCounter < inningsPlayed) {
+        let inningScore = inning();
+        allInningsAway.push(inningScore)
+        inningCounter++
+      }
+      
+      let totalAwayTeamScore = allInningsAway.reduce(reducer);
+      console.log(totalAwayTeamScore);
+      return totalAwayTeamScore;
+  }
+    
+  let finalScoreTotal = {
+    Home: homeScore(),
+    Away: awayScore()
+    }
+    return finalScoreTotal;
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
