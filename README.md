@@ -43,6 +43,8 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+The outer function's variables can be seen by nested function. 
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +66,14 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+PersonalDice's "name" variable is used in nested function's console log.
+The return function needs to use closure to get the `name` variable. 
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+Name is always same. newRoll changes.
 c. What is the lexical scope of `newRoll`? 
+Nested function only.
 
 
 ### Task 3 - Stretch Goals
