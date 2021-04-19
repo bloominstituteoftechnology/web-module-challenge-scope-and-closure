@@ -43,6 +43,8 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+  A closure is a parent sharing functions or variables with nested generations. It is a one-way share, parents cannot borrow from children.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,9 +66,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+  In the console.log, when it's asking for the 'name' parameter. It is borrowing that info from the personalDice function.
 
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+  The name, 'Dan', stays the same, while the 'newRoll' randomizes with each call.
+
+c. What is the lexical scope of `newRoll`? 
+  'newRoll' would only be accessible inside the return function.
 
 ### Task 3 - Stretch Goals
 
