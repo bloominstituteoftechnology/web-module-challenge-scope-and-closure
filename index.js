@@ -16,7 +16,7 @@
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
-console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
+console.log(processFirstItem(['foo', 'bar'], function (str) { return str + str }));
 
 // ⭐️ Example Challenge END ⭐️
 //
@@ -40,7 +40,7 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 function counterMaker() {
   let count = 0;
   return function counter() {
-   return count++;
+    return count++;
   }
 }
 
@@ -63,10 +63,10 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(){
-      return Math.floor(Math.random()*3);
-    }
-    
+function inning() {
+  return Math.floor(Math.random() * 3);
+}
+
 
 
 
@@ -82,15 +82,17 @@ Use the finalScore function below to do the following:
   "Home": 11,
   "Away": 5
 }
-*/ 
+*/
 
-function finalScore(inning, numinnings){
-  let score ={Home:0 ,Away:0 };
-  for(let i =0;i<numinnings; i++){
-    score.Home+=inning();
-    score.Away+=inning();
-  }
-return score ;
+function finalScore(inning, numinnings) {
+  let score = { Home: 0, Away: 0 };
+  for (let i = 0; i < numinnings; i++) {
+    score.Home += inning();
+    score.Away += inning();
+
+  } return score;
+
+
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -99,14 +101,12 @@ Use the getInningScore() function below to do the following:
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
 function getInningScore(inning) {
-  for(let i =0; i < numinnings; i++){
-    score.Home+= inning();
-    score.Away+= inning();
-
+  let score = {Index: i};
+  for (let i = 0; i < numinnings; i++) {
+    score.index = (i) + 1;
   }
-  return (score); 
+  return score;
 }
-getInningScore(inning);
 
 
 
@@ -165,11 +165,11 @@ Use the scoreboard function below to do the following:
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
-function foo(){
+function foo() {
   //console.log('its working');
   return 'bar';
 }
-export default{
+export default {
   foo,
   processFirstItem,
   counter1,
