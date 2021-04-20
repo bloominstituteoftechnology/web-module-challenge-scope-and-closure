@@ -28,11 +28,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  counter 2 pulls the count variable from above while counter 1 has the variable nested along with another function.
   2. Which of the two uses a closure? How can you tell?
-  
+  counter one because it refers to the function within the parent function scope from outside
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     if you want to garauntee counter to equal 0 at start counter1 if youre counting from a diff start point you could pass count from a diff int value to counter2
 */
 
 // counter1 code
@@ -62,9 +63,11 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
-}
+function inning(){
+      return Math.floor(Math.random()*3);
+    }
+    
+
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -81,8 +84,13 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, numinnings){
+  let score ={Home:0 ,Away:0 };
+  for(let i =0;i<numinnings; i++){
+    score.Home+=inning();
+    score.Away+=inning();
+  }
+return score ;
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -90,9 +98,16 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inning) {
+  for(let i =0; i < numinnings; i++){
+    score.Home+= inning();
+    score.Away+= inning();
+
+  }
+  return (score); 
 }
+getInningScore(inning);
+
 
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
@@ -136,9 +151,15 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+/*function scoreboard(getInningScore, inning) {
+  const scoretracker = [];
+  let homeScore = 0;
+  let awayscore = 0;
+  for(let i= 0; i < numinnings; i++){
+    const currentscore = score ;
+    
+  }
+}*/
 
 
 
