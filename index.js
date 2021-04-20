@@ -67,10 +67,15 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
-}
+// function inning(/*Code Here*/){
+//     /*Code Here*/
+// }
 
+function inning(){
+  return randomNumber(){
+    return Math.floor(Math.random()*2)
+  }
+}
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -86,6 +91,20 @@ Use the finalScore function below to do the following:
 }
 */ 
 
+function finalScore(inningCB, numInning){
+  for (let i = 0 ; i < ;i++){
+    if ( [i]){
+      return [i]++
+    }else if ( [i].length-1){
+      return {}
+    }
+  }
+
+}
+
+
+
+
 function finalScore(/*code Here*/){
   /*Code Here*/
 }
@@ -99,6 +118,15 @@ function getInningScore(/*Your Code Here */) {
   /*Your Code Here */
 }
 
+function getInningScore(cb) {
+  let inningScore = {
+    Home: 0,
+    Away: 0,
+  };
+  inningScore.Home += cb();
+  inningScore.Away += cb();
+  return inningScore;
+}
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
