@@ -45,7 +45,6 @@ function counterMaker() {
 
 const counter1 = counterMaker();
 
-
 // counter2 code
 let count = 0;
 
@@ -113,11 +112,11 @@ function getInningScore(callback) {
   home = home + callback();
   
   var testing = {
-    Home: home,
-    Away: away
+    Away: away,
+    Home: home
   };
 
-  return testing
+  return testing;
 }
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
@@ -163,16 +162,18 @@ Use the scoreboard function below to do the following:
 
 function scoreboard(callbackOne, callbackTwo, number) {
   let inningsArray = [];
+  let totalAway = 0;
+  let totalHome = 0;
   for (let i = 0; i < number; i++) {
     const temp = callbackOne(callbackTwo);
     inningsArray.push(`Inning ${i + 1}: ${JSON.stringify(temp)}`);
-
-    //console.log(temp);
-
+    totalAway = totalAway + temp.Away;
+    totalHome = totalHome + temp.Home;
   }
 
-  inningsArray.push(`Final Score: ${JSON.stringify(finalScore(callbackTwo, number))}`);
+  inningsArray.push(`Final Score: Away ${totalAway} - Home ${totalHome}`);
   console.log(inningsArray);
+
 }
 
 scoreboard(getInningScore, inning, 9);
