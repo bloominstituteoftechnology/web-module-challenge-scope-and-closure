@@ -43,6 +43,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+	Closure is when a function needs to look outwards for context. Basically when the code within the body of the function are running into issues with definement so it looks outside of the function to do so.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +67,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+	A closure is used for the name variable within the internal function of personalDice. Name has to look outwards for context via the name argument passed through personalDice.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+	"(`${name} rolled a" should always remain consistent while "${newRoll}" should be changing.
+
 c. What is the lexical scope of `newRoll`? 
+
+	it is within the lexical scope of "function()"
 
 
 ### Task 3 - Stretch Goals

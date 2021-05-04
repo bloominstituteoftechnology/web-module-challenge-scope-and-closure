@@ -28,11 +28,21 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+    
+  Counter 1 starts with the function counterMaker to start and at first will return 0
+  after that it will proceed to increment.
+
+  Counter 2 cuts out the first step of actually making the counter and the count is 
+  defined globally outside of the counter2 function
   
   2. Which of the two uses a closure? How can you tell?
   
+  Counter 2 uses a closure because count isn't defined within its function scope. It needs to look outwards for context "let count = 0;".
+  
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+     Counter1 is good when you want to make multiple different counters. Counter2 is good when you just need something simple and only one of.
 */
 
 // counter1 code
