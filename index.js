@@ -45,13 +45,13 @@ function counterMaker() {
 
 const counter1 = counterMaker();
 
+
 // counter2 code
 let count = 0;
 
 function counter2() {
   return count++;
 }
-
 
 /* ⚾️⚾️⚾️ Task 2: inning() ⚾️⚾️⚾️
 Use the inning function below to do the following:
@@ -62,8 +62,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.floor(Math.random() * 3);
 }
 
 
@@ -81,8 +81,23 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, number){
+
+  let home = 0;
+  let away = 0;
+
+  for (let i = 0; i < number; i++) {
+    home = home + inning();
+    away = away + inning();
+  }
+
+  var totalScores = {
+    Home: home,
+    Away: away
+  };
+
+  return totalScores;
+
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -90,10 +105,20 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-}
+function getInningScore(callback) {
+  let home = 0;
+  let away = 0;
 
+  away = away + callback();
+  home = home + callback();
+  
+  var testing = {
+    Home: home,
+    Away: away
+  };
+
+  return testing
+}
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
@@ -136,10 +161,21 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(callbackOne, callbackTwo, number) {
+  let inningsArray = [];
+  for (let i = 0; i < number; i++) {
+    const temp = callbackOne(callbackTwo);
+    inningsArray.push(`Inning ${i + 1}: ${JSON.stringify(temp)}`);
+
+    //console.log(temp);
+
+  }
+
+  inningsArray.push(`Final Score: ${JSON.stringify(finalScore(callbackTwo, number))}`);
+  console.log(inningsArray);
 }
 
+scoreboard(getInningScore, inning, 9);
 
 
 
