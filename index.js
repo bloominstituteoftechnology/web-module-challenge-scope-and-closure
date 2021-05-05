@@ -90,11 +90,13 @@ Use the finalScore function below to do the following:
 */ 
 
 function finalScore(inning, number) {
-  let totalScore = { "Home": 0, "Away": 0 };
+  let totalScore = { "Home": number, "Away": number };
 
-    for (let i = 0; i < number; i++) {
-      totalScore.Home += inning(0);
-      totalScore.Away += inning(0);
+  for (let i = 0; i < number; i++) {
+      
+    totalScore.Home += inning(number);
+    totalScore.Away += inning(number);
+    
     }
     return totalScore;
 }
