@@ -160,8 +160,8 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inning,numOfInnings) {
+  const score = []
 }
 
 
