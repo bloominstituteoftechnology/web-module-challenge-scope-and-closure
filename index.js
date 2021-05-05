@@ -28,11 +28,19 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+          
+          The difference is that counter1 is a High Order Function.  A Higher-Order function
+          is a function that receives a function as an argument or returns the function as output.
+
   2. Which of the two uses a closure? How can you tell?
+           
+          Counter1 as it has an outer function being called by an inner function.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+            Counter1 - Should be used when the function needs to be reuseable.
+            Counter2 - They are simpler to write and it is not always necessary to have closure.
 */
 
 // counter1 code
@@ -51,6 +59,8 @@ let count = 0;
 function counter2() {
   return count++;
 }
+
+
 
 
 /* ⚾️⚾️⚾️ Task 2: inning() ⚾️⚾️⚾️
