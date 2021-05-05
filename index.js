@@ -20,8 +20,6 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
 // ⭐️ Example Challenge END ⭐️
 
-WORKING ON IT!!!!!!!!!
-
 ///// M V P ///////
 
 /*Task 1: counterMaker()
@@ -30,7 +28,7 @@ WORKING ON IT!!!!!!!!!
   
   1. What is the difference between counter1 and counter2?
   
-  *--1 count is in the counterMaker function and 2 it is outside the function
+  *--1 count is in the counterMaker function and 2 it is outside the function, so the scope of access is different.
   
   2. Which of the two uses a closure? How can you tell?
   
@@ -40,7 +38,7 @@ WORKING ON IT!!!!!!!!!
      
   counter2 be better?  
   
-  *--1 would be best if you only need your function to access count 2 would be best if more need to access it.
+  *--1 would be best if you only need your function to access the count, 2 would be best if more code needs to access it.
 */
 
 // counter1 code
@@ -71,7 +69,7 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning() {
-  let num1 = Math.random() * (2 - 0) + 0;
+  let num1 = Math.random() * (2);
   let score = Math.round(num1);
   return(score)
 };
@@ -94,7 +92,7 @@ Use the finalScore function below to do the following:
 */ 
 
 function inning() {
-  let num1 = Math.random() * (2 - 0) + 0;
+  let num1 = Math.random() * (2);
   let score = Math.round(num1);
   return(score)
 };
@@ -102,22 +100,21 @@ function inning() {
 let home = [];
 let away = [];
 
-function finalscore(numInns, cb) {
+function finalscore(cb, numInns) {
   for(let i = 1; i <= numInns; i++ ) {   
     let score = cb();
     home.push(score);
     let score2 = cb();
     away.push(score2);
     if(numInns === i) {
-    console.log(`Innings: ${i} Home: ${home} Away: ${away}`);
       let finalH = home[0] + home[1] + home[2] + home[3] + home[4] + home[5] + home[6] + home[7] + home[8];
       let finalA = away[0] + away[1] + away[2] + away[3] + away[4] + away[5] + away[6] + away[7] + away[8];
-      console.log(`Final Score is: Home ${finalH}  Away ${finalA}`);
+      console.log(`Home: ${finalH}  Away: ${finalA}`);
     };
   }
 };
 
-finalscore(9, inning)
+finalscore(inning, 9)
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
