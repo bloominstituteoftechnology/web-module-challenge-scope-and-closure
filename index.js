@@ -88,16 +88,16 @@ Use the finalScore function below to do the following:
 
 function finalScore(inning, numOfInnings){
   const score = {
-    home: 0,
-    away: 0,
+    Away: 0,
+    Home: 0,
   }
   
   for (let i = numOfInnings * 2 ;i > 0; i--){
     if(i%2 === 0){
-    score.home = (score.home + inning())
+    score.home = (score.Away + inning())
     }
     else if (i%2 !== 0){
-    score.away = (score.away + inning())
+    score.away = (score.Home + inning())
     }
   }
   return score
@@ -110,11 +110,11 @@ Use the getInningScore() function below to do the following:
 
 function getInningScore(inning) {
  const score = {
-  home: 0,
-  away: 0,
+  Away: 0,
+  Home: 0,
  }
- score.home = inning();
- score.away = inning();
+ score.Home = inning();
+ score.Away = inning();
  return score
 }
 
@@ -160,8 +160,27 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(getInningScore, inning,numOfInnings) {
+function scoreboard(getInningScore, inning, numOfInnings) {
   const score = []
+  const internalScore = {
+    away: 0,
+    home: 0,
+  }
+  for (let i = 0 ;i < numOfInnings; i++){
+    j = inning()
+    y = inning()
+    score.push(`Inning ${i+1}: Away ${j} - Home ${y}`); 
+    internalScore.away = (internalScore.away + j);
+    internalScore.home = (internalScore.home + y);
+  }
+  if(internalScore.away === internalScore.home){
+    score.push(`This game will require extra innings: Away ${internalScore.away} - Home ${internalScore.home}`)
+  }
+  else if(internalScore.away !== internalScore.home){
+    score.push(`Final Score: Away ${internalScore.away} - Home ${internalScore.home} `)
+  }
+
+  return score
 }
 
 
