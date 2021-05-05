@@ -62,9 +62,15 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+  const min = 0;
+  const max = 2;
+
+  return Math.floor(Math.random()) * (max - min + 1) + min;
 }
+
+inning()
+
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -80,19 +86,26 @@ Use the finalScore function below to do the following:
   "Away": 5
 }
 */ 
-
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning){
+  for (i=0; i<3; i++){
+    console.log(home[i])
+    console.log(away[i])
+    return finalScore;
+  }
 }
+// eslint-disable-next-line no-undef
+finaleScore(inning, 9)
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-}
+  function getInningScore(inning) {
+    return homeScore;
+    return awayScore;
+  }
+  getInningScore(inning)
 
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
@@ -136,10 +149,25 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(scoreCB, inningCB, inningAmount) {
+  const totalGame = []; // Everything meaningful is pushed here.
+  let homeScore = 0; // Counter, saved score on each iteration
+  let awayScore = 0; // Counter, saved score on each iteration
+  for (let i = 0; i < inningAmount; i++) {
+    const currentScore = inningCB(scoreCB); // This variable exists to allow notation for selection
+    homeScore = homeScore + currentScore.Home;
+    awayScore = awayScore + currentScore.Away;
+    totalGame.push(
+      `Inning ${i + 1}: Away: ${currentScore.Away} - Home: ${currentScore.Home}`
+    );
+  } // Closes for loop
+  if (awayScore === homeScore) {
+    totalGame.push(
+      `This game will require extra innings: Away ${awayScore} - Home ${homeScore}`
+    );
+  } else totalGame.push(`Final Score: Away ${awayScore} - Home ${homeScore}`);
+  return totalGame;
 }
-
 
 
 
