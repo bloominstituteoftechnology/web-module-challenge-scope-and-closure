@@ -71,8 +71,7 @@ NOTE: This will be a callback function for the tasks below
 function inning(){
   var minimum = 0;
   var maximum = 2;
-  return value.finalScore(value.random()) * 
-  
+  return Math.floor(Math.random() * 3)
 }
 
 
@@ -90,13 +89,18 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(inning) {
-  for (i = 0; i++){
-    console.log(homeTeam[i]);
-    console.log(awayTeam[i]);
-    return finalScore
+function finalScore(inning, number) {
+  for (let i = 0; i < 3; i++) {
+    let homeTeam = 0;
+    let awayTeam = 0;
+    homeTeam += inning();
+    awayTeam += inning();
   }
+    let score = {"Home": homeTeam, "Away": awayTeam}
+    return finalScore(inning, 9);
 }
+  
+
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
