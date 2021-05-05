@@ -103,4 +103,4 @@ addSix(21); // returns 27
 Please see Canvas for cohort specific submission instructions 
 
 
-I FORGOT TO CHANGE MY BRANCH! MAKING NEW CHANGE!
+I FORGOT TO CHANGE MY BRANCH! MAKING NEW
