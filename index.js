@@ -38,7 +38,8 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
 
-      - Counter 1 has the reset and would be preferable in. Counter 2 would be better for 
+      - Counter 1 has the reset and would be preferable in multiple function calls. 
+      - Counter 2 would be better for recalling. 
 */
 
 // counter1 code
