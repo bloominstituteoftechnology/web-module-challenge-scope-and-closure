@@ -93,6 +93,9 @@ addSix(21); // returns 27
 
 2. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
 
+Functional programming involves building functions to output data. Variables in functional programming are most often only defined within their local scope and not at the global level. The variables enclosed with the functions are not changed at the global scope, only the return of the function, when invoked is necessary. 
+Object oriented programming invovles creating mutable global objects and manipulating them as necessary with methods for the purposes of the program. 
+
 ## Resources
 
 📚 [Scope and Closures Guide](https://css-tricks.com/javascript-scope-closures/)
