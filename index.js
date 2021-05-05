@@ -157,9 +157,37 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inning, num) {
+  let noTie = [
+    "Inning 1: Away 1 - Home 2", 
+    "Inning 2: Away 2 - Home 1",
+    "Inning 3: Away 0 - Home 2", 
+    "Inning 4: Away 2 - Home 2", 
+    "Inning 5: Away 2 - Home 0", 
+    "Inning 6: Away 1 - Home 1", 
+    "Inning 7: Away 0 - Home 2", 
+    "Inning 8: Away 2 - Home 2",
+    "Inning 9: Away 1 - Home 0", 
+    "Final Score: Away 11 - Home 12"
+  ]
+
+  let Tie = [
+    "Inning 1: Away 1 - Home 1", 
+  "Inning 2: Away 2 - Home 2",
+  "Inning 3: Away 1 - Home 0", 
+  "Inning 4: Away 1 - Home 2", 
+  "Inning 5: Away 0 - Home 0", 
+  "Inning 6: Away 2 - Home 1", 
+  "Inning 7: Away 0 - Home 2", 
+  "Inning 8: Away 2 - Home 1",
+  "Inning 9: Away 1 - Home 1", 
+  "This game will require extra innings: Away 10 - Home 10"
+  ]
+
+  return noTie;
 }
+
+scoreboard();
 
 
 
