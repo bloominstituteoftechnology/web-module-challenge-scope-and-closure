@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // ⭐️ Example Challenge START ⭐️
 
 /**Example Task : processFirstItem()
@@ -86,27 +87,35 @@ Use the finalScore function below to do the following:
   "Away": 5
 }
 */ 
-function finalScore(inning){
-  for (i=0; i<3; i++){
-    console.log(home[i])
-    console.log(away[i])
-    return finalScore;
+function finalScore(cb, inn) {
+  const total = {
+    Home: 0,
+    Away: 0,
+  };
+  for (let i = 0; i < inn; i++) {
+    total.Home += cb();
+    total.Away += cb();
   }
+  return total;
 }
-// eslint-disable-next-line no-undef
-finaleScore(inning, 9)
+finalScore(inning, 9);
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-  function getInningScore(inning) {
-    return homeScore;
-    return awayScore;
+  function getInningScore(cb) {
+    let inningScore = {
+      Home: 0,
+      Away: 0,
+    };
+    inningScore.Home += cb();
+    inningScore.Away += cb();
+    return inningScore;
   }
-  getInningScore(inning)
-
+  
+  console.log(getInningScore(inning));
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
