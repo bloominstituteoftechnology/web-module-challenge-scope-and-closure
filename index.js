@@ -151,9 +151,15 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard() {
+
 }
+
+  
+  
+  
+  
+
 
 
 
