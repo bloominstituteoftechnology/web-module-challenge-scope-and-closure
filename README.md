@@ -65,8 +65,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+the closure is the newRoll variable defined within the return function of the personalDice function
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+the function always returns only one roll each time it is invoked. A second function could be used to store each roll and return an array listing each successive roll of the dice
+by either Dan or Zoe (name of the dice roller taken as a parameter)
 c. What is the lexical scope of `newRoll`? 
+the lexical scope of newRoll is within the return function of the personalDice function, in other words, it lives inside this
+<!-- return function(){
+      // generate random number between 1 and 6
+    const newRoll = Math.floor(Math.random() * 6);
+    console.log(`${name} rolled a ${newRoll}`) -->
 
 
 ### Task 3 - Stretch Goals
