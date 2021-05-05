@@ -86,8 +86,21 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, numOfInnings){
+  const score = {
+    home: 0,
+    away: 0,
+  }
+  
+  for (let i = numOfInnings * 2 ;i > 0; i--){
+    if(i%2 === 0){
+    score.home = (score.home + inning())
+    }
+    else if (i%2 !== 0){
+    score.away = (score.away + inning())
+    }
+  }
+  return score
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
