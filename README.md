@@ -43,6 +43,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+Closure is the combination of a function and a reference to its outer environment. 
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +67,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+Closure is used when name is called in the console.log. You know closure is used because the function is referencing something in its outer scope or lexical environment.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+When running `dansRoll` the string "Dan rolled a " is always the same. However, the number that follows, could change.
+
 c. What is the lexical scope of `newRoll`? 
+
+The lexical scope of `newRoll` is anywhere within the global scope.
 
 
 ### Task 3 - Stretch Goals

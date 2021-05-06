@@ -29,15 +29,20 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   1. What is the difference between counter1 and counter2? 
 
-  In counter 1, most of the code exists within function code, including the variable count and therefore lexical scope exists. Furthermore, count 1 contains 2 return statements. 
+  In counter 1, most of the code exists within function code, including the variable count and therefore lexical scope exists. Furthermore, counter 1 contains a nested function. 
   In counter 2, the variable count exists in global code, and there is only 1 return statement which is not being used as closure.
   
   2. Which of the two uses a closure? How can you tell?
 
-  Counter 1 uses a closure because it has 2 return statemente. Therefore, the function will end after the first return (assuming it is not undefined.)
+  Counter 2 uses a closure because it references count which exists outside of its function scope.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+     Counter 1 would be prerferable if you do not need to reference count elsewhere in your code. 
+     Counter 2 would be preferable if you wanted to reference count elsewhere in your code as it exists in the global scope.
+
+
 */
 
 // counter1 code
@@ -101,8 +106,21 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, numInning ){
+
+  let scoreHome = 0;
+  let scoreAway = 0;
+
+  for (let i = 0; i < numInning; i++) {
+    scoreHome = inning() + scoreHome;
+    scoreAway = inning() + scoreAway;
+  }
+
+  let teams = {
+    Home : scoreHome,
+    Away : scoreAway
+  };
+  return teams;
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -110,10 +128,25 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-}
+  function getInningScore(inning) {
 
+    let homeScore = 0;
+    let awayScore = 0;
+  
+      homeScore = inning() ;
+      awayScore = inning() ;
+  
+  
+    let teams = {
+      Home : homeScore,
+      Away : awayScore,
+    };
+  
+    return teams;
+    
+  }
+  
+  
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
