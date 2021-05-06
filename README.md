@@ -43,6 +43,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+  Closures make it possible to combine functions because closures make it possible to access functions on different levels such as parent and child. The child level function can access the parent level function.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +67,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+  The closure is the inner function with the const newRoll variable. This allows access outside the function by calling it with the function const dansRoll. 
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+
+  On the first pass the const newRoll function is identifed as being accessable inside of the function personalDice and on the second pass the function dansRoll is given access to the function newRoll by calling the function personaDice. const dansRoll is always dansRoll but the function personalDice can change.
+
+c. What is the lexical scope of `newRoll`?
+
+  newRoll belongs to the function personalDice. 
 
 
 ### Task 3 - Stretch Goals
