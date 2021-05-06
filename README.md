@@ -43,6 +43,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+  closure is when the declaration of a variable which is referenced within a function, occurs inside the scope of that function.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,9 +65,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+  - the closure is the newRoll variable defined within the return function of the personalDice function
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
 
+c. What is the lexical scope of `newRoll`? 
+  - the lexical scope of newRoll is within the return function of the personalDice function, in other words, it lives inside this
 
 ### Task 3 - Stretch Goals
 
