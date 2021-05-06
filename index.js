@@ -1,5 +1,8 @@
 // ⭐️ Example Challenge START ⭐️
 
+import { transformFromAstAsync } from "@babel/core";
+import { TestScheduler } from "@jest/core";
+
 /**Example Task : processFirstItem()
  * This example shows how you might go about solving the rest of the tasks
  * 
@@ -31,14 +34,16 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
       counter1 = countMaker and counter2 = count
 
+      They are the same except one is lexical and one is global.
+
   2. Which of the two uses a closure? How can you tell?
 
-    The first function uses closure because it sets counter1 to the function countMaker.
+      The second function uses closure because it looks outside the lexical scope. 
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
 
-    counter1 would be preferable if there is no need to redefine or redeclare counter1. counter2 would be better if there was a need to redefine counter2. 
+    counter1 is using the same variable more than once but assign a different meaning so counter1 would be preferable if there is no need to redefine or redeclare counter1. counter2 would be better if there was a need to use the same varaible for numerous function.
 
 */
 
@@ -70,7 +75,7 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning(){
-    return Math.floor(Math.random() * Math.floor(2))
+    return Math.ceil(Math.random() * Math.ceil(2))
 }
 
 
@@ -151,11 +156,27 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard() {
+function scoreboard(getInningScore, inning, number) {
+    const finalScore = [];
+    let homeScore = 0
+    let awayScore = 0
 
+    for(let i = 0; i < number; i++) {
+      const currentScore = getInningScore(inning)
+      homeScore = homeScore + currentScore.Home
+      awayScore = awayScore + currentScore.Away
+
+      finalScore.push(`Inning ${i + 1}: Away ${currentScore.Away} - Home ${currentScore.Home}`);
+    }
+    if (homeScore === awayScore) {
+      finalScore.push(`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`)
+    } else {
+      finalScore.push(`Final Score: Away ${awayScore} - Home ${homeScore}`)
+    }
+    return finalScore;
 }
+console.log(scoreboard(getInningScore, inning, 9));
 
-  
   
   
   
