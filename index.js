@@ -32,7 +32,7 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
    counter 2 defines count within the global scope and returns a change in the count variable
   
   2. Which of the two uses a closure? How can you tell?
-  counter 2 because the variable count (which it references) is contained outside of its scope
+  counter 1 because the inner function references the variable count outside of its scope
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
