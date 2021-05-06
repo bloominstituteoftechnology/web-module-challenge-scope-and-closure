@@ -43,7 +43,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
-closure is when the declaration of a variable which is referenced within a function, occurs inside the scope of that function.
+closure is when the declaration of a variable occurs outside the scope of a function.
 2. Study the following code, then answer the questions below.
 
 ```js
