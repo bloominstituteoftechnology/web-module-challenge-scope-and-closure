@@ -27,9 +27,14 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   Study the code for counter1 and counter2, then answer the questions below.
   
-  1. What is the difference between counter1 and counter2?
+  1. What is the difference between counter1 and counter2? 
+
+  In counter 1, most of the code exists within function code, including the variable count and therefore lexical scope exists. Furthermore, count 1 contains 2 return statements. 
+  In counter 2, the variable count exists in global code, and there is only 1 return statement which is not being used as closure.
   
   2. Which of the two uses a closure? How can you tell?
+
+  Counter 1 uses a closure because it has 2 return statemente. Therefore, the function will end after the first return (assuming it is not undefined.)
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
@@ -62,9 +67,24 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning() {
+
+  let x = Math.random();
+  let result = 0;
+
+  if (x <= 1/3) {
+    result = 0
+  }
+  else if (x > 1/3 && x <= 2/3) {
+    result = 1
+  }
+    else if (x > 2/3) {
+      result = 2
+    }; 
+
+    return result    
 }
+
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
