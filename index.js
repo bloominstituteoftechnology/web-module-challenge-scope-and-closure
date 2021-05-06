@@ -28,11 +28,17 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+    They are the same except once uses a global varibale and one uses a local variable.
   
   2. Which of the two uses a closure? How can you tell?
+      counter2. It looks outside of its scope for a variable 
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+      Counter1 would be used if you wanted to use the same variable more than once but with a different value.
+      Counter2 is best if you wanted to use a varibale with the same name and value and can be accessed by numerous functions.
+
+
 */
 
 // counter1 code
@@ -62,9 +68,12 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.ceil(Math.random()*Math.ceil(2));
 }
+
+
+
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -81,7 +90,7 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(inning){
   /*Code Here*/
 }
 
