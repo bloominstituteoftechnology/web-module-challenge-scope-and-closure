@@ -67,12 +67,17 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
-    
+
+    The closure is dansRoll and zoesRoll because it is accessing newRoll from personalDice.
    
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
 
+    dansRoll isn't always the same because newRoll creates a random number.
+
 
 c. What is the lexical scope of `newRoll`? 
+
+      It is a local scope of personalDice.
 
 
 ### Task 3 - Stretch Goals
