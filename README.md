@@ -43,6 +43,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+  Closure is the ability for information to be accessed in certain levels of the code. It is how the information can be accessed in its nested element.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +65,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+  Closure is used in the function, the roll can be accessed only through the function and not through the const newRoll.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+  Because dansRoll is defined as a const, if it was a let the value could be changed.
 c. What is the lexical scope of `newRoll`? 
+  newRoll can only be accessed inside the function personalDice. 
 
 
 ### Task 3 - Stretch Goals

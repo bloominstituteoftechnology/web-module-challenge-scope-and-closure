@@ -28,11 +28,13 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+      Counter one is a function inside of another function and counter two is a function 
+      on its own.
   2. Which of the two uses a closure? How can you tell?
-  
+      They both use closure.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     Counter one will create new counters and counter two is just a counter.
 */
 
 // counter1 code
@@ -62,9 +64,12 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    const min = Math.ceil(0);
+    const max = Math.floor(2);
+    return Math.floor(Math.random () * (max - min) + min);
 }
+console.log(inning())
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -80,20 +85,35 @@ Use the finalScore function below to do the following:
   "Away": 5
 }
 */ 
+  function home(){
+    let score = inning()
+    return score
+  }
+  function away(){
+    let score = inning()
+    return score
+  }
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, num){
+    return {
+    "Home": home(),
+    "Away": away()
+  }  
 }
 
+console.log(finalScore(inning, 9))
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(fun) {
+  return {
+    "Home": inning(),
+    "Away": inning()
+  }  
 }
-
+console.log(getInningScore())
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
@@ -136,8 +156,8 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inning, num) {
+  
 }
 
 
