@@ -28,15 +28,15 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  counter 1 defines count within the scope of the function and returns a function which returns a change in the count variable,
-   counter 2 defines count within the global scope and returns a change in the count variable
+  counter 1 defines count within the scope of the function counterMaker() and returns a function which returns a change in the count variable. Count is defined outside of the inner function's scope.
+  counter 2 defines count within the global scope and returns a change in the count variable
   
   2. Which of the two uses a closure? How can you tell?
   counter 2 is a closure because the inner function references the variable count outside of its scope. counter1 is not a closure however, the inner function counter() is a closure. 
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
-     counter 1 would be better to create a new counter starting at 0 when required. Like at the start of a new game. 
+     counter 1 would be better to create a new counter starting at 0 when required. Like at the start of a new game. We could also assign the function to a variable, allowing us to declare multiple games by invoking counterMaker
      counter 2 is much simpler and would be better if only starting from 0 once. 
 */
 
