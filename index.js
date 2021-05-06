@@ -28,18 +28,23 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+    in counter1 code, there is a function within the function that is asigned to another variable so that when the variable 'counter1' i9s called, it will trigger 'counterMaker' which triggers 'counter'. the variable 'count' is outside the function in counter2 code and just simply returns the function 'counter2' that is not assigned to a variable. 
+
+
   2. Which of the two uses a closure? How can you tell?
-  
+    counter1 uses closure because there is a function nested in a function that is neste inside of a variable. 
+
+
   3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+    counter2 be better?  
+    counter1 would be preferable in a situation where you would want to nest the function in a variable to call in another function AND if you wouldnt need to use the variable 'count', possibly. counter2 is important in situations where you would need the use the variable 'count' more than just the function. 
 */
 
 // counter1 code
 function counterMaker() {
   let count = 0;
   return function counter() {
-   return count++;
+  return count++;
   }
 }
 
@@ -55,22 +60,26 @@ function counter2() {
 
 /* ⚾️⚾️⚾️ Task 2: inning() ⚾️⚾️⚾️
 Use the inning function below to do the following:
-  1. Return a random whole number of points between 0 and 2 scored by one team in an inning
+  1. [x]Return a random whole number of points between 0 and 2 scored by one team in an inning
   
   For example: invoking inning() should return a numerical score value of 0, 1, or 2
   
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+  function getRandomNumber(maxNumber) {
+    return Math.floor(Math.random() * maxNumber);
+  }//function using math.floor and math.random to generate a random number. 'maxNumber' is called to set a max number that its going to, in this case to get from 0 to 2, we would need 3 numbers.
+  
+  return getRandomNumber(3);
 }
-
+//console.log(inning());
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
-  1. Receive the callback function `inning` that was created in Task 2 
-  2. Receive a number of innings to be played
+  1. [X]Receive the callback function `inning` that was created in Task 2 
+  2. [x]Receive a number of innings to be played
   3. After each inning, update the score of the home and away teams
   4. After the last inning, return an object containing the final (total) score of the innings played
   
@@ -81,19 +90,37 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(callBack, inningNumber){
+  var Home = 0;
+  var Away = 0;
+  
+  let score1 = Math.floor(Math.random(callBack) * inningNumber);
+
+  let score2 = Math.floor(Math.random(callBack) * inningNumber);
+
+  for (let i = 0; i < inningNumber; i++) {
+    Home = score1
+    Away = score2 
+  }
+  var obj = {Home, Away}; 
+  return obj 
 }
+console.log(finalScore(inning(), 9))  
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-}
+  function getInningScore(callBack) {
 
+    var Home = Math.floor(Math.random(callBack))
+    var Away = Math.floor(Math.random(callBack))
+  
+    var obj = {Home, Away}; 
+    return obj 
+  }
+  console.log(getInningScore(inning()));
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
