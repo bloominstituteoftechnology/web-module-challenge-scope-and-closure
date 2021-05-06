@@ -28,11 +28,15 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+    (Counter1 has the function before the let count. While counter 2 has the function after the variable) 
   
   2. Which of the two uses a closure? How can you tell?
+    (counter 2 gives us the closure because the variable is outside of the function, but you can still return it.)
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+     (Counter1 would be perferable when you are doing many varibles at once but want diffrent meanings, but counter2 would be better when )
 */
 
 // counter1 code
@@ -62,8 +66,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.floor(Math.random()) * Math.floor(2);
 }
 
 
@@ -81,8 +85,11 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning){
+  return {
+    Home: inning(),
+    Away: inning()
+  }
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -90,8 +97,11 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inning) {
+  return{
+    Home: inning(),
+    Away: inning()
+  }
 }
 
 
@@ -136,10 +146,22 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+function scoreboard(getInningScore,inning) {
+  const inning=[9];
+  let Home = 0;
+  let Away = 0;
 
+  for(let i = 0;i < 3; i++){
+    const currentScore = 
+    inningCB(getInningScoreCB)
+    Home = Home + currentScore.Home
+    Away = Away + currentScore.Away
+    inning.push(`Period ${i + 1}: Away ${currentScore.Away} - Home ${currentScore.Home}`);
+
+  }
+  return inning
+}
+ console.log(scoreboard(getInningScore)
 
 
 
