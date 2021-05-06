@@ -43,6 +43,8 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+Closure is the ability for a function to look outside of its scope to find a global variable
 2. Study the following code, then answer the questions below.
 
 ```js

@@ -16,7 +16,7 @@
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
-console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
+console.log(processFirstItem(['foo', 'bar'], function (str) { return str + str }));
 
 // ⭐️ Example Challenge END ⭐️
 
@@ -28,18 +28,24 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+
+  // Counter 2 looks for the count variable outside of its own local scope
+  // While Counter 1 declares the count variable inside the scope of the function
   
   2. Which of the two uses a closure? How can you tell?
+  Counter 2 uses closure because its looking for a variable outside of its local scope
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     Counter 1 is preferrable in most scenarios because it is clear and concise, a reader of the code and clearly see the declared variable and how its used within the function
+    //  Counter 2 could be used in app where you need several utility apps that all rely on a the global counter variable to function, so you wouldn't declared it in the function
 */
 
 // counter1 code
 function counterMaker() {
   let count = 0;
   return function counter() {
-   return count++;
+    return count++;
   }
 }
 
@@ -62,8 +68,9 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning() {
+  const result = Math.floor(Math.random() * 3)
+  return result
 }
 
 
@@ -79,19 +86,30 @@ Use the finalScore function below to do the following:
   "Home": 11,
   "Away": 5
 }
-*/ 
+*/
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, num) {
+  const result = { Home: 0, Away: 0 };
+  for (let x = 0; x < num; x++) {
+    const score = inning();
+    const score2 = inning();
+    result.Home += score;
+    result.Away += score2;
+  }
+  return result
 }
-
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inning) {
+  const result = { Home: 0, Away: 0 };
+  const score = inning();
+  const score2 = inning();
+  result.Home += score;
+  result.Away += score2;
+  return result
 }
 
 
@@ -136,19 +154,31 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inning, num) {
+
+  const scoreBoard =
+    [`Inning 1: Away ${} - Home ${}`,
+    `Inning 2: Away ${} - Home ${}`,
+    `Inning 3: Away ${} - Home ${}`,
+    `Inning 4: Away ${} - Home ${}`,
+    `Inning 5: Away ${} - Home ${}`,
+    `Inning 6: Away ${} - Home ${}`,
+    `Inning 7: Away ${} - Home ${}`,
+    `Inning 8: Away ${} - Home ${}`,
+    `Inning 9: Away ${} - Home ${}`,
+
+    ]
 }
 
 
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
-function foo(){
+function foo() {
   //console.log('its working');
   return 'bar';
 }
-export default{
+export default {
   foo,
   processFirstItem,
   counter1,
