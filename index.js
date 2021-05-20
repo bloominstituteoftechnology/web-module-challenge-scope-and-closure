@@ -175,7 +175,7 @@ function scoreboard(getInningScore, inning, numberOfInnings) {
 
 
 
-/* 🛑🛑🛑🛑🛑 Please do not modify anyting below this line 🛑🛑🛑🛑🛑 */
+/* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo(){
   //console.log('its working');
   return 'bar';
