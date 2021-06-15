@@ -35,7 +35,6 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
      counter2 be better?  
 */
 
-// counter1 code
 function counterMaker() {
   let count = 0;
   return function counter() {
@@ -52,7 +51,6 @@ function counter2() {
   return count++;
 }
 
-
 /* ⚾️⚾️⚾️ Task 2: inning() ⚾️⚾️⚾️
 Use the inning function below to do the following:
   1. Return a random whole number of points between 0 and 2 scored by one team in an inning
@@ -63,9 +61,9 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning(/*Code Here*/){
-    /*Code Here*/
+  /*Code Here*/
+  return Math.floor(Math.random() * 3);
 }
-
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -81,8 +79,18 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(inning, num /*code Here*/){
   /*Code Here*/
+    let score = {
+      "Home": 0,
+      "Away": 0
+    }
+  for(let i = 0; i < num; i++) {
+    score.Home += inning(); 
+    score.Away += inning(); 
+  }
+
+  return score;
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -90,9 +98,10 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-}
+  function getInningScore(inning /*Your Code Here */) {
+    /*Your Code Here */
+    return {"Home": inning(), "Away": inning()};
+  }
 
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
@@ -136,10 +145,27 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(getInningScore, inning, innings /* CODE HERE */) {
   /* CODE HERE */
-}
+  const arr = [];
+  let HomeTotal = 0; 
+  let AwayTotal = 0; 
 
+  for(let i = 0; i < innings; i++) {
+    arr.push(`Inning ${i}: Away ${inning()} - Home ${inning()}`)
+    HomeTotal += inning();
+    AwayTotal += inning();
+  }
+  let tie =  HomeTotal === AwayTotal;
+
+  if(tie) { 
+    arr.push(`This game will require extra innings: Away ${AwayTotal} - Home ${HomeTotal}`) 
+  } else {
+    arr.push(`Final Score: Away ${AwayTotal} - Home ${HomeTotal}`);
+  }
+
+  return arr;
+}
 
 
 
