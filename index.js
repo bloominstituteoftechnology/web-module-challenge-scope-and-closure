@@ -168,7 +168,6 @@ function scoreboard(getInningScore, inning, innings /* CODE HERE */) {
 }
 
 
-
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo(){
   //console.log('its working');
