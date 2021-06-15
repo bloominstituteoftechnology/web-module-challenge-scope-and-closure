@@ -28,11 +28,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  answer: counter1 is a function expression that returns another function while counter2 is a declarative function that return a value.
   2. Which of the two uses a closure? How can you tell?
-  
+  answer: counter1 uses closure because its variable relies on context outside of the function
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+  answer: When you don't have access to count and want to encapsulate it, then you would choose counter1
 */
 
 // counter1 code
@@ -64,8 +65,8 @@ NOTE: This will be a callback function for the tasks below
 
 function inning(/*Code Here*/){
     /*Code Here*/
+    return Math.floor(Math.random() * 3);
 }
-
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -81,8 +82,18 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(inning, num /*code Here*/){
   /*Code Here*/
+    let score = {
+      "Home": 0,
+      "Away": 0
+    }
+  for(let i = 0; i < num; i++) {
+    score.Home += inning(); 
+    score.Away += inning(); 
+  }
+
+  return score;
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -90,8 +101,9 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
+function getInningScore(inning /*Your Code Here */) {
   /*Your Code Here */
+  return {"Home": inning(), "Away": inning()};
 }
 
 
@@ -119,7 +131,6 @@ Use the scoreboard function below to do the following:
   "Inning 9: Away 1 - Home 0", 
   "Final Score: Away 11 - Home 12"  
 ]
-
   TIE example: invoking scoreboard(getInningScore,inning, 9) might return 
   an array of strings like this:
 [
@@ -136,11 +147,27 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(getInningScore, inning, innings /* CODE HERE */) {
   /* CODE HERE */
+  const arr = [];
+  let HomeTotal = 0; 
+  let AwayTotal = 0; 
+
+  for(let i = 0; i < innings; i++) {
+    arr.push(`Inning ${i}: Away ${inning()} - Home ${inning()}`)
+    HomeTotal += inning();
+    AwayTotal += inning();
+  }
+  let tie =  HomeTotal === AwayTotal;
+
+  if(tie) { 
+    arr.push(`This game will require extra innings: Away ${AwayTotal} - Home ${HomeTotal}`) 
+  } else {
+    arr.push(`Final Score: Away ${AwayTotal} - Home ${HomeTotal}`);
+  }
+
+  return arr;
 }
-
-
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
