@@ -1,4 +1,4 @@
-import functions from '../index';
+import functions from './index';
 
 const inning = function() {
     return Math.floor(Math.random() * Math.floor(3));
@@ -34,4 +34,5 @@ describe('getInningScore', ()=>{
           }))
     })
 });
+
 

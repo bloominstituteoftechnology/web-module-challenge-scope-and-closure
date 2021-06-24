@@ -145,10 +145,11 @@ function scoreboard(/* CODE HERE */) {
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo(){
-  //console.log('its working');
+  console.log('its working');
   return 'bar';
 }
-export default{
+foo();
+module.exports = {
   foo,
   processFirstItem,
   counter1,

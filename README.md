@@ -25,22 +25,38 @@ There are layers upon layers of nested functions within the game of baseball. Yo
 
 ## Instructions
 
-### Task 1 - Set Up Project and Tests
+### Task 1: Set up Project
+
+Using VSCode and Command Line:
+
 
 1. Fork the repo
 2. Clone your forked version of the repo
 3. cd into your repo and create a branch with your first and last name
 4. open the terminal in your vs code and type `npm install`
-5. next type `npm run test:watch` in your terminal
+5. next type `npm run test` in your terminal
 6. Complete your work making regular commits, once you have all your tests passing and you are ready to submit your work please see canvas for instructions on how to submit
+
 
 ### Task 2a - MVP code
 
-Find the file `index.js` and complete the tasks.
+Find the file `index.js` and complete all tasks.
+
+### Testing & Debugging
+
+Open a second terminal inside of your project by clicking on the split terminal icon
+![alt text](assets/split_terminal.png "Split Terminal")
+
+Inside of your second terminal type `npm start` 
+![alt text](assets/npm_start.png "type npm start")
+
+You will be running your tests in one terminal and debugging in the other. As you work on your code you should make use of `console.log` to check your progress and debug.
+![alt text](assets/tests_debug_terminal_final.png "your terminal should look like this")
+
 
 ### Task 2b - Written questions
 
-Edit the `ReadMe` file with your answers.
+Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
 2. Study the following code, then answer the questions below.
@@ -90,6 +106,6 @@ addSix(21); // returns 27
 
 🧠 ["I never Understood Closures" Blog](https://medium.com/dailyjs/i-never-understood-javascript-closures-9663703368e8)
 
-## Submission Format
+## Submission format
 
-Please see Canvas for cohort specific submission instructions 
+Please submit your project via codegrade by following [these instructions](https://www.notion.so/lambdaschool/Submitting-an-assignment-via-Code-Grade-A-Step-by-Step-Walkthrough-07bd65f5f8364e709ecb5064735ce374)
