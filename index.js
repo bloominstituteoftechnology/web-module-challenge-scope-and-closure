@@ -53,6 +53,9 @@ function counter2() {
   return count++;
 }
 
+console.log(`Task 1.1`, 'Counter 1 is the lexical scope and counter 2 is a function ');
+console.log('Task 1.2', 'Counter 1 uses a closure because it invokes the function');
+console.log('Task 1.3', 'Counter 1 works better when starting from 1 and counter 2 works better when starting with the answer for counter 1');
 
 /* ⚾️⚾️⚾️ Task 2: inning() ⚾️⚾️⚾️
 Use the inning function below to do the following:
@@ -63,12 +66,25 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+   return Math.floor(Math.random() * Math.floor (2));
 }
-
+console.log('Task 2' , inning(1));
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
+
+function score(){
+   return Math.floor(Math.random() * Math.floor (2));
+}
+
+function hockeyGame(scorecb){
+  return{
+    Home: scorecb(),
+    Away: scorecb()
+  }
+}
+console.log(hockeyGame(score));
+
 Use the finalScore function below to do the following:
   1. Receive the callback function `inning` that was created in Task 2 
   2. Receive a number of innings to be played
@@ -82,9 +98,32 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function baseballGame(){
+  return Math.floor(Math.random() * Math.floor(2));
+ 
 }
+function finalScore(scorecb){
+ return{
+   Home: scorecb(),
+   Away: scorecb()
+ }
+}
+
+
+function totalGameScore(scorecb, gamecb){
+ const totalGame =[];
+ let homeScore =0;
+ let awayScore =0;
+ 
+ for(let i=0; i< 9; i++){
+   const currentScore =gamecb(scorecb);
+   homeScore = homeScore + currentScore.Home
+   awayScore = awayScore + currentScore.Away
+   totalGame.push('Inning ${i + 1}: Away ${currentScore.Away} - Home ${currentScore.Home}');
+ }
+ return totalGame;
+}
+console.log(totalGameScore(inning, baseballGame));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
