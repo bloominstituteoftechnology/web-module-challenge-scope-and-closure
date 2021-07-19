@@ -59,7 +59,9 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+closure is using the block scope to be able to keep a certain information and function to be used as a computer inside of a computer
 2. Study the following code, then answer the questions below.
+
 
 ```js
 function personalDice(name){
@@ -95,7 +97,7 @@ See if you can complete one or more of the following challenges:
 ```js
 var addSix = createBase(6);
 addSix(10); // returns 16
-addSix(21); // returns 27
+addSix(21); // returns 27 
 ```
 
 2. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!

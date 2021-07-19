@@ -20,7 +20,7 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
 // ⭐️ Example Challenge END ⭐️
 
-
+console.log('jonah');
 ///// M V P ///////
 
 /*Task 1: counterMaker()
@@ -28,11 +28,13 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+        counter 1 has correct closure and will store the ammount of times it is called
   2. Which of the two uses a closure? How can you tell?
-  
+      number 1 because it has the variable inside of the function not outside
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     counter one would be to keep track of how many times the counter was called 
+     counter two would be to simply add slowly 
 */
 
 // counter1 code
@@ -42,9 +44,12 @@ function counterMaker() {
    return count++;
   }
 }
-
+console.log(counterMaker());
 const counter1 = counterMaker();
-
+console.log(counter1());
+console.log(counter1());
+console.log(counter1());
+console.log(counter1());
 // counter2 code
 let count = 0;
 
@@ -62,15 +67,14 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+  return Math.floor(Math.random() * Math.floor(3))
+
 }
-
-
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
   1. Receive the callback function `inning` that was created in Task 2 
-  2. Receive a number of innings to be played
+  2. Reiceive a number of nnings to be played
   3. After each inning, update the score of the home and away teams
   4. After the last inning, return an object containing the final (total) score of the innings played
   
@@ -81,19 +85,39 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inningCB, numberOfInnings){
+ 
+  const score = { 'Home': 0 , 'Away': 0}
+
+  for (let i = 0; i < numberOfInnings; i++) {
+    score.Away += inningCB();
+    score.Home += inningCB();
+  }
+   return score;
+  
 }
+
+console.log('task 3', finalScore(inning,9));
+console.log('task 3', finalScore(inning,9));
+console.log('task 3', finalScore(inning,9));
+
+
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inningCB) {
+  
+
+
+   return {'Away': inningCB(),'Home':inningCB()};
+
+    
 }
 
+console.log(getInningScore(inning));
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
