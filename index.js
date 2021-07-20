@@ -145,6 +145,7 @@ Use the scoreboard function below to do the following:
   NO TIE example: invoking scoreboard(getInningScore,inning, 9) might return 
   an array of strings like this:
 [
+  
   "Inning 1: Away 1 - Home 2", 
   "Inning 2: Away 2 - Home 1",
   "Inning 3: Away 0 - Home 2", 
