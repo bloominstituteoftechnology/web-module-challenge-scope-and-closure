@@ -99,12 +99,11 @@ function inning() {
 var randomThree = function randomNum(min = 0, max = 3) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min);
-   
+  return Math.floor(Math.random() * (max - min) + min);  
 }
   return(randomThree());
 }
-console.log(inning());
+console.log('task 2:', inning());
 
 
 
@@ -122,9 +121,28 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(callback, inningsNum){
-  /*Code Here*/
+
+var inningsArr = [];
+function finalScore(inningScore) {
+
+  var homeScore = inningScore;
+  var awayScore = (homeScore - inningScore);
+  inningsArr.push({'team' : 'Home', 'score' : homeScore});
+  inningsArr.push({'team' : 'Away', 'score' : awayScore});
 }
+
+function processInning(callback) {
+    const max = 3;
+    const min = 1;
+    var inningScore = Math.floor(Math.random() * (max - min) + min);
+    console.log('inning score: ', inningScore);
+    callback(inningScore);
+}
+processInning(finalScore);
+
+
+
+
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
