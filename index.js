@@ -57,15 +57,19 @@ console.log(processFirstAuthor(tempArr,function(str){return str + ' ' + str}));
 
 /*Task 1: counterMaker()
   
-  Study the code for counter1 and counter2, then answer the questions below.
+  Study the code for counter1 and counter2, then answer the questions below. /*
   
-  1. What is the difference between counter1 and counter2?
+/*   1. What is the difference between counter1 and counter2? */
+//*  Counter 1 - the var count is not accessible outside the counter function; the counter function result is only available when countMaker runs; the function counter will begin at 0 each time the whole function countMaker is run
+//*  Counter 2 - the var count is accessible anywhere the script lives; when the function count2 is run, it will be giving incorrect information depending on where it lives as it is not reset to 0 each time it is accessed for a particular purpose
   
-  2. Which of the two uses a closure? How can you tell?
-  
-  3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
-*/
+/*  2. Which of the two uses a closure? How can you tell? 
+//* Counter1 uses a closer, because the function counter is inside the countMaker function, making it inaccessible to any other function, even when it is returned. The returned value can only be accessed within the countMaker function, therefore it is "closed" to other functions that reside in the same place
+
+/* 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? */
+//* If there is more than one function within a program that needs to access this counter function, counter1 is better as 
+
+//! *****QUESTION FOR CLASS******  will this initiate a new 0 start each time an individual function outside of counterMaker calls it 
 
 // counter1 code
 function counterMaker() {
@@ -79,7 +83,6 @@ const counter1 = counterMaker();
 
 // counter2 code
 let count = 0;
-
 function counter2() {
   return count++;
 }
