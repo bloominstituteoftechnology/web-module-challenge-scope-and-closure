@@ -96,14 +96,15 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning() {
-var randomThree = function randomNum(min = 1, max = 3) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-    
-  }
+var randomThree = function randomNum(min = 0, max = 3) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min);
+   
+}
   return(randomThree());
 }
 console.log(inning());
-
 
 
 
@@ -121,7 +122,7 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(callback, inningsNum){
   /*Code Here*/
 }
 
