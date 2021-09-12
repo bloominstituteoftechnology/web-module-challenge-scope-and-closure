@@ -20,6 +20,40 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
 // ⭐️ Example Challenge END ⭐️
 
+// You can create a const object:
+const car = {type:"Fiat", model:"500", color:"white"};
+
+// You can change a property:
+car.color = "red";
+
+// You can add a property:
+car.owner = "Johnson";
+
+
+const quotes = [
+  {text : "Is it possible that I am not alone in believing that in the dispute between Galileo and the Church, the Church was right and the centre of man's universe is the earth?",
+  author : 'Stephen Vizinczey', },
+  {text : "Winter is an etching, spring a watercolor, summer an oil painting and autumn a mosaic of them all.",
+  author: 'Stanley Horowitz', },
+  {text : "The brotherhood of man is an integral part of Christianity no less than the Fatherhood of God; and to deny the one is no less infidel than to deny the other." ,
+  author : 'Lyman Abbott'},
+  {text : "Have you watched the fairies when the rain is done, Spreading out their little wings to dry them in the sun?" ,
+  author : 'Rose Fyleman'},
+  {text : "Unless each man produces more than he receives, increases his output, there will be less for him and all the others." ,
+  author : 'Bernard Mannes Baruch'},
+  {text : "In character, in manner, in style, in all things, the supreme excellence is simplicity." ,
+  author : 'Henry Wadsworth Longfellow'},
+  {text : "If you have men who will only come if they know there is a good road, I don't want them. I want men who will come if there is no road at all." ,
+  author : 'David Livingstone'},
+  {text : "We are servants rather than masters in mathematics." ,
+  author : 'Charles Hermite'},
+  {text : "Life being very short, and the quiet hours of it few, we ought to waste none of them in reading valueless books." ,
+  author : 'John Ruskin'},
+  {text : "He had a big head and a face so ugly it became almost fascinating." ,
+  author : 'Ayn Rand'},
+];
+
+
 
 ///// M V P ///////
 
