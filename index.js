@@ -13,23 +13,7 @@
  * It returns the string `foofoo`
 */
 
-function processFirstItem(stringList, callback) {
-  return callback(stringList[0])
-}
-console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
-
-// ⭐️ Example Challenge END ⭐️
-
-// You can create a const object:
-const car = {type:"Fiat", model:"500", color:"white"};
-
-// You can change a property:
-car.color = "red";
-
-// You can add a property:
-car.owner = "Johnson";
-
-
+// global variable
 const quotes = [
   {text : "Is it possible that I am not alone in believing that in the dispute between Galileo and the Church, the Church was right and the centre of man's universe is the earth?",
   author : 'Stephen Vizinczey', },
@@ -53,6 +37,20 @@ const quotes = [
   author : 'Ayn Rand'},
 ];
 
+function processFirstItem(stringList, callback) {
+  return callback(stringList[0])
+}
+console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
+
+// ⭐️ Example Challenge END ⭐️
+
+// QUOTES data test
+
+var tempArr = [...quotes];
+function processFirstAuthor(stringList, callback) {
+  return callback(stringList[0].author)
+}
+console.log(processFirstAuthor(tempArr,function(str){return str + ' ' + str}));
 
 
 ///// M V P ///////
