@@ -59,6 +59,7 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+  it is the ability for a child function to access variables from a higher level scope.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -80,8 +81,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+in line 70 Because name get the value from   parameter in parent function
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+name is always same and the newroll changes dependent to the random
 c. What is the lexical scope of `newRoll`? 
+ inside this function dansRoll();
 
 
 ### Task 3 - Stretch Goals
