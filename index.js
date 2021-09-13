@@ -28,11 +28,15 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+    counter1 has a its variable within the function. While counter2 has its variable in the outer scope a.k.a. the closure
+
   2. Which of the two uses a closure? How can you tell?
-  
+    Counter1 code uses closure because the count variable is not defined in the function's scope, the function looked outside of its scope and referenced the variable count, which is in the outer scope.
+
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+    counter1 is preferable because it only iterates once and is within the function scope.
+    counter2 is not to me, because the count variable can be accessible on other functions.
 */
 
 // counter1 code
@@ -62,9 +66,15 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+
+  // Google says there are 9 innings in baseball with 3 outs to score as many runs
+  // toFixed() will support a larger range of values -- toFixed() default: 0
+  return ((Math.random() * 10).toFixed() % 3);
 }
+
+console.log(inning());
+
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
