@@ -50,7 +50,7 @@ var tempArr = [...quotes];
 function processFirstAuthor(stringList, callback) {
   return callback(stringList[0].author)
 }
-console.log('my quote test:', processFirstAuthor(tempArr,function(str){return str + ' ' + str}));
+// console.log('my quote test:', processFirstAuthor(tempArr,function(str){return str + ' ' + str}));
 
 ///// M V P ///////
 
@@ -59,13 +59,13 @@ console.log('my quote test:', processFirstAuthor(tempArr,function(str){return st
   Study the code for counter1 and counter2, then answer the questions below. /*
   
 /*   1. What is the difference between counter1 and counter2? */
-console.log('task 1.1:', "Counter 1 - the var count is not accessible outside the counter function; the counter function result is only available when countMaker runs; the function counter will begin at 0 each time the whole function countMaker is run; Counter 2 - the var count is accessible anywhere the script lives; when the function count2 is run, it will be giving incorrect information depending on where it lives as it is not reset to 0 each time it is accessed for a particular purpose");
+//? task 1.1: Counter 1 - the var count is not accessible outside the counter function; the counter function result is only available when countMaker runs; the function counter will begin at 0 each time the whole function countMaker is run; Counter 2 - the var count is accessible anywhere the script lives; when the function count2 is run, it will be giving incorrect information depending on where it lives as it is not reset to 0 each time it is accessed for a particular purpose");
   
 /*  2. Which of the two uses a closure? How can you tell? */
-console.log('task 1.2:', "Counter1 uses a closer, because the function counter is inside the countMaker function, making it inaccessible to any other function, even when it is returned. The returned value can only be accessed within the countMaker function, therefore it is closed to other functions that reside in the same place");
+//? task 1.2: Counter1 uses a closer, because the function counter is inside the countMaker function, making it inaccessible to any other function, even when it is returned. The returned value can only be accessed within the countMaker function, therefore it is closed to other functions that reside in the same place");
 
 /* 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? */
-console.log('task 1.3:', "If there is more than one function within a program that needs to access this counter function, counter1 is better");
+//? task 1.3:', "If there is more than one function within a program that needs to access this counter function, counter1 is better");
 
 //! *****QUESTION FOR CLASS******  will this initiate a new 0 start each time an individual function outside of counterMaker calls it 
 
@@ -96,14 +96,11 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning() {
-var randomThree = function randomNum(min = 0, max = 3) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min);  
-}
-  return(randomThree());
-}
-console.log('task 2:', inning());
+  // get names from the database or API
+  let score =  Math.floor(Math.random() * 3);
+
+  return score;
+  }  
 
 
 
@@ -121,24 +118,21 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-
-var inningsArr = [];
-function finalScore(inningScore) {
-
-  var homeScore = inningScore;
-  var awayScore = (homeScore - inningScore);
-  inningsArr.push({'team' : 'Home', 'score' : homeScore});
-  inningsArr.push({'team' : 'Away', 'score' : awayScore});
+function finalScore(callback, inningNum = 9) {
+  let home = 0;
+  let away = 0; 
+  for (let i = 0; i < inningNum; i++) {
+// total scores
+    home = home + callback();
+    away = away + callback();
+  }
+  const inningScores = {
+    'Home' : home,
+    'Away' : away,
+  };
+  return inningScores;
 }
-
-function processInning(callback) {
-    const max = 3;
-    const min = 1;
-    var inningScore = Math.floor(Math.random() * (max - min) + min);
-    console.log('inning score: ', inningScore);
-    callback(inningScore);
-}
-processInning(finalScore);
+console.log(finalScore(inning));
 
 
 
