@@ -70,10 +70,11 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning(){
-    return Math.floor(Math.random() * 3);
+    return Math.floor(Math.random() * Math.floor(3));
 }
 
-console.log(inning);
+
+//console.log(inning());
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -90,9 +91,20 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inningCb, numInningsPlayed){
+  let homeScore = 0;
+  let awayScore = 0;
+  for(let i = 0; i < numInningsPlayed; i++){
+    homeScore = homeScore + inningCb();
+    awayScore = awayScore + inningCb();
+  }
+  return {
+    Home: homeScore,
+    Away: awayScore
+  }
 }
+
+console.log(finalScore(inning, 9));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
