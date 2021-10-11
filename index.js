@@ -33,10 +33,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   2. Which of the two uses a closure? How can you tell?
 
-  counter2 uses a closure. It reaches outside its scope to find count because it isn't referenced in the function scope.
+  counter1 uses a closure. You can tell is uses a closure because it uses something from the inner function in the outer function.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+    If you want to run a variation of the same function it is better to use counter1. If you want to actually change the variable it is better to use counter2.
 
   
 
@@ -45,7 +47,7 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 // counter1 code
 function counterMaker() {
   let count = 0;
-  return function counter() {
+  return function counter1() {
    return count++;
   }
 }
@@ -104,7 +106,7 @@ function finalScore(inningCb, numInningsPlayed){
   }
 }
 
-console.log(finalScore(inning, 9));
+//console.log(finalScore(inning, 9));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
