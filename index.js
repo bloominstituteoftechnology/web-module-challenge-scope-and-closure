@@ -52,7 +52,6 @@ function counter2() {
   return count++;
 }
 
-
 /* ⚾️⚾️⚾️ Task 2: inning() ⚾️⚾️⚾️
 Use the inning function below to do the following:
   1. Return a random whole number of points between 0 and 2 scored by one team in an inning
@@ -62,9 +61,10 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.floor(Math.random()*3)
 }
+console.log(inning())
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -81,18 +81,35 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(cb,numOfInnings){
+  let homeScore = 0;
+  let awayScore = 0;
+  for(let i = 0; i < numOfInnings; i++){
+    homeScore += cb()
+    awayScore += cb()
+  }
+  return{
+    Home: homeScore,
+    Away: awayScore
+  }
 }
+console.log(finalScore(inning, 9))
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(cb) {
+  return {
+    Home:cb(),
+    Away:cb()
+  }
+  
 }
+
+getInningScore(inning)
+
 
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
@@ -136,9 +153,28 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScorecb, inningcb,numOfInnings) {
+  // 1. Receive the callback function `getInningScore` from Task 4 ---
+  // 2. Receive the callback function `inning` from Task 2 ---
+  // 3. Receive a number of innings to be played --- 
+  const array = []
+  let homeScore = 0;
+  let awayScore = 0;
+  // 4. Return an array where each of it's index values equals a string stating the
+  // Home and Away team's scores for each inning.  Not the cummulative score.
+  for(let i = 0; i < numOfInnings; i++){
+      let currentScore = getInningScorecb(inningcb)
+      homeScore = homeScore + currentScore.Home
+      awayScore = awayScore + currentScore.Away
+      array.push(`Inning ${i + 1}: Away ${awayScore} - Home ${homeScore}`)
+      if(i === numOfInnings && awayScore === homeScore){
+        console.log('LOL THEY ARE THE SAME')
+      }
+  } 
+  return array
 }
+
+console.log(scoreboard(getInningScore, inning, 9))
 
 
 
