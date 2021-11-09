@@ -162,15 +162,18 @@ function scoreboard(getInningScorecb, inningcb,numOfInnings) {
   let awayScore = 0;
   // 4. Return an array where each of it's index values equals a string stating the
   // Home and Away team's scores for each inning.  Not the cummulative score.
-  for(let i = 0; i < numOfInnings; i++){
+  for(var i = 0; i < numOfInnings; i++){
       let currentScore = getInningScorecb(inningcb)
       homeScore = homeScore + currentScore.Home
       awayScore = awayScore + currentScore.Away
-      array.push(`Inning ${i + 1}: Away ${awayScore} - Home ${homeScore}`)
-      if(i === numOfInnings && awayScore === homeScore){
-        console.log('LOL THEY ARE THE SAME')
-      }
-  } 
+      array.push(`Inning ${i + 1}: Away ${currentScore.Away} - Home ${currentScore.Home}`)
+  }
+  if(homeScore === awayScore && i === numOfInnings){
+    array.push(`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`)
+  } else if(homeScore !== awayScore && i === numOfInnings){
+    array.push(`Final Score: Away ${awayScore} - Home ${homeScore}`)
+  }
+
   return array
 }
 
