@@ -1,3 +1,5 @@
+//❗❗ PLEASE READ THE README file for project instructions, additional tasks, and guides ❗❗ 
+
 // ⭐️ Example Challenge START ⭐️
 
 /**Example Task : processFirstItem()
@@ -16,7 +18,7 @@
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
-console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
+console.log('example task:', processFirstItem(['foo','bar'],function(str){return str+str}));
 
 // ⭐️ Example Challenge END ⭐️
 
@@ -64,13 +66,16 @@ NOTE: This will be a callback function for the tasks below
 
 function inning(/*Code Here*/){
     /*Code Here*/
+    return Math.floor(Math.random() * 3)
 }
+
+console.log('task 2:', inning())
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
-  1. Receive the callback function `inning` that was created in Task 2 
-  2. Receive a number of innings to be played
+  1. Receive the callback function `inning` that was created in Task 2 in the first parameter
+  2. Receive a number of innings to be played in the second parameter
   3. After each inning, update the score of the home and away teams
   4. After the last inning, return an object containing the final (total) score of the innings played
   
@@ -81,27 +86,55 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(cb, num){
+  let home = 0;
+  let away = 0;
+
+  for (let i = 0; i < num; i++) {
+    home += cb();
+    away += cb()
+  }
+  return {'Home': home, 'Away': away}
 }
+console.log('task 3:', finalScore(inning, 9))
+
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
-  1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
-  2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
-
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+  1. Receive a callback function in a parameter - you will pass in the inning function from task 2 as your argument 
+  2. Return an object with a score for home and a score for away that populates from invoking the inning callback function 
+  
+For example: invoking getInningScore(inning) might return this object:
+{
+  "Home": 0,
+  "Away": 2
 }
+  */
 
 
-/* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
+function getInningScore(cb) {
+  /*Your Code Here */
+  return {'Home': cb(), 'Away': cb()}
+}
+console.log('task 4:', getInningScore(inning))
+
+/* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
-  1. Receive the callback function `getInningScore` from Task 4
-  2. Receive the callback function `inning` from Task 2
-  3. Receive a number of innings to be played
+  1. Receive the callback function in the first parameter that will take `getInningScore` from Task 4 as its argument
+  2. Receive the callback function in a second parameter that will take `inning` from Task 2 as its argument
+  3. Receive a number in a third parameter that will take the number of innings to be played as its argument
   4. Return an array where each of it's index values equals a string stating the
-  Home and Away team's scores for each inning.  Not the cummulative score.
+  Home and Away team's scores for each inning.  Not the cummulative score (see the example below).
+  
+  Example of each inning in the array:
+  [
+  "Inning 1: Away 1 - Home 2", 
+  "Inning 2: Away 2 - Home 1",
+  "Inning 3: Away 0 - Home 2", 
+  ...,
+  "Final Score: Away 11 - Home 12"  
+  ]
+
   5. If there's a tie at the end of the innings, add this message containing the score to the end of the array:  "This game will require extra innings: Away 12 - Home 12"  (see tie example below)
      If there isn't a tie, add this message to the end of the array: "Final Score: Away 13 - Home 11"  (see no tie example below)
   
