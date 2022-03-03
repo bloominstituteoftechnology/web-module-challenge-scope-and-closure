@@ -1,4 +1,4 @@
-//❗❗ PLEASE READ THE README file for project instructions, additional tasks, and guides ❗❗ 
+//❗❗ PLEASE READ THE README file for project instructions, helpful resources, additional tasks and stretch problems, and more ❗❗ 
 
 // ⭐️ Example Challenge START ⭐️
 
@@ -66,10 +66,7 @@ NOTE: This will be a callback function for the tasks below
 
 function inning(/*Code Here*/){
     /*Code Here*/
-    return Math.floor(Math.random() * 3)
 }
-
-console.log('task 2:', inning())
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -86,17 +83,9 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(cb, num){
-  let home = 0;
-  let away = 0;
-
-  for (let i = 0; i < num; i++) {
-    home += cb();
-    away += cb()
-  }
-  return {'Home': home, 'Away': away}
+function finalScore(/*Code Here*/){
+  /*Code Here*/
 }
-console.log('task 3:', finalScore(inning, 9))
 
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -112,11 +101,11 @@ For example: invoking getInningScore(inning) might return this object:
   */
 
 
-function getInningScore(cb) {
+function getInningScore(/*Your Code Here */) {
   /*Your Code Here */
-  return {'Home': cb(), 'Away': cb()}
+
 }
-console.log('task 4:', getInningScore(inning))
+
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
@@ -125,16 +114,6 @@ Use the scoreboard function below to do the following:
   3. Receive a number in a third parameter that will take the number of innings to be played as its argument
   4. Return an array where each of it's index values equals a string stating the
   Home and Away team's scores for each inning.  Not the cummulative score (see the example below).
-  
-  Example of each inning in the array:
-  [
-  "Inning 1: Away 1 - Home 2", 
-  "Inning 2: Away 2 - Home 1",
-  "Inning 3: Away 0 - Home 2", 
-  ...,
-  "Final Score: Away 11 - Home 12"  
-  ]
-
   5. If there's a tie at the end of the innings, add this message containing the score to the end of the array:  "This game will require extra innings: Away 12 - Home 12"  (see tie example below)
      If there isn't a tie, add this message to the end of the array: "Final Score: Away 13 - Home 11"  (see no tie example below)
   
