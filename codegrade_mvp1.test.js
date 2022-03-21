@@ -31,8 +31,8 @@ describe('getInningScore', ()=>{
         expect(functions.getInningScore(inning)).toEqual(expect.objectContaining({
             Home: expect.any(Number),
             Away: expect.any(Number),
-          }))
-    })
+          }));
+    });
 });
 
 

@@ -133,9 +133,8 @@ Use the scoreboard function below to do the following:
   "Inning 8: Away 2 - Home 1",
   "Inning 9: Away 1 - Home 1", 
   "This game will require extra innings: Away 10 - Home 10"
-]  
-  */
-
+] */
+// NOTE: There is no test associated with this code; if your output matches the given example, consider it complete!
 function scoreboard(/* CODE HERE */) {
   /* CODE HERE */
 }
