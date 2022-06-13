@@ -37,7 +37,7 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
      counter2 be better?  
 */
 
-// counter1 code
+// counter1 code: counts by 1, doesn't use closure(all info inside function), 
 function counterMaker() {
   let count = 0;
   return function counter() {
@@ -47,7 +47,7 @@ function counterMaker() {
 
 const counter1 = counterMaker();
 
-// counter2 code
+// counter2 code: counts by 1, uses closure (getting info from outside the funtion), 
 let count = 0;
 
 function counter2() {
@@ -64,9 +64,13 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning = Math.floor(Math.random());
+console.log(inning());
+  
+
+
 }
+
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -83,8 +87,11 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*Code Here*/){
-  /*Code Here*/
+function inning = Math.floor(Math.random());
+console.log(inning());
+
+for (let i =0; i <10; i++) {
+
 }
 
 
@@ -101,10 +108,8 @@ For example: invoking getInningScore(inning) might return this object:
   */
 
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-
-}
+function inning = Math.floor(Math.random());
+console.log(inning(9));
 
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
