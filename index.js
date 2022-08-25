@@ -30,11 +30,19 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+
+  //Counter 1 code defines a variable within a function and is thus unable to be called outside of the function. Whereas counter 2 allows you to intereact with, modify and otherwise
+  //change the counter code outside of the function in global permissions.
   
   2. Which of the two uses a closure? How can you tell?
+
+  //Counter 1 code does. It closes off the counter maker code and isolates parts of itself from the global code.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+     //Counter 1 would be more appropriate in a situation where the count could be disturbed by other code later on where as counter2 might be better suited for a more simple purpose. I'm not
+     entirely sure if I am being completely honest. 
 */
 
 // counter1 code
@@ -64,8 +72,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.floor(Math.random() * Math.floor(3))
 }
 
 
@@ -83,8 +91,14 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*Code Here*/){
-  /*Code Here*/
+function finalScore(callback,innings){
+  const home = 0
+  const away = 0
+  for(let i = 0;i<innings;i++){
+    home + callback()
+    away + callback()
+  }
+  return({'Home': home,'Away': away})
 }
 
 
@@ -101,9 +115,8 @@ For example: invoking getInningScore(inning) might return this object:
   */
 
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-
+function getInningScore(callback) {
+  return ({'Home':callback(),'Away':callback()})
 }
 
 
@@ -147,9 +160,7 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ] */
 // NOTE: There is no test associated with this code; if your output matches the given example, consider it complete!
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+function scoreboard() {}
 
 
 
