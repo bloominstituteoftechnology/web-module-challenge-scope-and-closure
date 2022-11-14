@@ -64,9 +64,13 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.floor(Math.random() * Math.floor (3));
 }
+
+
+
+
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -83,10 +87,21 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*Code Here*/){
-  /*Code Here*/
+function finalScore(inningCB, innings){
+  let homeScore = 0; 
+  let awayScore = 0;
+
+  for (let i = 0; i < innings; i++){
+    homeScore = homeScore + inningCB();
+    awayScore = awayScore + inningCB();
+  }
+   return {
+    Home : homeScore ,
+    Away : awayScore
+   }
 }
 
+console.log ( finalScore ( inning, 9));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
@@ -101,8 +116,11 @@ For example: invoking getInningScore(inning) might return this object:
   */
 
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inningCB) {
+  return {
+    Home : inningCB(),
+    Away : inningCB()
+  }
 
 }
 
@@ -147,8 +165,23 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ] */
 // NOTE: There is no test associated with this code; if your output matches the given example, consider it complete!
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(inningScoreCB , inningCB, numInnings) {
+  const scoreByInning = [];
+  let homeScore = 0;
+  let AwayScore = 0;
+
+  for (let i = 0 ; i < numInnings; i++ ){
+    const currentInnings = inningScoreCB(inningCB);
+    homeScore = homeScore + currentInning.home
+    awayScore = awayScore + currentInning.away
+    scoreByInning.push(`Inning ${i + 1} : Away ${currentInning.away} - Home ${currentInning.home}`)
+  }
+  if ( homeScore === awayScore){
+    scoreByInning.push ( `This game will require extra innings: Away ${currentInning.Away} - Home ${currentInning.Home}`)
+  } else {
+    scoreByInning.push (`Final Score : Away: ${awayScore} - Home ${homeScore}`);
+  }
+ return scoreByInning;
 }
 
 
