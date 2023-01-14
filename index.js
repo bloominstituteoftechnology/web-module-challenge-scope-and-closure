@@ -178,7 +178,7 @@ function scoreboard(funct1, funct2, number) {
   let recordArray = [];
   let home = 0;
   let away = 0;
-  for (let i = 0; i < 9; i++)
+  for (let i = 0; i < number; i++)
     {
       let result = funct1(funct2);
       recordArray.push(`Inning 1: Away ${result["Away"]} - Home ${result["Home"]}`)
