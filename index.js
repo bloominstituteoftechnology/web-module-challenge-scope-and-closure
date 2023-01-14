@@ -35,6 +35,12 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+*/
+/* ---Answers---
+1. The difference between counter1 and counter2 is that counter1 is a copy of counterMaker while counter2 is a new different function.
+2. Counter1 uses closure which can retail stored memory after calling the function. You can tell by new return function block inside the counterMaker() function.
+3. counter1 would be preferable if you want to store the variable memory after invoking the function, while counter2 does not store any memory and it get reset after every invokation.
 */
 
 // counter1 code
@@ -64,8 +70,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return (Math.floor(Math.random() * 3));
 }
 
 
@@ -83,9 +89,21 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*Code Here*/){
-  /*Code Here*/
+function finalScore(funct, number){
+  let home = 0;
+  let away = 0;
+
+  for (let i = 0; i < number; i++)
+  {
+    home += funct();
+    away += funct();
+  }
+  return {
+    Home: home,
+    Away: away
+  }
 }
+console.log(finalScore(inning, 9));
 
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -101,10 +119,19 @@ For example: invoking getInningScore(inning) might return this object:
   */
 
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-
+function getInningScore(funct) {
+  let home = 0;
+  let away = 0;
+  if ((Math.floor(Math.random() * 3) + 1) === 1)
+  {
+   home += funct();
+  } else
+  {
+    away += funct();
+  }
+  return ({"Home": home, "Away": away});
 }
+console.log(getInningScore(inning));
 
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
@@ -147,10 +174,28 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ] */
 // NOTE: There is no test associated with this code; if your output matches the given example, consider it complete!
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(funct1, funct2, number) {
+  let recordArray = [];
+  let home = 0;
+  let away = 0;
+  for (let i = 0; i < number; i++)
+    {
+      let result = funct1(funct2);
+      recordArray.push(`Inning 1: Away ${result["Away"]} - Home ${result["Home"]}`)
+      home += result["Home"];
+      away += result["Away"];
+    }
+    if (home === away)
+    {
+      recordArray.push(`This game will require extra innings: Away ${away} - Home ${home}`);
+    }
+    else 
+    {
+      recordArray.push(`Final Score: Away ${away} - Home ${home}`);
+    }
+  return recordArray;
 }
-
+console.log(scoreboard(getInningScore,inning, 9));
 
 
 
