@@ -72,9 +72,9 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(randomNum) {
+function inning() {
   /*Code Here*/
-  randomNum = Math.floor(Math.random() * 3);
+  let randomNum = Math.floor(Math.random() * 3);
   return randomNum;
 }
 
@@ -119,8 +119,15 @@ For example: invoking getInningScore(inning) might return this object:
 }
   */
 
-function getInningScore(/*Your Code Here */) {
+function getInningScore(inningCB) {
   /*Your Code Here */
+  let homeScore = inningCB();
+  let awayScore = inningCB();
+
+  return {
+    Home: homeScore,
+    Away: awayScore,
+  };
 }
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
