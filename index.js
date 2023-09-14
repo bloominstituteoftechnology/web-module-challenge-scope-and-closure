@@ -112,8 +112,12 @@ For example: invoking getInningScore(inning) might return this object:
 }
   */
 
-function getInningScore(/*Your Code Here */) {
+function getInningScore(inningCallback) {
   /*Your Code Here */
+  return {
+    Home: inningCallback(),
+    Away: inningCallback(),
+  };
 }
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
