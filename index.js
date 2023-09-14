@@ -88,8 +88,16 @@ Use the finalScore function below to do the following:
 }
 */
 
-function finalScore(/*Code Here*/) {
+function finalScore(inningCallback, numInnings) {
   /*Code Here*/
+  let score = { Home: 0, Away: 0 };
+
+  for (let i = 0; i < numInnings; i++) {
+    score.Home += inningCallback();
+    score.Away += inningCallback();
+  }
+
+  return score;
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
