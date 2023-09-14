@@ -101,12 +101,51 @@ See if you can complete one or more of the following challenges:
 1. Write a function that would allow you to do this using a closure. (This is another interview question we've seen before - when you're ready for answers, view an explanation [here](https://www.coderbyte.com/algorithm/3-common-javascript-closure-questions)).
 
 ```js
+function createBase(baseNumber) {
+  return function (n) {
+    return baseNumber + n;
+  };
+}
 var addSix = createBase(6);
 addSix(10); // returns 16
 addSix(21); // returns 27
 ```
 
 2. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
+
+Functional Programming (FP)
+
+Pros:
+
+Predictability: Functions in FP have no side effects, making outcomes more predictable.
+Concurrency: Easier to write safe concurrent code due to immutability.
+Testability: The focus on pure functions means it's generally easier to write test cases.
+Bug reduction: The emphasis on immutability often leads to fewer bugs.
+
+Cons:
+
+Learning curve: Can be more challenging to learn, especially for beginners.
+Performance: Can sometimes lead to performance issues due to the avoidance of mutable state and iterative loops.
+Verbosity: FP can sometimes require more lines of code to accomplish the same task as OOP.
+Object-Oriented Programming (OOP)
+
+Pros:
+
+Modularity: OOP offers clear modularity through the organization of code into objects.
+Reuse: Encourages reuse of code through inheritance.
+Popular: Many popular languages are object-oriented, making it a valuable paradigm to understand for job opportunities.
+Intuitive: The object-oriented paradigm can often be more intuitive, as it encourages the organization of code in a way that models how people often think about the world (as a collection of objects with properties and behaviors).
+
+Cons:
+
+Complexity: Can lead to overly complex architectures.
+Mutability: The state mutability in OOP can lead to bugs and difficulties in debugging code.
+Inheritance issues: Inheritance can sometimes lead to messy code and unwanted relationships between objects.
+Not ideal for all types of problems: While OOP can be very powerful, it is not ideal for all types of problems.
+
+Conclusion:
+
+Both paradigms have their place and can even be used together in a multi-paradigm approach, where you choose the best tool for the task at hand. It's also worth noting that many modern programming languages support both functional and object-oriented programming styles, allowing developers to leverage the strengths of both paradigms.
 
 ## Resources
 
