@@ -160,8 +160,28 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ] */
 // NOTE: There is no test associated with this code; if your output matches the given example, consider it complete!
-function scoreboard(/* CODE HERE */) {
+function scoreboard(getInningScoreCallback, innCallback, umInnings) {
   /* CODE HERE */
+  let scores = [];
+  let homeTotal = 0;
+  let awayTotal = 0;
+
+  for (let i = 0; i < numInnings; i++) {
+    let inningScore = getInningScoreCallback(innCallback);
+    homeTotal += inningScore.Home;
+    awayTotal += inningScore.Away;
+    scores.push(
+      `Inning ${i + 1}: Away ${inningScore.Away} - Home ${inningScore.Home}`
+    );
+  }
+
+  if (homeTotal === awayTotal) {
+    scores.push(
+      `This game will require extra innings: Away ${awayTotal} - Home ${homeTotal}`
+    );
+  } else {
+    scores.push(`Final Score: Away ${awayTotal} - Home ${homeTotal}`);
+  }
 }
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
